@@ -24,46 +24,39 @@ public class SortLinkedList {
     }
 
     public Node merge(Node head1, Node head2){
-        Node finalHead=null;
-        Node tail = null;
-        if(head1==null) {
-            // finalHead = head2;
-            return head2;
-        }
-        if(head2==null) {
-            // finalHead = head1;
-            return head1;
-        }
+        if(head1==null) return head2;
+        if(head2==null) return head1;
+
+        Node head,tail;
 
         if(head1.val<=head2.val){
-            finalHead = head1;
+            head = head1;
             tail = head1;
             head1 = head1.next;
-        } else {
-            finalHead = head2;
+        }
+        else{
+            head = head2;
             tail = head2;
             head2 = head2.next;
         }
 
         while(head1!=null && head2!=null){
             if(head1.val<=head2.val){
-                tail.next=head1;
+                tail.next = head1;
                 head1 = head1.next;
-                tail = tail.next;
-            }else{
+            }
+            else{
                 tail.next = head2;
                 head2 = head2.next;
-                tail = tail.next;
             }
+            tail=tail.next;
         }
 
-        if(head1!=null){
-            tail.next = head1;
-        }
-        if(head2!=null){
-            tail.next = head2;
-        }
-        return finalHead;
+        if(head1!=null) tail.next = head1;
+
+        else if(head2!=null) tail.next = head2;
+
+        return head;
     }
 
     public Node mergeSort(Node head){

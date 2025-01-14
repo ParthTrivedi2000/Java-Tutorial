@@ -52,7 +52,7 @@ public class NthMagicalNumber {
     Do you notice anything about how these numbers are formed? They're sums of distinct powers of 5.
     Here's a hint: Consider the binary representation of the index. For example:
     1 (binary 001) -> 5^1 = 5 2 (binary 010) -> 5^2 = 25 3 (binary 011) -> 5^2 + 5^1 = 30
-    Can you see how the binary digits relate to which powers of 5 we use?
+    Can you see how the binary digits related to which powers of 5 we use?
     response: Based on this pattern, how do you think we could use the binary representation of A to calculate
     the Ath magic number?
 

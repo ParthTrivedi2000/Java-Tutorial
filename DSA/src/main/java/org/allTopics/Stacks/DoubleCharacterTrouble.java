@@ -27,6 +27,10 @@ s consists of lowercase English letters.
 import java.util.Stack;
 
 public class DoubleCharacterTrouble {
+
+    // Approach - 1:- Using Stack :-
+    // TC:- O(N), SC:- O(N)
+
     public String removeDuplicates(String s) {
         Stack<Character> st = new Stack<>();
         for(char ch: s.toCharArray()){
@@ -39,5 +43,20 @@ public class DoubleCharacterTrouble {
             ans = ans.append(el);
         }
         return ans.toString();
+    }
+
+
+    // Approach - 2:- Using String(i.e.StringBuilder/StringBuffer) itself to save SC.
+    // TC:- O(N), SC:- O(1)
+    public String removeDuplicates1(String s) {
+        StringBuilder sb = new StringBuilder();
+        for (char c : s.toCharArray()) {
+            if (sb.length() > 0 && sb.charAt(sb.length() - 1) == c) {
+                sb.deleteCharAt(sb.length() - 1);
+            } else {
+                sb.append(c);
+            }
+        }
+        return sb.toString();
     }
 }

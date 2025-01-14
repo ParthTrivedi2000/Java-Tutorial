@@ -159,8 +159,8 @@ no of 0's: 0 3 6 6
     Steps:-
     - 1st we need to perform the xor operations of all the elems of an array. (So whichever elems are present 2 times,
     got 0 and at last there is only remaining elems which are present single times, those are present in the xor variable.
-    But now problem is how to get those 2 different distinct elems from the xor variable. So here we have to use the
-    concept of RSB (Rightmost Set Bits).
+    But now problem is how to get those 2 different distinct elems from the xor variable separately. So here we have to
+    use the concept of RSB (Rightmost Set Bits).
     - So to find RSB of any elem, we have to perform just ANDing of 1's complement with that elem so we got the RSB.
     So here 2nd step is, we have to get 2 numbers from xor variable, then I must have to know RSB of xor variable.
     So 2nd stp is to perform xor = xor ANDing xor' (1's compliment of xor). And get RSB of xor.

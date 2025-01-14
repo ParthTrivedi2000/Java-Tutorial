@@ -21,7 +21,7 @@ public class ModSum {
     // Approach - 1:- BruteForce Approach:-
     public int Sum_Modulo(int A[], int n) {
 
-        // Approach - BruteForce :- Use 2 Loops
+        // Approach - BruteForce :- Use 2 Loops:- TC:-O(N^2), SC:-O(1)
         /*
         long sum = 0;
         for(int i=0;i<A.size();i++){

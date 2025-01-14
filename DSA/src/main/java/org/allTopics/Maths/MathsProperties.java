@@ -14,7 +14,7 @@ public class MathsProperties {
 
     Properties of GCD :-
     1) gcd(a,b) = gcd(b,a)
-    2) gcd(0,a) = a; // GCD of any number with 0 has value of gcd=number itself.
+    2) gcd(0,elem) = elem; // GCD of any number with 0 has value of gcd=number itself.
     3) gcd(a,b,c) = gcd(a,gcd(b,c)) = gcd(gcd(a,b),c)
     4) Euclid Algorithm :-
     gcd(a,b) = gcd(a-b,b); {given A>=B>0}

@@ -37,7 +37,7 @@ int i=0;
 int j=0;
 while(j<n){
     // Perform calculations
-    //if condition is less than
+    // if condition is less than
     if(sum<k) {j++;}
     // if condition is true
     else if(condition==k){
@@ -70,7 +70,7 @@ Problem Statement:- Given an array of integers Arr of size N and a number K. Ret
 maximum sum of a subarray of size K.
 
 Identification:-
--Problem is related to array.
+- Problem is related to array.
 - in problem statement, they are asking to do something to do on subarray.
 - windowSize is given as K.
 So we can see like we have to apply Sliding Window concept here.
@@ -101,30 +101,30 @@ Constraints:
         long sum=0;
         long ans = Long.MIN_VALUE;
         while(j<Arr.size()){
-            // calculaation
+            // calculation
             sum+=Arr.get(j);
 
             // till the moment end of window(i.e. here j) is smaller than windowSize,
             // we can just expand the window ryt. nothing else needs to be done. bec
             // whatever we want to achieve that we have done in above calculation part
-            // generaically like that thing needs to be done anyhow weather I am reaching
-            // windoSize or not. So we kept it generaic. then we are having 2 things now,
+            // generically like that thing needs to be done anyhow weather I am reaching
+            // windowSize or not. So we kept it generic. then we are having 2 things now,
 
-            // end of window <windowSize --> just increase the end i.e. expand the window
+            // end of window < windowSize --> just increase the end i.e. expand the window
             if(j-i+1<K) j++;
                 // end of window==windowSize
-                // At the time when end of the window is euqals to windowSize, we should try
+                // At the time when end of the window is equals to windowSize, we should try
                 // to find our o/p based on calculations we have done above.
             else if(j-i+1==K){
                 ans = Math.max(sum,ans);
                 // After getting possible output, we need to shrink our window from left
-                // to just move ahead till the end o the array. but before shrinking it
+                // to just move ahead till the end of the array. but before shrinking it
                 // (i.e. i++), we just need to remove the impact of i from window which
                 // we have considered. bec we are now going for next window ryt so
                 // obviously we have to consider everything for the elems present in
                 // current window only.
 
-                // so nullyfying previous elems impact from current window.
+                // so nullifying previous elems impact from current window.
                 sum = sum- Arr.get(i);
 
                 // Now move/slide the current window to next window
@@ -133,9 +133,9 @@ Constraints:
             }
         }
         return ans;
-        // Accha one more thing as we have kept calulation generic in above case, it is
+        // Accha one more thing as we have kept calculation generic in above case, it is
         // not necessary to keep as generic. i mean in some cases we have to perform
-        // calculation for till end <windoSize. then in those cases we kept clculation in
+        // calculation for till end < windowSize. then in those cases we kept calculation in
         // end<windowSize block only. But smjne ki bat ye h ki 2 hi cheeze hogi aesa like
         // end<windowSize and end==windowSize
     }
@@ -179,27 +179,27 @@ Constraints:
 //                else ans[i] = 0;
 //            }
 //        }
-//        So what happens here is, like we are doing repetitive things how? measn suppose array given
+//        So what happens here is, like we are doing repetitive things how? means suppose array given
 //        is 12,-1,-7,8,-10,30,17,25
 //        So when we have started my loop, i will be at 0th index. then we have checked like element is
-//        -ve or not for next 3 elems. then i++ will be happen. then again in above case durin 2nd
+//        -ve or not for next 3 elems. then i++ will be happen. then again in above case during 2nd
 //        iteration we are checking for elems -1 & -7. But we have already checked it during 1st iteration
 //        But still we are checking and same thing will happen till the end of the loop. this is how
-//        Repetative work is done. (Pls explain to the interviewer if possible).
+//        Repetitive work is done. (Pls explain to the interviewer if possible).
 
 //        So now we need to improve this. Accha and remember 1 thing, for all the Sliding Window problem
-//        we were doing repetative work in bruteforce approach then to improve it we are going with
+//        we were doing repetitive work in bruteforce approach then to improve it we are going with
 //        optimal approach sliding window.
 
-//        Optimal Appraoch:- TC:- O(N), SC:O(N)
+//        Optimal Approach:- TC:- O(N), SC:O(N)
         int i=0;
         int j=0;
 //         As per use case here I want to store all the -ves while moving ahead ryt. So now which DS I should
-//        use. measn just think here what I want to do is, when I am moving forward, I have to store the
+//        use. means just think here what I want to do is, when I am moving forward, I have to store the
 //        -ve values. see we are only moving for windowSize, so wo windowSize me jitni bhi -ve value hogi wo
 //        add ho jayegi DS m...but usme se muje to 1st wali h whi chahiye ryt...and during next time as well
 //        when I am sliding the window, my DS should store only -ves which are currently in current window.
-//        So I hae to remove the -ve of previous window if it's present. So I have to choose DS in which I can
+//        So I have to remove the -ve of previous window if it's present. So I have to choose DS in which I can
 //        perform both of the above thing.
 //        So if you think carefully, here I want 1st elem added. i.e. 1st In 1st out type structure (FIFO).
 //        So I can have Queue.
@@ -219,7 +219,7 @@ Constraints:
                 //window since it is tracking the current window elems only so.
                 else ans[i] = negatives.get(0);
 
-//                Nullyfying impact of prev i
+//                Nullifying impact of prev i
                 if(A[i]<0) negatives.remove(0);
 //                Slide the window
                 i++;
@@ -248,7 +248,7 @@ Expected Time Complexity: O(N)
 Expected Auxiliary Space: O(26) or O(256)
 
 Constraints:
-1 <= |pat| <= |txt| <= 105
+1 <= |pat| <= |txt| <= 10^5
 Both strings contain lowercase English letters.
  */
     int search(String pat, String txt) {
@@ -257,7 +257,7 @@ Both strings contain lowercase English letters.
          // 1st let's create a Map to store the frequency of given string pat.
          // Then I have to check in txt string like weather this whole string is present
          // in String txt or not.
-         // creating map to store the frequency of each characters of given patterns
+         // creating map to store the frequency of each character of given pattern
          // so that we can use it to check for anagrams.
          Map<Character,Integer> mp = new HashMap<Character,Integer>();
          char ch = '0';
@@ -306,7 +306,7 @@ Both strings contain lowercase English letters.
              else if(j-i+1 == windowSize){
                  if(count==0) ans++;
 
-                 // nullyfying impact of current i on next ith iteration before sliding the window
+                 // nullifying impact of current i on next ith iteration before sliding the window
                  if(mp.containsKey(txt.charAt(i))){
                      if(mp.get(txt.charAt(i))==0) count++;
                      mp.put(txt.charAt(i),mp.get(txt.charAt(i))+1);
@@ -346,8 +346,8 @@ Input: nums = [1], k = 1
 Output: [1]
 
 Constraints:
-1 <= nums.length <= 105
--104 <= nums[i] <= 104
+1 <= nums.length <= 10^5
+-10^4 <= nums[i] <= 10^4
 1 <= k <= nums.length
 
  */
@@ -502,6 +502,30 @@ would have found the sum to be greater than 5 for i=0, j=2 and if we would have 
 window size by doing i++, we would have missed the potential subarray (i=0, j=4).
 In short, the discussed approach will not work with array having negative numbers.
  */
+
+/*
+For above question, Sliding Window will only work if array contains only +ve values. if it contains -ve values, then
+above technique won't work.  it is failing for this test case ( arr:- -59 -25 58 -59 -25 58, k=-85 ). So if array contains
+-ve integers as well, then we have to use the Hashing (since it is problem of subarray with sum k).
+
+        Map<Long,Integer> mp = new HashMap<>();
+        long sum=0;
+        int maxL = Integer.MIN_VALUE;
+        mp.put(0L,-1);
+        for(int i=0;i<arr.length;i++){
+            sum+=arr[i];
+            // if(sum==k) maxL = i+1; // didn't understand why we need to put, without it not giving correct answer, just try to comment out this line for testcase (arr:- -59 -25 58 -59 -25 58, k=-85)
+            // Now if I kept above line mp.put(0,-1), then above line is not needed and working fine. don't know why and how.
+            if(mp.containsKey(sum-k)){
+                maxL = Math.max(maxL,i-mp.get(sum-k));
+            }
+            if(!mp.containsKey(sum)) mp.put(sum, i);
+            // mp.put(sum, i);
+        }
+
+        return maxL;
+
+ */
     }
 
 /*
@@ -618,29 +642,32 @@ Explanation: The answer is "wke", with the length of 3.
 Notice that the answer must be a substring, "pwke" is a subsequence and not a substring.
 
 Constraints:
-0 <= s.length <= 5 * 104
+0 <= s.length <= 5 * 10^4
 s consists of English letters, digits, symbols and spaces.
  */
     public int lengthOfLongestSubstring(String s) {
-//        // Brute force Approach :-
-//        // Generate all the substring and check for the given condition.
-//        int len = 0;
-//        int maxLen = Integer.MIN_VALUE;
-//        for(int i=0;i<s.length();i++){
-//        //  we can use set as well. purpose of this DS is to check weather the current char is previously visited
-          //  or not.
-          //  Set < Character > se = new HashSet < > ();
-//            int[] visited = new int[256];
-//            for(int j=i;j<s.length();j++){
-//                if(visited[s.charAt(j)]==1) break; // if any char is encountered 2nd time, then we just need to
-//                // break that substring. And we can store the length till that particular char.
-//                len = j-i+1;
-//                maxLen = Math.max(len,maxLen);
-//                visited[s.charAt(j)] = 1; // marking this char at visited
-//            }
-//        }
-//        return maxLen;
-//        // TC of above approach:- O(N^2),  SC:-O(256)
+        // Brute force Approach :-
+        /*
+        // Generate all the substring and check for the given condition.
+        int len = 0;
+        int maxLen = Integer.MIN_VALUE;
+        for(int i=0;i<s.length();i++){
+        //  we can use set as well. purpose of this DS is to check weather the current char is previously visited
+            or not.
+            Set < Character > se = new HashSet < > ();
+            int[] visited = new int[256];
+            for(int j=i;j<s.length();j++){
+                if(visited[s.charAt(j)]==1) break; // if any char is encountered 2nd time, then we just need to
+                // break that substring. And we can store the length till that particular char.
+                len = j-i+1;
+                maxLen = Math.max(len,maxLen);
+                visited[s.charAt(j)] = 1; // marking this char at visited for the case if you visit it 1st time
+            }
+        }
+        return maxLen;
+        // TC of above approach:- O(N^2),  SC:-O(256)
+
+         */
 
         // working & tested code per Aditya Verma's template
         int i=0;
@@ -671,31 +698,36 @@ s consists of English letters, digits, symbols and spaces.
 
         // Striver's Solution.
         // Approach - 3:- using a hashArray(instead of Map) & Sliding window.
-//        int i=0;
-//        int j=0;
-//        int maxLen = 0;
-//        char ch = '0';
-//
-//        int[] hash = new int[256];
-//        for(int p=0;p<hash.length;p++){
-//            hash[p] = -1;
-//        }
-//        // Starting sliding window algo
-//        while(j<s.length()){
-//            ch = s.charAt(j);
-//            if(hash[ch]!=-1 && hash[ch]>=i) {
-//                i=hash[ch]+1;
-//            }
-//            maxLen = Math.max(maxLen,j-i+1);
-//            hash[ch] = j;
-//            j++;
-//        }
-//        return maxLen;
+        /*
+        // remember here we are not only maintaining true false in hash array instead here we are
+        // storing index (or updated index if elem is repeated) to keep track further.
+        int i=0;
+        int j=0;
+        int maxLen = 0;
+        char ch = '0';
+
+        int[] hash = new int[256];
+        for(int p=0;p<hash.length;p++){
+            hash[p] = -1;
+        }
+        // Starting sliding window algo
+        while(j<s.length()){
+            ch = s.charAt(j);
+            if(hash[ch]!=-1 && hash[ch]>=i) {
+                i=hash[ch]+1;
+            }
+            maxLen = Math.max(maxLen,j-i+1);
+            hash[ch] = j;
+            j++;
+        }
+        return maxLen;
 
 // Note:- Highly recommend to go through this article once. In this striver has used Map to store the char and updated
 //        indexes instead of frequency. So we can directly update it with new index in case we found 2nd time.
 //        And whenever get time, just implement code here all the 3 approaches with explanation/your understanding.
 //        https://takeuforward.org/data-structure/length-of-longest-substring-without-any-repeating-character/
+
+         */
     }
 
 /*
@@ -741,7 +773,7 @@ Since the largest window of s only has one 'a', return empty string.
 Constraints:
 m == s.length
 n == t.length
-1 <= m, n <= 105
+1 <= m, n <= 10^5
 s and t consist of uppercase and lowercase English letters.
 
 Follow up: Could you find an algorithm that runs in O(m + n) time?
@@ -820,8 +852,8 @@ first will maximize your total score. The optimal strategy is to take the three 
 giving a final score of 1 + 6 + 5 = 12.
 
 Constraints:
-1 <= cardPoints.length <= 105
-1 <= cardPoints[i] <= 104
+1 <= cardPoints.length <= 10^5
+1 <= cardPoints[i] <= 10^4
 1 <= k <= cardPoints.length
  */
     public int maxScore(int[] cardPoints, int k) {

@@ -54,13 +54,19 @@ public class Recursion {
         // method returns me the updated sorted list.
         int removedElem = al.get(al.size()-1);
         al.remove(al.size()-1);
+        // See here notice below line very very very carefully, I made mistakes when revisited this question each time
+        // see which elem we are inserting here. means here we are inserting elem passed in argument not the one which
+        // we have removed in just above line.
+        // And same concept is applicable whenever you wrote insert function for sorting purpose of any other DS.
         insertForSortingArray(al,elem);
+        // And here finally we are inserting the removed element.
         al.add(removedElem);
         return al;
     }
 
 /*
 Q - 4) Sort a Stack using recursion
+Problem Link :- https://www.geeksforgeeks.org/problems/reverse-a-stack/1
  */
     public static Stack<Integer> sortStack(Stack<Integer> st){
         // Base Condition
@@ -190,6 +196,22 @@ public int kthGrammar(int n, int k) {
     // And we are done!!!!!
 }
 
+// Another version of very efficient code for above problem, so below is working for long values as well.
+/*
+public class Solution {
+    public int solve(int A, Long B) {
+        return rec(A,B);
+    }
+
+    public int rec(int A, Long B){
+        if(A==1) return 0;
+        int value = rec(A-1,B/2);
+        if(B%2==0) return val;
+        return 1 - val;
+    }
+}
+ */
+
 
 /*
 Tower of Hanoi:-
@@ -258,7 +280,7 @@ These are the possible combination of "ABC".
         ArrayList<String> ans = new ArrayList<>();
         String input = s.substring(1);
         String output = s.substring(0,1);
-        // We are starting our recursive call from 1 index bec in o/p you can se like we don't need
+        // We are starting our recursive call from 1 index bec in o/p you can see like we don't need
         // to include any space at the left of 1st char of string and at the right of last char of
         // string. So we are keeping 1st char in our output string as it is without having any
         // choice of including any space or not. And from next char whenever I will include anything
@@ -588,6 +610,9 @@ came to know how BT reduces the complexity.
 3) to apply for loop properly on available choices.
 And we are done.
 
+
+Note :- Backtracking as a technique has broader scope than just that. Any situation where we might need to access a previous state
+of a variable that keeps changing during the execution of the program requires backtracking.
  */
 
 class BT {
@@ -617,7 +642,7 @@ Permutations of Strings :-
             // Reducing rec call, as we only want to make new rec call if char is new
             // bt how we came to know this char is not used yet for that we have used set here
             if (!st.contains(ip.charAt(i))) {
-                // adding character to map to reduce the recursive call for repetative char.
+                // adding character to map to reduce the recursive call for repetitive char.
                 // mp.put(ip.charAt(i),mp.getOrDefault(ip.charAt(i),0)+1);
                 st.add(ip.charAt(i));
                 String op1 = op + ip.charAt(i);
@@ -642,7 +667,7 @@ other rec calls so.
  */
     public List<String> find_permutation(String S) {
         // Code here
-        // Appraoch :- use backtracking
+        // Approach :- use backtracking
         StringBuilder sb = new StringBuilder(S);
         List<String> ans = new ArrayList<>();
         int startIndex = 0; // this index we need to pass as reference as it will be
