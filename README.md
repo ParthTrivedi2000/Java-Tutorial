@@ -5,4 +5,4 @@ A collection of tutorials on computer fundamentals
 
 - [DSA](DSA/)
 - [Design Patterns](DesignPatterns/)
-- [Java](Java Basics/)
+- [Java](JavaBasics/)
