@@ -1,6 +1,9 @@
 package org.allTopics.LinkedList;
+
+// Problem Link:- https://leetcode.com/problems/remove-nth-node-from-end-of-list/description/
+
 /* Q) Remove Nth Node From End of List
-Problem Link:- https://leetcode.com/problems/remove-nth-node-from-end-of-list/description/
+
 Problem Description:-
 Given the head of a linked list, remove the nth node from the end of the list and return its head.
 
@@ -25,6 +28,7 @@ The number of nodes in the list is sz.
 public class LL03RemoveNthNodeFromEndOfList {
     public Node removeNthFromEnd(Node A, int B){
 //        Approach - 1:-
+//        BruteForce Approach:-
 //        int n;
 //        Node node;
 //        if (A == null) return null;
@@ -66,10 +70,10 @@ public class LL03RemoveNthNodeFromEndOfList {
         And one more last thing ki in above example if you think ki what will be the answer if n=4, then it is
         invalid input, bec in constraints it's given that n should be in between 0 to no.of nodes in LL.
 
-        // This will unfortunately cause a problem when n is the same as the length of the list,
-        // which would make the first node the target node, and thus make it impossible to find
-        // the node before the target node. If that's the case, however, we can just return
-        // head.next without needing to stitch together the two sides of the target node.
+         This will unfortunately cause a problem when n is the same as the length of the list,
+         which would make the first node the target node, and thus make it impossible to find
+         the node before the target node. If that's the case, however, we can just return
+         head.next without needing to stitch together the two sides of the target node.
          */
 
         Node fast = A, slow = A;

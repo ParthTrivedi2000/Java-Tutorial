@@ -1,10 +1,9 @@
 package org.allTopics.LinkedList;
 
-import java.util.Stack;
+//Problem Link:- https://leetcode.com/problems/reverse-linked-list/
 
-public class LL01ReverseLinkedList {
 /* Q) Reverse a Linked List. head is given as an argument.
-Problem Link:- https://leetcode.com/problems/reverse-linked-list/
+
 Problem Description :- Given the head of a singly linked list, reverse the list, and return the reversed list.
 Exmaple:-
 Input: head = [1,2,3,4,5]
@@ -21,10 +20,35 @@ The number of nodes in the list is the range [0, 5000].
 -5000 <= Node.val <= 5000
 
 */
+
+import java.util.Stack;
+
+public class LL01ReverseLinkedList {
+
     // Approach - 1:-
-    // A very bruteforce approach I can think of is storing the LL elems to the
-    // array and returning the reverse array by creating LL from array.
-    // TC:- O(N), SC:-O(N)
+    // Bruteforce Approach :-
+    // TC:- O(N)+O(N)+O(N) = O(3N) i.e. 3  iteration of N elems
+    // SC:- O(N)
+    // - Iterate over LinkedList and store it in ArrayList.
+    // - Just simply reverse the ArrayList.
+    // - And now again convert the ArrayList to LinkedList back.
+    public Node reverseListBrute(Node head) {
+        ArrayList<Integer> LL = new ArrayList<>();
+        Node temp=head;
+        while(temp!=null){
+            LL.add(temp.val);
+            temp=temp.next;
+        }
+        Collections.reverse(LL);
+        Node dummy=new Node(-1);
+        Node iter=dummy;
+        for(int elem:LL){
+            Node nd=new Node(elem);
+            iter.next=nd;
+            iter=iter.next;
+        }
+        return dummy.next;
+    }
 
     // Approach - 2:- Since Linked list is all about pointers ryt so why to store elems and all those things?
     // I mean simply we can just change the direction of each pointers, and we will be able to get the answer.
@@ -45,6 +69,8 @@ The number of nodes in the list is the range [0, 5000].
             prev = curr;
             curr = nextNode; // using previously stored elem to move current pointer ahead
         }
+        // At last if you notice then curr pointing to null and prev pointing to last elem
+        // so returning prev.
         return prev;
     }
 
@@ -81,6 +107,31 @@ The number of nodes in the list is the range [0, 5000].
         head.next = null; // Update next of current head to NULL
         // Return the reversed linked list
         return rest;
+
+
+        // Follow below instead of above:-
+        /*
+         Try to always think about smallest case in recursion, and how will you perform reverse in that case simply think about it
+         1 ===> 1
+         1-->2 ===> 2-->1
+         head.next i.e. 2 ka next I have to set it as 1 i.e. head => head.next.next=head;
+         and need to remove the link between them hence:- head.next=null;
+         And 3rd imp point is, every time whenever you are returning, at that time
+         propogate that what is last elem you were? hence simply you are not doing
+         anything with last bu always doing something with head, hence last always stays
+         as it is of 1st call's return value i.e. here 2 during all the calls.
+         see code for more understanding.
+
+         */
+
+        // Recursive code:-
+        if(head==null || head.next==null) return head;
+
+        // rec call
+        Node last = reverseListRec(head.next);
+        head.next.next=head; // changing the pointer
+        head.next=null;
+        return last;
     }
 
     // Approach - 4:- Using Stacks:-
@@ -112,8 +163,27 @@ The number of nodes in the list is the range [0, 5000].
             temp.next = null; // Update the next pointer of last node of stack to NULL else it is resulting in cycle
         }
         return head;
+
+
+        // My Solution using stack:-
+        if(head==null || head.next==null) return head;
+        Node curr=head;
+        Stack<Node> st = new Stack<>();
+        Node nextNode=null;
+        while(curr!=null){
+            nextNode=curr.next;
+            st.push(curr);
+            curr.next=null;
+            curr=nextNode;
+        }
+
+
+        curr=st.pop();
+        Node ans=curr;
+        while(!st.isEmpty()){
+            curr.next=st.pop();
+            curr=curr.next;
+        }
+        return ans;
     }
-
-
-
 }

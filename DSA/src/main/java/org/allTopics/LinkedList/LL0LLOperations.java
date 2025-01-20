@@ -19,6 +19,7 @@ public class LL0LLOperations {
         while(pos<position){
             if(temp==null) System.out.println("Enter Valid Position");
             temp=temp.next;
+            pos++;
         }
         newElem.next = temp.next;
         temp.next = newElem;

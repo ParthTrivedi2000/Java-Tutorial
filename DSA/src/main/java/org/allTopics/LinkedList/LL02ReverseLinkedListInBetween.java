@@ -108,6 +108,9 @@ public class LL02ReverseLinkedListInBetween {
         */
 
         // Approach - 3:-
+        // If you observe carefully, while reversing the LL,we wre using 3 variables (prev, curr,nextNode),
+        // So here also doing the same thing once we reached at the reversing start point, and those 3 variables
+        // are (prev,start,then) here.
         if (head == null || left == right) return head;
         Node dummy = new Node(0);
         dummy.next = head;

@@ -33,7 +33,7 @@ public class LL04MiddleOfLinkedList {
          */
 
         // Note 2 points over here:-
-        // - this method gives you 2nsd element (N/2 + 1)th element as middle in case of even length LL. If you
+        // - this method gives you 2nd element (N/2 + 1)th element as middle in case of even length LL. If you
         // want N/2th elem as middle, then you have to just maintain the prev element in above approach.
         // - 2nd point is make sure to keep fast!=null condition before fast.next!=null in the while. else it will
         // give NULLPointerException.
