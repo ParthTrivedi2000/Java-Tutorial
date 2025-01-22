@@ -25,6 +25,22 @@ The number of nodes in the list is in the range [1, 100].
 
 public class LL04MiddleOfLinkedList {
     public Node middleNode(Node head) {
+
+        // Bruteforce:- iterate on the LL; And find the size of it
+        // TC:- O(2N), SC:- O(1)
+        /*
+        Node curr=head;
+        int size=0;
+        while(curr!=null){
+            curr=curr.next;
+            size++;
+        }
+        curr=head;
+        for(int i=0;i<size/2;i++) curr=curr.next;
+        return curr;
+
+         */
+
         /*
         Standard way to find the middle of the LL:- is to use the Tortoise and Hare method.
         - Take 2 pointers. And place each on head.
