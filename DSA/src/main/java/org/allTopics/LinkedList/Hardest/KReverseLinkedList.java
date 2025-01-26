@@ -58,7 +58,7 @@ public class KReverseLinkedList {
         // So for example:- [1,2,3,4,5,6];k=3
         // so now at end of 1st recursive call of this function, my prev=3, nextNode=4, but head is still pointing to element 1 here
         // So now this portion of liknedlist looks like[3->2->1 [4->5->6]].
-        // So we have to connect 1 to next reversed bucket i.e. head.next to next reversed bucket ryt? so revursive call should be like below.
+        // So we have to connect 1 to next reversed bucket. and 1 is what? currently it is still head i.e. head.next to next reversed bucket ryt? so recursive call should be like below.
         // since we want to perform this recursion till my nextNode is not equals to null,
         if(nextNode!=null) head.next= reverse(nextNode,k);
         return prev;

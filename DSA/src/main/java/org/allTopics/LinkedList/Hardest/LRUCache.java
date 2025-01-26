@@ -1,41 +1,43 @@
 package org.allTopics.LinkedList.Hardest;
 
+// Problem Link :- https://leetcode.com/problems/lru-cache/description/
+
 /*
-Design and implement a data structure for Least Recently Used (LRU) cache. It should support the following
-operations: get and set.
+Problem Description:-
 
-get(key) - Get the value (will always be positive) of the key if the key exists in the cache, otherwise return -1.
-set(key, value) - Set or insert the value if the key is not already present. When the cache reaches its capacity, it
-should invalidate the least recently used item before inserting the new item.
-The LRUCache will be initialized with an integer corresponding to its capacity. Capacity indicates the maximum number
-of unique keys it can hold at a time.
+Design a data structure that follows the constraints of a Least Recently Used (LRU) cache.
 
-Definition of "least recently used" : An access to an item is defined as a get or a set operation of
-the item. "Least recently used" item is the one with the oldest access time.
+Implement the LRUCache class:
 
-NOTE: If you are using any global variables, make sure to clear them in the constructor.
+LRUCache(int capacity) Initialize the LRU cache with positive size capacity.
+int get(int key) Return the value of the key if the key exists, otherwise return -1.
+void put(int key, int value) Update the value of the key if the key exists. Otherwise, add the key-value pair
+to the cache. If the number of keys exceeds the capacity from this operation, evict the least recently used key.
+The functions get and put must each run in O(1) average time complexity.
 
-Example :
-Input :
-         capacity = 2
-         set(1, 10)
-         set(5, 12)
-         get(5)        returns 12
-         get(1)        returns 10
-         get(10)       returns -1
-         set(6, 14)    this pushes out key = 5 as LRU is full.
-         get(5)        returns -1
-Expected Output
-Enter your input as per the following guideline:
-There are 1 lines in the input
+Example 1:
+Input
+["LRUCache", "put", "put", "get", "put", "get", "put", "get", "get", "get"]
+[[2], [1, 1], [2, 2], [1], [3, 3], [2], [4, 4], [1], [3], [4]]
+Output
+[null, null, null, 1, null, -1, null, -1, 3, 4]
+Explanation
+LRUCache lRUCache = new LRUCache(2);
+lRUCache.put(1, 1); // cache is {1=1}
+lRUCache.put(2, 2); // cache is {1=1, 2=2}
+lRUCache.get(1);    // return 1
+lRUCache.put(3, 3); // LRU key was 2, evicts key 2, cache is {1=1, 3=3}
+lRUCache.get(2);    // returns -1 (not found)
+lRUCache.put(4, 4); // LRU key was 1, evicts key 1, cache is {4=4, 3=3}
+lRUCache.get(1);    // return -1 (not found)
+lRUCache.get(3);    // return 3
+lRUCache.get(4);    // return 4
 
-Line 1 ( Corresponds to arg 1 ) : The line starts with a pair of number numOperations, capacity. capacity is the
-number your constructor is initialized with.
-Then numOperation operations follow.
-Each operation is either :
- * G  : This corresponds to a function call get()
- * S   : This corresponds to a function call set(num1, num2)
-Note that the function calls are made in order.
+Constraints:
+1 <= capacity <= 3000
+0 <= key <= 10^4
+0 <= value <= 10^5
+At most 2 * 105 calls will be made to get and put.
  */
 
 /*
@@ -172,5 +174,110 @@ Singly LL? so we have used doubly LL to have access of prev elem for efficient d
 So ans is to perform efficient deleting we are using doubly LL instead of singly LL.
  */
 
-public class LRUCache {
+class LRUCache {
+    class ListNode{
+        int key;
+        int val;
+        ListNode prev;
+        ListNode next;
+        ListNode(int k, int v){
+            this.key=k;
+            this.val=v;
+        }
+    }
+
+    // Creating dummy nodes in DLL, and cache will be present between this dummy nodes.
+
+    // remember here cache = DLL+ HM
+    ListNode dummyHead;
+    ListNode dummyTail;
+    Map<Integer,ListNode> mp=new HashMap<>();
+    private int capacity;
+
+    public LRUCache(int capacity) {
+        dummyHead=new ListNode(-1,-1);
+        dummyTail=new ListNode(-1,-1);
+        dummyHead.next=dummyTail;
+        dummyTail.prev=dummyHead;
+        this.capacity=capacity;
+        mp.clear();
+    }
+
+    public int get(int key) {
+        // check if it present in the map or not
+        if(mp.containsKey(key)){
+            // then need to remove it from DLL, and insert at last i.e. tail since now it is
+            // most recently used so
+
+            // getting addrs from mp
+            ListNode temp = mp.get(key);
+
+            remove_from_between(temp);
+            insert_at_tail(temp);
+            return temp.val;
+        }
+        return -1;
+    }
+
+    public void put(int key, int value) {
+        // now if any key value given, for exa: 3,8:- so I have to check 1st key is present
+        // in the cache or not --> if yes --> have to update it --> else have to add it
+        if(mp.containsKey(key)){
+            ListNode temp=mp.get(key);
+            temp.val=value;
+            remove_from_between(temp);
+            insert_at_tail(temp);
+        }
+        else{
+            // this block is for any new element to the cache
+            // so 1st need to check weather cache has enough space of not
+            if(capacity>0){
+                ListNode temp=new ListNode(key,value);
+                mp.put(key,temp);
+                insert_at_tail(temp);
+                capacity--;
+            }
+            // else if cache is full--> I have to remove oldest elem from the cache, i.e.
+            // then have to add this new elem in cache.
+            else{
+                // removing old elem
+                ListNode nd=remove_from_front();
+                mp.remove(nd.key);
+                // Adding new elem
+                ListNode temp=new ListNode(key,value);
+                mp.put(key,temp);
+                insert_at_tail(temp);
+                capacity--;
+            }
+        }
+    }
+
+    private void remove_from_between(ListNode nd){
+        nd.prev.next=nd.next;
+        nd.next.prev=nd.prev;
+        nd.next=null;
+        nd.prev=null;
+    }
+
+    private ListNode remove_from_front(){
+        ListNode temp=dummyHead.next;
+        remove_from_between(temp);
+        // delete(temp);
+        return temp;
+    }
+
+    private void insert_at_tail(ListNode nd){
+        ListNode temp = dummyTail.prev;
+        nd.prev=temp;
+        nd.next=dummyTail;
+        temp.next=nd;
+        dummyTail.prev=nd;
+    }
 }
+
+/**
+ * Your LRUCache object will be instantiated and called as such:
+ * LRUCache obj = new LRUCache(capacity);
+ * int param_1 = obj.get(key);
+ * obj.put(key,value);
+ */
