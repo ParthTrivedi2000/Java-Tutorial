@@ -26,7 +26,10 @@ Constraints:
  */
 
 
-public class H06LengthOfLargestSubarrayWith0Sum {
+import java.util.HashMap;
+import java.util.Map;
+
+public class H07LongestSubArrayWithSumK {
     public int lenOfLongestSubarr(int[] arr, int k) {
 
          // BruteForce Approach:- TC:- O(N^3), SC:- O(1)

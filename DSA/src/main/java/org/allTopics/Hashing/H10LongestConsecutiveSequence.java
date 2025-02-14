@@ -10,7 +10,7 @@ Problem Description :-
 import java.util.HashSet;
 import java.util.Set;
 
-public class H09LongestConsecutiveSequence {
+public class H10LongestConsecutiveSequence {
 
     public int longestConsecutive(int[] arr) {
         // My Old Approach:- TC:- O(N) + O(NlogN), SC:- O(N)+O(N)

@@ -53,7 +53,7 @@ Explanation 2:
 import java.util.HashMap;
 import java.util.Map;
 
-public class H10CountRightTriangles {
+public class H11CountRightTriangles {
     // Bruteforce Approach :- TC:- O(N^3)
     /*
     So we need to find weather right angled triangle formed between 3 points or not. so suppose we are having points(x,y) in

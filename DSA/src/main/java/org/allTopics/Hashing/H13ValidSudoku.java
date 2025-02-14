@@ -57,7 +57,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 
-public class H12ValidSudoku {
+public class H13ValidSudoku {
     public boolean isValidSudoku(char[][] board) {
         // Approach:-
         // we need to check

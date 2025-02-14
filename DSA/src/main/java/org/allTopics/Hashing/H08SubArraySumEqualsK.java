@@ -24,7 +24,7 @@ Constraints:
 import java.util.HashMap;
 import java.util.Map;
 
-public class H07SubArraySumEqualsK {
+public class H08SubArraySumEqualsK {
 
     public int subarraySum(int[] nums, int k) {
 

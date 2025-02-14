@@ -27,7 +27,7 @@ Constraints:
 import java.util.HashMap;
 import java.util.Map;
 
-public class H08CountSubArraysWithGivenXOR {
+public class H09CountSubArraysWithGivenXOR {
 
     public long subarrayXor(int arr[], int k) {
         // code here

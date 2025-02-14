@@ -305,6 +305,11 @@ class D{
 // remember for child class, they can access everything of their parent class means all the methods of their parent.
 // and also can reference the parent class's methods as well.
 
+// Note:- Always remember one thing that, even child class can inherit all from parent class, but child class won't be
+// able to access private members of parent class since private member meant to be accessible withing the current same
+// class only. Not for any other class. If you want that member to be accessible by child class as well, then you need
+// to change modifiers from private to protected for those members.
+
 // class A {
 //     public void m1(){
 
