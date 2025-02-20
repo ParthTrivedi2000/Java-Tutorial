@@ -1,3 +1,5 @@
+package org.allTopics.Creational.Builder;
+
 class BuilderPatternsIntro{
 /*
  - Adding info about what builder pattern is, And when to use it.
@@ -69,7 +71,7 @@ Common Use Cases:-
 
 Conclusion:-
 The Builder Design Pattern is an effective creational pattern frequently used in production environments to
-handle complex object creation processes. It provides an elegant approach to managing construction, validation,
+handle complex object creation processes. It provides an elegant approach for managing construction, validation,
 and the immutability of objects, making code more readable, maintainable, and flexible.
 
  */
