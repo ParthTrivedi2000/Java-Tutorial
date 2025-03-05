@@ -198,7 +198,7 @@ public class Singleton {
 }
 
 
-// What is the Difference betwee Lazy way and Eager way of creating Singleton classes?
+// What is the Difference between Lazy way and Eager way of creating Singleton classes?
 // Or what is the advantages and disadvantages between both of them?
 
 /*
@@ -404,4 +404,66 @@ class Samosa implements Cloneable{
         return samo;
     }
 }
+ */
+
+/*
+Q.How
+ to break a Singleton pattern ?
+
+While the Singleton pattern ensures only one instance of a class, several techniques can break this pattern, leading to multiple instances. Understanding these vulnerabilities is crucial to prevent them.
+
+Ways to Break Singleton & Fixes
+
+1. Reflection
+ - Reflection can be used to bypass the private constructor of a singleton class, allowing the creation of multiple instances.
+
+Example:
+Constructor<Singleton> constructor = Singleton.class.getDeclaredConstructor();
+constructor.setAccessible(true);
+Singleton instance2 = constructor.newInstance();
+Fix: Throw an exception if an instance already exists.
+private Singleton() {
+ if (instance != null) {
+ throw new IllegalStateException("Instance already exists!");
+ }
+}
+
+2. Serialization & Deserialization
+- During deserialization, a new instance of the singleton class can be created, breaking the singleton pattern.
+Example:
+ObjectInputStream ois = new ObjectInputStream(new FileInputStream("singleton.ser"));
+Singleton instance2 = (Singleton) ois.readObject();
+Fix: Implement readResolve() method.
+protected Object readResolve() {
+ return instance;
+}
+
+3. Cloning
+ - If a singleton class implements the `Cloneable` interface, calling `clone()` on the instance can create a new instance.
+Example:
+Singleton instance2 = (Singleton) instance1.clone();
+Fix: Override clone() to throw an exception.
+@Override
+protected Object clone() throws CloneNotSupportedException {
+ throw new CloneNotSupportedException("Cloning not allowed");
+}
+
+4. Multiple Class Loaders
+ - If a singleton class is loaded by different class loaders, it can create multiple instances.
+
+ **Mitigation:**
+ Controlling the class loading environment is necessary to prevent this.
+
+Fix: Use a global class loader or an Enum Singleton.
+public enum Singleton {
+ INSTANCE;
+}
+
+In Short :
+
+Reflection: Prevent by checking existing instance in the constructor.
+Serialization: Use readResolve() to return the existing instance.
+Cloning: Override clone() to prevent cloning.
+Class Loaders: Use an Enum Singleton for safety.
+Ensuring a robust Singleton requires addressing these vulnerabilities to truly guarantee a single instance.
  */

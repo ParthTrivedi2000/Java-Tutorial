@@ -123,6 +123,10 @@ public class AbstractFactoryPattern {
         that's why you created separate Abstract Factory class like DataBaseFactory/ UIComponentFactory which
         contains all the factory methods hence the name is Abstract Factory Pattern.
 
+        Reference :- Please read it in your free time
+        - https://medium.com/@akshatsharma0610/abstract-factory-design-pattern-in-java-45a326c8fc9f
+        - Refactorung Guru
+
      */
 
 }
