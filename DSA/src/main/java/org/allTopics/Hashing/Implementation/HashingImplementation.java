@@ -1,4 +1,4 @@
-package org.allTopics.Hashing;
+package org.allTopics.Hashing.Implementation;
 
 /*
 

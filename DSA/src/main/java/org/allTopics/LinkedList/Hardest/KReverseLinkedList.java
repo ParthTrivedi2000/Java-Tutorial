@@ -74,25 +74,25 @@ public class KReverseLinkedList {
 // Please check it without missing.
 
 // Above we have used recursive approach. Here we are using Iterative approach.
-class Solution {
-    public ListNode reverseKGroup(ListNode head, int k) {
+class Solution1 {
+    public Node reverseKGroup(Node head, int k) {
         if(head==null || head.next==null) return head;
 
-        ListNode dummy = new ListNode(0);
-        ListNode prev = dummy;
+        Node dummy = new Node(0);
+        Node prev = dummy;
         prev.next = head;
         while (head != null) {
             int cnt = 1;
-            ListNode cur = head;
+            Node cur = head;
             // take B consecutive nodes and reverse them
             while (cur.next != null && cnt < k) {
                 cnt++;
                 cur = cur.next;
             }
             if (cnt == k) {
-                ListNode next = cur.next;
+                Node next = cur.next;
                 cur.next = null;
-                ListNode rev = reverse(head);
+                Node rev = reverse(head);
                 prev.next = rev;
                 head.next = next;
             }
@@ -102,12 +102,12 @@ class Solution {
         return dummy.next;
     }
 
-    public ListNode reverse(ListNode head) {
-        ListNode prev = new ListNode(0);
-        ListNode nhead = head;
+    public Node reverse(Node head) {
+        Node prev = new Node(0);
+        Node nhead = head;
         prev.next = head;
         while (head != null) {
-            ListNode tmp = head.next;
+            Node tmp = head.next;
             head.next = prev;
             prev = head;
             head = tmp;

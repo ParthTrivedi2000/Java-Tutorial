@@ -35,7 +35,7 @@ Expected Time Complexity: O(n)
 Expected Auxiliary Space: O(n)
  */
 
-public class ArrToDLL {
+public class DLL01ArrayToDLL {
     DLLNode constructDLL(int arr[]) {
         // Code here
         if(arr.length==0) return null;

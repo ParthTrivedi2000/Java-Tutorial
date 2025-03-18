@@ -174,6 +174,9 @@ Singly LL? so we have used doubly LL to have access of prev elem for efficient d
 So ans is to perform efficient deleting we are using doubly LL instead of singly LL.
  */
 
+import java.util.HashMap;
+import java.util.Map;
+
 class LRUCache {
     class ListNode{
         int key;
@@ -191,7 +194,7 @@ class LRUCache {
     // remember here cache = DLL+ HM
     ListNode dummyHead;
     ListNode dummyTail;
-    Map<Integer,ListNode> mp=new HashMap<>();
+    Map<Integer, ListNode> mp = new HashMap<>();
     private int capacity;
 
     public LRUCache(int capacity) {

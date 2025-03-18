@@ -1,8 +1,8 @@
 package org.allTopics.LinkedList;
 
 public class Node {
-    int val;
-    Node next;
+    public int val;
+    public Node next;
     Node(int val){
         this.val = val;
         this.next=null;

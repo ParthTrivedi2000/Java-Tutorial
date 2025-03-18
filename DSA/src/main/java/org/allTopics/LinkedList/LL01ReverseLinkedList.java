@@ -21,6 +21,8 @@ The number of nodes in the list is the range [0, 5000].
 
 */
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Stack;
 
 public class LL01ReverseLinkedList {
@@ -118,13 +120,14 @@ public class LL01ReverseLinkedList {
          and need to remove the link between them hence:- head.next=null;
          And 3rd imp point is, every time whenever you are returning, at that time
          propogate that what is last elem you were? hence simply you are not doing
-         anything with last bu always doing something with head, hence last always stays
+         anything with last but always doing something with head, hence last always stays
          as it is of 1st call's return value i.e. here 2 during all the calls.
          see code for more understanding.
 
          */
 
         // Recursive code:-
+        /*
         if(head==null || head.next==null) return head;
 
         // rec call
@@ -132,6 +135,7 @@ public class LL01ReverseLinkedList {
         head.next.next=head; // changing the pointer
         head.next=null;
         return last;
+         */
     }
 
     // Approach - 4:- Using Stacks:-
@@ -166,6 +170,7 @@ public class LL01ReverseLinkedList {
 
 
         // My Solution using stack:-
+        /*
         if(head==null || head.next==null) return head;
         Node curr=head;
         Stack<Node> st = new Stack<>();
@@ -185,5 +190,6 @@ public class LL01ReverseLinkedList {
             curr=curr.next;
         }
         return ans;
+         */
     }
 }

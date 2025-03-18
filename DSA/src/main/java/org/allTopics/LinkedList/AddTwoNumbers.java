@@ -80,8 +80,8 @@ class Solution {
         Node curr = null;
         int carry = 0;
         while(l1!=null || l2!=null || carry >0){
-            int v1 = l1!=null ? l1.data : 0;
-            int v2 = l2!=null ? l2.data : 0;
+            int v1 = l1!=null ? l1.val : 0;
+            int v2 = l2!=null ? l2.val : 0;
             int sum = v1+v2+carry;
             carry = sum/10;
             Node tmp = new Node(sum%10);
@@ -94,7 +94,7 @@ class Solution {
                 l2=l2.next;
             }
         }
-        while(curr!=null && curr.data == 0){
+        while(curr!=null && curr.val == 0){
             curr=curr.next;
         }
         return curr;

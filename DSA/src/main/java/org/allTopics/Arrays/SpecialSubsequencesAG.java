@@ -2,7 +2,7 @@ package org.allTopics.Arrays;
 
 
 
-public class SpecialSubsequences'AG' {
+public class SpecialSubsequencesAG{
     public int solve(String A) {
          // BruteForce :- O(N^2)
         /*
@@ -47,7 +47,7 @@ public class SpecialSubsequences'AG' {
          long countG=0;
          long ans=0;
          for(int i=A.length()-1;i>=0;i--){
-             if(A.charAt(i)=='G') counG++;
+             if(A.charAt(i)=='G') countG++;
              else if(A.charAt(i)=='A') ans = ans + countG;
          }
          return (int)(ans%1000000007);
