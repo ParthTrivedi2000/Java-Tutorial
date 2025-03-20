@@ -20,18 +20,33 @@ public class Student {
     }
      */
 
-    // copy constructor
+    // 2nd way:- copy constructor
     public Student(Student s){
         this.name = s.name;
         this.age = s.age;
         this.batch = s.batch;
     }
 
-
     public Student copy(){
         Student s = new Student();
         return s;
     }
+
+    // 3rd way:- Another way is using All arg constructor
+    /*
+    public Student(String name, int age, String batch){
+        this.name = name;
+        this.age = age;
+        this.batch = batch;
+    }
+
+    public Student copy(){
+        Student s = new Student(this.name, this.age, this.batch);
+        return s;
+    }
+
+     */
+
 
 
 

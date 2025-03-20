@@ -39,6 +39,21 @@ public class IntelligentStudent extends Student {
         return s;
     }
 
+    // To enable below way, please uncomment 3rd way code from Student class, then only uncomment below code.
+    /*
+    public IntelligentStudent(String name , int age, String batch, int iq){
+        super(name,age,batch);
+        this.iq = iq;
+    }
+
+    public IntelligentStudent copy(){
+        IntelligentStudent s = new IntelligentStudent(this.name, this.age, this.batch, this.iq);
+        return s;
+    }
+
+     */
+
+
     public int getIq() {
         return iq;
     }

@@ -179,3 +179,70 @@ class Client{
 class PrototypeIntro {
 
 }
+
+/*
+In one of the good interviews, interviewer has asked,
+- Do the Low Level Design of Jira. There will be Task. And task can be of any of the below types
+--> Task
+    - Epic
+    - Feature
+    - Story
+    - Bug
+
+Solution :- simply you will have to create Template/Prototype of all the above objects in the HashMap (i.e. in Registry)
+And return the copy of those whenever new Task is created, bec there will lots of Task generated in a single day by a
+product owner. So in this case every time hitting a Jira API to create Task object (bec class Task is written in Jira
+API codebase ryt) is very expensive (means aesa man lo ki it's expensive to hit the JIRA API and get new Task Object
+everytime, so here in this case you should use the Prototype & Registry design pattern. You need to store the different
+Task object in the 1st time hitting JIRA & store them as Prototype, & from next time onwards simply, you can create the
+clone()/copy of that object & change the description attribute of it.
+- So just explain the interviewer that there will be a CreateTask button in the frontend, which gives above 4 options.
+And based on the click on the Task in the frontend, backend will go to the registry & get the copy of the corresponding
+object.
+Q) but by default how we see blank fields?
+- So while creating copy, don't set all the attributes in for the new copied object. Instead keep description empty
+if you want description field to be empty.
+
+Please see the codebase example 2 of prototype.
+
+
+Doubt:-
+Q) When to use builder vs prototype?
+- See we have to use the builder when we have to create an object starting from scratch. Whereas we use prototype
+where template has already been created, we get that template and modify/add to that template.
+- Another thing is generally Builder is used whenever you are having a lot more attributes, And also builder is used
+where you want to have validation of few attributes before creating an object, if that validation goes correct, then
+only you want to create the object, in this case Builder is used. And in case of Immutable Objects also, you use
+the Builder, you cannot use the prototype for immutable objects. bec in prototype you get the template & then change
+the class attrs.
+
+Q) for complex attributes, we will have to call the corresponding clone methods ?
+- yes, we will have to recursively call the clone() methods.
+
+Question for us to think:-
+- Can we use the Registry Design Pattern in Strategy? if yes, where & how ?
+Solution:- Yes obviously. Rather than storing  Strategies in the Factory, Store them in a Registry. So simply we can
+register all the behavior types (i.e. different behaviors) in the registry & in the Service class/Client class get
+the instance from Registry whenever needed.
+
+- But then now tell me what's the difference between Factory & Registry ?
+Factory always creates the new Object of the class, while registry just returns the object that is already there.
+
+So you can remember Registry like
+Registry = Factory + Singleton
+(Singleton basically have a internal object/instance to store the object, but registry has map to store the object
+but means both are returning the same object).
+
+Interview Question:-
+Q) I have been asked, we are getting performance issues with hibernate, how to get rid of it? (Another person
+have been asked the similar question like, we are getting performance issue with DB, how to resolve it?)
+(below is the same answer for both of them.)
+- There can be multiple reasons. Probably your db is already burdened. If that's the case then you need to shard the
+DB. Another reason is the Query the hibernate is generating might be not the most efficient one. means hibernate
+might not able to create the most efficient queries. Then probably we need to write the query by ourselves. This
+can be a case, but generally this is not the case. Other reason might be your DB schema is not good for querying
+purpose, so probably you might need to change the schema. And also other things may get involved like creating indexes
+etc etc...
+
+
+ */

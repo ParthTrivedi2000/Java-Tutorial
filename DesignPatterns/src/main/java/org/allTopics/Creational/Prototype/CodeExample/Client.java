@@ -71,6 +71,21 @@ in IntelligentStudent class:-
     copy constructor :- is to actually copy the values of the attributes.
     copy method:- to manage the copying process.
 
+So above we have used the copy constructor, instead we can use the normal All argument also to create a copy.
+Inside Student class:- create constructor with All args And in the copy method, directly pass args from calling object.
+
+
+    public Student(String name, int age, String batch){
+        this.name = name;
+        this.age = age;
+        this.batch = batch;
+    }
+
+    public Student copy(){
+        Student s = new Student(this.name, this.age, this.batch);
+        return s;
+    }
+
 
  */
 
