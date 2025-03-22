@@ -28,8 +28,9 @@ Constraints:
  */
 
 import java.util.ArrayList;
+import java.util.Collections;
 
-public class PS03EquilibriumPoint {
+public class PS04LeadersInAnArray {
     static ArrayList<Integer> leaders(int arr[]) {
         // Bruteforce :- O(N^2), SC:O(1)
         /*

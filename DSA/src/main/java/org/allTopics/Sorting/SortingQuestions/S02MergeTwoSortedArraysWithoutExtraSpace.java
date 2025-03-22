@@ -1,3 +1,4 @@
+package org.allTopics.Sorting.SortingQuestions;
 // Problem Statement :- https://www.geeksforgeeks.org/problems/merge-two-sorted-arrays-1587115620/1
 
 /*
@@ -71,6 +72,7 @@ Please see code for better understanding.
  */
 
 
+import java.util.Arrays;
 
 class S02MergeTwoSortedArraysWithoutExtraSpace {
     // Function to merge the arrays.

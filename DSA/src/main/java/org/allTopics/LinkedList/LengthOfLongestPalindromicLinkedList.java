@@ -91,7 +91,7 @@ public class LengthOfLongestPalindromicLinkedList {
         Node b = second;
         int cnt=0;
         while(a!=null && b!=null){
-            if(a.data==b.data){
+            if(a.val==b.val){
                 a=a.next;
                 b=b.next;
                 cnt++;

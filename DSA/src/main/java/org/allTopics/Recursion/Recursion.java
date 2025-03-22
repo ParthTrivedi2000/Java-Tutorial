@@ -29,7 +29,7 @@ public class Recursion {
 //        String output="";
 //        stringSubset(input,output);
 
-        recForPermutationCaseChange("","ab");
+//        recForPermutationCaseChange("","ab");
     }
 
 /* Q - 3) Sort an array using recursion
@@ -633,7 +633,7 @@ Output : AB Ab ab aB
 /*
 Q) Letter Case Permutation :-
 Problem Link :- https://leetcode.com/problems/letter-case-permutation/description/
-Problem Descriptoin :- Given a string s, you can transform every letter individually to be lowercase or
+Problem Description :- Given a string s, you can transform every letter individually to be lowercase or
 uppercase to create another string.
 Return a list of all possible strings we could create. Return the output in any order.
 Example :-
@@ -694,6 +694,7 @@ s consists of lowercase English letters, uppercase English letters, and digits.
 
 
     // Approach - 2:- Better approach:- Using StringBuilder
+    /*
     public List<String> letterCasePermutation(String s) {
         List<String> result = new ArrayList<>();
         // Call the recursive helper function starting with an empty string
@@ -731,6 +732,8 @@ s consists of lowercase English letters, uppercase English letters, and digits.
             current.deleteCharAt(current.length() - 1); // Backtrack
         }
     }
+
+     */
 
 
 /*

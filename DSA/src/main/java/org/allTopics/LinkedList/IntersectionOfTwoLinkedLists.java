@@ -1,3 +1,5 @@
+package org.allTopics.LinkedList;
+
 // Problem Statement:- https://leetcode.com/problems/intersection-of-two-linked-lists/
 
 /*
@@ -57,6 +59,8 @@ intersectVal == listA[skipA] == listB[skipB] if listA and listB intersect.
 Follow up: Could you write a solution that runs in O(m + n) time and use only O(1) memory?
  */
 
+import org.allTopics.LinkedList.Node;
+
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -69,7 +73,7 @@ Follow up: Could you write a solution that runs in O(m + n) time and use only O(
  * }
  */
 class IntersectionOfTwoLinkedLists{
-    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+    public Node getIntersectionNode(Node headA, Node headB) {
 
         // Bruteforce:-
         // A very bruteforce approach comes to my mind is --> convert both the list into ArrayList and
@@ -81,8 +85,8 @@ class IntersectionOfTwoLinkedLists{
         // Better Approach:-
         if(headA == null || headB == null) return null;
 
-        ListNode a = headA;
-        ListNode b = headB;
+        Node a = headA;
+        Node b = headB;
 
         //if a & b have different len, then we will stop the loop after second iteration
         while( a != b){

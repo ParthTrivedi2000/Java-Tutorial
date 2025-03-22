@@ -89,6 +89,8 @@ open bracket('(').
 // all the operators from stack and append to the postfix exp.
  */
 
+import java.util.Stack;
+
 public class ST04InfixToPostfixConverter {
     public String solve(String A) {
 

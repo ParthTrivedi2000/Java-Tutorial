@@ -1,3 +1,4 @@
+package org.allTopics.Sorting.SortingQuestions;
 // Problem Link :- https://leetcode.com/problems/reverse-pairs/description/
 
 /*
@@ -26,6 +27,8 @@ Constraints:
 -2^31 <= nums[i] <= 2^31 - 1
  */
 
+
+import java.util.ArrayList;
 
 class S05ReversePairs {
 

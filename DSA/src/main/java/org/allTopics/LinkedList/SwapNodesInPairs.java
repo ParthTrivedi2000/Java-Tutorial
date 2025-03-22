@@ -1,5 +1,7 @@
+package org.allTopics.LinkedList;
+
 class SwapNodesInPairs{
-    public Node swapPairs(ListNode head) {
+    public Node swapPairs(Node head) {
         Node dummy=new Node(-1);
         Node prev=dummy;
         dummy.next=head;
