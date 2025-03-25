@@ -112,11 +112,15 @@ public class DP06MaxSubsequenceSumWithNoAdjacent {
 
 
     // Since it seems all these 3 variables are again just depends on each other sequentially. So we can do Space Optimisation.
+    // On observing the dp[] array in the previous approach, it can be seen that the answer at the current index
+    // depends only on the last two values. In other words, dp[i] depends only on dp[i – 1] and dp[i – 2]. So, instead
+    // of storing the result in an array, we can simply use two variables to store the last and second last result.
 
     // Approach - 4:- Space Optimised:- TC:- O(N), SC:- O(1)
 
     int findMaxSum(int arr[], int n) {
         if(arr.length==1) return arr[0];
+        // Compute current value using previous two values. The final current value would be our result c.
         int c = 0;
         int a = arr[0];
         int b = Math.max(arr[0],arr[1]);

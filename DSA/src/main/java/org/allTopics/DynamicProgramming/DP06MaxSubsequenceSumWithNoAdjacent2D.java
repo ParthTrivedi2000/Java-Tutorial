@@ -1,5 +1,7 @@
 package org.allTopics.DynamicProgramming;
 
+// Problem Link :- https://www.geeksforgeeks.org/problems/adjacents-are-not-allowed3528/1
+
 /*
 Problem Description :-
 Given a 2 x N grid of integers, A, your task is to choose numbers from the grid such that sum of these numbers is maximized.
