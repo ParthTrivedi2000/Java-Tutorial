@@ -1,11 +1,13 @@
 package org.allTopics.DynamicProgramming;
 
 // Problem Link :- https://www.geeksforgeeks.org/problems/max-sum-without-adjacents2430/1
+// Stickler Thief:- https://www.geeksforgeeks.org/problems/stickler-theif-1587115621/1
+// House Robber:- https://leetcode.com/problems/house-robber/description/
 
 /*
 Problem Description :-
-Given an array Arr of size N containing positive integers. Find the maximum sum of a any possible subsequence such
-that no two numbers in the subsequence should be adjacent in Arr.
+Given an array Arr of size N containing positive integers. Find the maximum sum of a any possible subsequence
+such that no two numbers in the subsequence should be adjacent in Arr.
 
 Example 1:
 Input:
@@ -66,7 +68,7 @@ public class DP06MaxSubsequenceSumWithNoAdjacent {
         return memoized(arr,0,arr.length-1,dp);
     }
 
-    // Make sure to remove start in interview. It is only kept here for my understanding purpose.
+    // Make sure to remove startIndex in interview. It is only kept here for my understanding purpose.
     public int memoized(int[] arr, int start, int end, int[] dp){
         if(end==0){
             dp[end] = arr[end];
@@ -85,7 +87,6 @@ public class DP06MaxSubsequenceSumWithNoAdjacent {
      */
 
     // Approach - 3:- Tabulative:- TC:- O(N), SC:- O(N)
-
     // Note:- dp[i] = max subsequence sum from index 0 to i such that no 2 elements are adjacent
 
     /*
@@ -111,7 +112,8 @@ public class DP06MaxSubsequenceSumWithNoAdjacent {
      */
 
 
-    // Since it seems all these 3 variables are again just depends on each other sequentially. So we can do Space Optimisation.
+    // Since it seems all these 3 variables are again just depends on each other sequentially. So we can do Space
+    // Optimisation.
     // On observing the dp[] array in the previous approach, it can be seen that the answer at the current index
     // depends only on the last two values. In other words, dp[i] depends only on dp[i – 1] and dp[i – 2]. So, instead
     // of storing the result in an array, we can simply use two variables to store the last and second last result.

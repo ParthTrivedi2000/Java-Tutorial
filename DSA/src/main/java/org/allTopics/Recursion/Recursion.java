@@ -125,7 +125,7 @@ problem link:- https://www.geeksforgeeks.org/problems/delete-middle-element-of-a
     }
 
 /*
-Reverse a stack using recursion
+Reversea stack using recursion
 Problem Link :- https://www.geeksforgeeks.org/problems/reverse-a-stack/1
 
 Problem Description :-
@@ -203,7 +203,7 @@ Either x is not zero or n > 0.
  */
 
     public double myPow(double x, int n) {
-        // Has to create due to few of the long test cases.
+        // Has to create long due to few of the long test cases.
         return rec(x,(long)n);
     }
 
@@ -453,7 +453,7 @@ You can see that these are all possible subsets.
         //Making left recursive call
         recFun(ip,idx+1,n,seq,op);
         // Since we are sharing a single data structure between 2 recursive calls (here seq) to perform certain actions on
-        // the same ds hence this step is needed so Removing item to get back to the original state befor making
+        // the same ds hence this step is needed so Removing item to get back to the original state before making
         // the right recursive call which is basically for not picking element
         seq.remove(seq.size()-1);
 
@@ -466,6 +466,7 @@ You can see that these are all possible subsets.
 
 /*
 Print all the subsequence of a String./ Print powersets of a String.
+Link :- https://www.naukri.com/code360/problems/subsequences-of-string_985087?leftPanelTabValue=PROBLEM
  */
     public static void stringSubset(String input, String output){
         // base condition
@@ -913,12 +914,12 @@ Constraints:
  previously all those having only 2 choices ryt), then we can start thinking of applying BT.
  - One more imp point to identify BT is, constraint. Usually TC of backtracking is something like
  2^N or N^M (means exponential) or N!. So constraint given will be in 2 digit only like
- 0<n<10 or 0<n<50 etc etc...means agr single digit diya h constaints m then for sure keep in mind to
+ 0<n<10 or 0<n<50 etc etc...means agr single digit diya h constraint m then for sure keep in mind to
  apply backtracking, but agr double digit diya h (like 30 or 50 or something) then it might happen ki
  usme koi optimisation lgegi.
  - And one thing is like since BT is child of recursion, so BT problem can also be done through
  normal recursion. but in that case you feel like this is not the correct way, or yha pe ku6 extra work
- ho rha h or ya to yha pe m complexity bdha rha hu aesa ku6...measn BT ka wo problem recursion se
+ ho rha h or ya to yha pe m complexity bdha rha hu aesa ku6...means BT ka wo problem recursion se
  krne pe wo feel hi aa jayegi ki nh nh isme BT needs to be applied. let's see in next question, we
  will try to solve using normal recursion 1st then using BT.
 
@@ -965,7 +966,7 @@ void rec(passed by reference ip variable V){
         if(isValid()==true){
             //change the ip variable and then pass it to recursive call
             V = V + choice1;
-            rec(changed ip variable V);
+            rec(changed ip variable V); // doing recursive call
             //revert/backtrack the changed ip variable V.
             V = V-choice1;
         }
