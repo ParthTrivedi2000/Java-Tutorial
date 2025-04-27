@@ -38,7 +38,7 @@ public class DP08FractionalKnapsack {
 
     // This is knapsack problem. As it is fractional knapsack, I have to create an array to store the values.
     // values store inside this array will be per unit value. i.e. here per kg value. so suppose for 3 kg there
-    // is given value 10, then per kg =3/10 = 0.value/kg. so let's store values per kg.
+    // is given value 10, then per kg =3/10 = 0.3 value/kg. so let's store values per kg.
 
     class Item{
         int value;

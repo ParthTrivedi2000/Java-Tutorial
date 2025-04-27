@@ -4,7 +4,8 @@ package org.allTopics.DynamicProgramming;
 
 /*
 Problem Description :-
-Given a 2 x N grid of integers, A, your task is to choose numbers from the grid such that sum of these numbers is maximized.
+Given a 2 x N grid of integers, A, your task is to choose numbers from the grid such that sum of these numbers is
+maximized.
 However, you cannot choose two numbers that are adjacent horizontally, vertically, or diagonally.
 Return the maximum possible sum.
 Note: You are allowed to choose more than 2 numbers from the grid.
@@ -97,7 +98,7 @@ import java.util.ArrayList;
 
 public class DP06MaxSubsequenceSumWithNoAdjacent2D {
 
-    // Here I have written only tabulative approach. Please other approaches from previous question.
+    // Here I have written only tabulative approach. Please read other approaches from previous question.
     // Approach - Tabulative
     public int adjacent(ArrayList<ArrayList<Integer>> A) {
         if(A.get(0).size()==1) return Math.max(A.get(0).get(0), A.get(1).get(0));
