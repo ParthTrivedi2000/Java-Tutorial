@@ -1,6 +1,6 @@
 package org.allTopics.DynamicProgramming;
 
-import java.lang.reflect.Array;
+
 import java.util.Arrays;
 
 public class DP01Fibbonacci {
@@ -36,7 +36,7 @@ public class DP01Fibbonacci {
         return dp[n];
     }
 
-    // So freom above solution you can see that at a time we require only 3 DP states only which is changing. So
+    // So from above solution you can see that at a time we require only 3 DP states only which is changing. So
     // here it comes to mind, can't this problem is solved using only 3 variables? --> absolutely yes.
     // TC:- O(N) SC:-O(1)
     public int optimisedFib(int n){

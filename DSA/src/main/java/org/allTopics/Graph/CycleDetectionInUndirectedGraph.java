@@ -51,6 +51,27 @@ public class CycleDetectionInUndirectedGraph {
         return false;
     }
 
+     */
+
+    /*
+    So below we have used DFS to detect the cycle in the graph. for example, graph is:- 0 ------ 1 --------- 2
+    Now in above case, for example, we are considering only visited logic. so with that logic suppose from 1st node
+    we have started, so we marked node 0 as visited & got to node 1. then for node 1 we are having 0 & 2 as child. now
+    we can see 0th is marked visited, but cycle is not there between them ryt. so means with only visited logic is
+    not enough here to detect the cycle. we need to check something else as well.
+
+    see here we can see that 0 is parent node for 1 ryt. so when we reach to node 1 & check it's children list,
+    at that time if we got 0 as children, then we won't do anything for it. i.e. if child==parentNode, then we should
+    skip it & move ahead with next children. So here simply everytime, with each node, we have to pass the parentNode
+    as well to the DFS.
+
+    And if we reach to any other node except parentNode which is already marked, then we can say that yes, we are
+    reaching here 2nd time hence there is a cycle, so we can return true directly incase visited of that child is true.
+
+    See below code for more understanding.
+     */
+
+    /*
     boolean DFS(ArrayList<ArrayList<Integer>> graph, boolean[] visited, int startNode, int parentNode) {
         visited[startNode] = true;
 
@@ -67,6 +88,28 @@ public class CycleDetectionInUndirectedGraph {
 
 
     // Approach - Using BFS
+
+    /*
+    Logic for BFS is as is of DFS. only thing we have to change is logic of BFS need to be included instead
+    of DFS. so in BFS, we are using queue to maintain the ordering. So here also we need to push the startNode.
+    Then we can start main logic. it means while queue is not empty then, when we popped element, we need to check
+    it's children ryt. now if child is not visited, then there is no issue, so we can mark it as visited & push to
+    the queue. Now if it's not visited, there we are scaring it might happen there is cycle ryt. but if that visited
+    child is parentNode, then there is no cycle ryt (as discussed above in DFS approach). And at last, if neither of
+    those conditions true then we can return false by saying there is no cycle in the graph.
+
+    One more thing to note here is, here how to consider parent for each node? so we haev to create the Pair class & add
+    pair to the queue. simple!!!
+
+
+    Conclusion (applicable to both DFS or BFS) :-
+    - if child node != visited --> we are safe
+    - if child is visited --> there might be cycle
+                          --> but if that visitedNode is parent --> then we are safe, there is no cycle.
+    - else there is cycle.
+
+     */
+
     /*
     class Pair{
         int curr;

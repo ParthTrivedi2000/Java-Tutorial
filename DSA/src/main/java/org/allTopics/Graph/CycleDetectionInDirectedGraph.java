@@ -66,6 +66,7 @@ import java.util.ArrayList;
 public class CycleDetectionInDirectedGraph {
     public boolean isCyclic(int A, int[][] B) {
 
+        // Graph creation Step
         ArrayList<ArrayList<Integer>> graph = new ArrayList<>();
         for(int i=0;i<=A;i++) graph.add(new ArrayList<>());
 
@@ -77,17 +78,27 @@ public class CycleDetectionInDirectedGraph {
 
         // graph has been created.
 
+        // next step:- cycling logic started
         boolean[] visited = new boolean[A+1];
-        boolean[] path = new boolean[A+1];
+        boolean[] path = new boolean[A+1]; // this represents nodes present in the recursive stack trace path during any DFS call.
         boolean cycle=false;
         for(int i=0;i<=A;i++){
             if(visited[i]==false) cycle = DFS(graph,i,visited,path);
 
-            if(cycle==true) return true;
+            if(cycle) return true;
         }
         return false;
 
     }
+
+    /*
+    If child node is not visited --> then simply we can call the DFS with that child. And if that DFS call returns
+    true, we can return true i.e. cycle is there. Now if node is visited, and it present in the path as well, then
+    we can return true bec it is already visited & also part of current recursive stack trace so.
+    And if either of those condition is not true, then we can return the false. but just before returning the false from
+    DFS function, since we marked node as true in path array, now we are ending current rec trace path for current
+    DFS call, so before ending it, we need to mark it as false in the path array.
+     */
 
     boolean DFS(ArrayList<ArrayList<Integer>> graph, int start, boolean[] visited, boolean[] path){
         visited[start] = true;

@@ -92,8 +92,8 @@ public class DP02ClimbingStairs {
 }
 
 
-// Note:- See here if you understand why there are only 2 recursive calls? and wo bhi like with n to -1 and -2 only kuy?
+// Note:- See here if you understand why there are only 2 recursive calls? and wo bhi like with n to -1 and -2 only kyu?
 // bec in question it was given ki you can take either 1 step or 2 step. it means with each 1 step and with each 2 step
-// my answer/ calculation can be changed hence we have to take 3 recursive calls each with (current n -1, current n -1).
-// SO if it was given in question like if you can take 1,2 and 3 steps as well, then just think very carefully.
-// you have to consider the new recursive call with current n-3 as now it will also make difference in answer.
+// my answer/ calculation can be changed hence we have to take 3 recursive calls each with (current n -1, current n -2).
+// So if it was given in question like if you can take 1,2 and 3 steps as well, then just think very carefully.
+// you have to consider the new recursive call with current n-3 as well now it will also make difference in answer.

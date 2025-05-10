@@ -1,5 +1,7 @@
 package org.allTopics.Heaps;
 
+// Problem Link :- https://www.naukri.com/code360/problems/build-heap_975375?leftPanelTabValue=PROBLEM
+
 /*
 Problem Description :-
 Given an array A of N integers, convert that array into a min heap and return the array.
@@ -38,11 +40,20 @@ You can return any possible Valid Heap Structure.
 
  */
 
-public class HP1BuildAHeapFromArray {
-    public void downHeapify(int[] heapArr, int i){
+import java.util.Arrays;
+
+public class HP03BuildAHeapFromArray {
+
+    public static void main(String[] args) {
+        int[] arr = new int[]{7,3,5,1,6,8,10,2,13,4,-2};
+        int[] ans =  buildHeap(arr);
+        System.out.println(Arrays.toString(ans));
+    }
+
+    public static void downHeapify(int[] heapArr, int i){
         // I have to continue to down heapity process till leaf node comes for any particular element at ith node.
         // so starting a while loop. And checking for if any left node exists (for right I mean I don't need to check ith
-        // seperately bec heapArray me se first hm left m element put krte h. So it might case ki single left child ho bt
+        // separately bec heapArray me se first hm left m element put krte h. So it might case ki single left child ho bt
         // right side na ho vice versa case possible ni h. So taking only left child in consideration.).
 
         // to find the left child of any element at parent node i.: lc = 2*i + 1
@@ -66,13 +77,13 @@ public class HP1BuildAHeapFromArray {
         }
     }
 
-    public void swap(int[] arr, int i, int j){
+    public static void swap(int[] arr, int i, int j){
         int temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
     }
 
-    public int[] buildHeap(int[] A) {
+    public static int[] buildHeap(int[] A) {
         // code here
         // Now for any of the leaf Nodes, we don't need to check bec assuming those are already at their correct position
         // as they don't have child so. But we have to do this heapify process for each and every remaining parent Nodes
