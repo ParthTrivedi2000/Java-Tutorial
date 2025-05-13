@@ -25,8 +25,10 @@ All the integers of nums are unique.
 import java.util.ArrayList;
 import java.util.List;
 
+
+// Need to apply BackTracking since it was asked to Enlist all the possibilities.
 /*
- See here understand this, if you drawn the rec tree for this, in that you are deciding ki what all values possible
+ See here understand this, if you draw the rec tree for this, in that you are deciding ki what all values possible
  for this particular place ryt, and since here in rec tree, that place is also changing for the nodes of rec tree,
  hence we need variable to store value or change state for that thing ryt. So here in code, that place is represented
  by idx variable. So just mean to say the purpose of idx is to decide/check for which place/index you are performing
@@ -42,11 +44,11 @@ import java.util.List;
 
  */
 
-public class BT01Permutations {
+public class BT04Permutations {
     public List<List<Integer>> permute(int[] nums) {
-        // Need to apply BackTracking since it was asked to Enlist all the possibilities.
 
-//        // Approach - 1:- TC:- O(N!), SC:- O(N) for stack + O(N) for visited =~ O(N)
+
+//        // Approach - 1:- TC:- O(N*N!), SC:- O(N!) for stack + O(N) for visited =~ O(N!)
 //        List<List<Integer>> ans = new ArrayList<>();
 //        ArrayList<Integer> seq = new ArrayList<>();
 //        boolean[] vis = new boolean[nums.length];
@@ -54,7 +56,10 @@ public class BT01Permutations {
 //        return ans;
 
 
-        // Approach - 2:- Using Swapping :-  TC:- O(N!), SC:- O(N) for stack
+        // Approach - 2:- Using Swapping :-  TC:- O(N*N!), SC:- O(N!) for stack
+        // Time Complexity: O(N * N!), where N is the length of the string.
+        // Space Complexity: O(N!), since one has to keep N! solutions.
+
         List<List<Integer>> ans = new ArrayList<>();
         ArrayList<Integer> seq = new ArrayList<>();
         backTrackOptimised(nums,0,ans);
