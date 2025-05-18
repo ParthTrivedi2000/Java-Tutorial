@@ -53,7 +53,7 @@ You can do validation in the builder class's setters itself.
 Or you can do validation in the Student class's constructor as well. (Just see Student class)
 
 - So this is the basic version of Builder Design Pattern. Now from next version itself, we are syntactically
-improve the code but conceptually, this is it. This is the concept of builder design pattern ( to store the
+improving the code but conceptually, this is it. This is the concept of builder design pattern ( to store the
 attributes in separate class as DS).
 So let's do it.
 

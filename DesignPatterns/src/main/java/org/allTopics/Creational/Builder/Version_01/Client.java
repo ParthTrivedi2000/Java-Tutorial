@@ -1,6 +1,7 @@
 package org.allTopics.Creational.Builder.Version_01;
 /*
-Now apart from constructor, another solution is to use the Setters to fulfill the requirements.
+Now apart from constructor, another solution is to use the Setters to fulfill the requirements. it means to set the
+attribute's values.
  */
 
 class Client{

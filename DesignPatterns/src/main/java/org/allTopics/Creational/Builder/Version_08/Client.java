@@ -55,4 +55,17 @@ Step 2: Create Builder class (as static inner class)
 Step 3: In main class constructor:
 - Accept Builder parameter
 - Copy validated values from Builder to main class attributes
+
+
+Note:-
+- This point is very ery very important. Inner Builder class does not have to be all the attributes of the Student class,
+It only need to have the attributes which are required to be constructed the Student object. It means simply Student
+class k constructor me jitne h utne hi he dene h.
+(Here in above case this point seems useless/senseless bec we are having all the attributes as constructor params, but
+in so many cases same case will not be there. For example we have implemented Builder design pattern in the TicTacToe
+design question. Please check it out.
+- Builder class doesn't have the public constructor. It always have the private constructor.
+Then how to get the Builder class's object? --> by having getBuilder() method as a static method in the parent/outer cls.
+- Since Builder doesn't have the constructor, then how to pass values to the attributes in builder? --> Via setters for
+each attribute available inside builder class
  */

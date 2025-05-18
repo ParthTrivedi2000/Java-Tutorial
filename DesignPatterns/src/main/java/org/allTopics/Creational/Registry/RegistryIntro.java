@@ -11,7 +11,7 @@ Registry + Factory
 - As we have discussed, like registry is nothing but simply Data Storage,
 How it is used with Prototype? --> so we create the prototype objects only once. And put it into the
 registry. And just get the copy of the prototypes whenever needed. This is how Registry is used with Prototype.
-Mote:- Generally we use the Map DS to store the prototype. Why? --> simple. bec we want to give some name to the
+Note:- Generally we use the Map DS to store the prototype. Why? --> simple. bec we want to give some name to the
 particular prototype to retrieve it's copy later ryt. i.e. we need something like key-val pair in which val is
 basically prototype object. And another reason is (we can use any other DS like arraylist,LL etc. but Map is used
 to find and retrieve corresponding prototype very fastly i.e. in O(1) so we are using Map).

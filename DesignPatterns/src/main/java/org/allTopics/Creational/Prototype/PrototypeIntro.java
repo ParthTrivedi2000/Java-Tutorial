@@ -33,7 +33,7 @@ package org.allTopics.Creational.Prototype;
 // it will be able to assign the values ryt(for example:- st1.name=st.name).
 
 // There are majorly 3 issues with above approach:-
-// 1) Not reusable. if next time, at ay place we need, then again have to write all the lines of code.
+// 1) Not reusable. if next time, at any place we need, then again have to write all the lines of code.
 // 2) Since client is creating this object, it needs to know about whole Student class, like all the attributes
 // and behaviours.
 // 3) Now above we have written st1.name. But what if few attributes are private (and even general practice to
@@ -200,8 +200,8 @@ clone()/copy of that object & change the description attribute of it.
 And based on the click on the Task in the frontend, backend will go to the registry & get the copy of the corresponding
 object.
 Q) but by default how we see blank fields?
-- So while creating copy, don't set all the attributes in for the new copied object. Instead keep description empty
-if you want description field to be empty.
+- So while creating copy, don't set all the attributes for the new copied object. Instead keep description empty
+if you want description field to be empty/blank.
 
 Please see the codebase example 2 of prototype.
 

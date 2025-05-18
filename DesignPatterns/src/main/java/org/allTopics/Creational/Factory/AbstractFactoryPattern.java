@@ -16,7 +16,8 @@ public class AbstractFactoryPattern {
     depends on the DataBase object.
     Now just think, for each of this 3 dependent objects you have to write 3 times if else for the same
     value of db bec since you can't have single if like db==MySQL and generate all the 3 instance, bec since
-    other query can have other transaction/updator instance support as well so inshort you need to have
+    other query can have other transaction/updator instance support as well means think about different compbinations
+    between above 3 dependent objects, that much classes we have to create. so inshort you need to have
     if else for each of these 3 dependent objects.
 
     - So one solution is, we can have 3 different methods inside the DataBase classes. like createQueryFactory(),
@@ -46,7 +47,7 @@ public class AbstractFactoryPattern {
     Don't you feel the DataBase class is bloated up. and hence also concrete class which needs to provide the
     implementation of all the methods.
 
-    - So solution is, we can seperate out this responsibility. means we can have <<DataBaseFactory>> interface/
+    - So solution is, we can separate out this responsibility. means we can have <<DataBaseFactory>> interface/
     abstract class which contains all the factory methods for db instance.
 
     DataBase{                                 DataBaseFactory{
@@ -64,7 +65,7 @@ public class AbstractFactoryPattern {
         - Another thing is, those concrete classes will still be bloated ryt. means anyhow they have to
         unnecessarily override all the methods.
         - So as discussed we are having DataBaseFactory, and we can have it'e concrete implementation classes
-        seperately, like mysqlfactory, postgresqlfactory and mongodbfactory.
+        separately, like mysqlfactory, postgresqlfactory and mongodbfactory.
 
         - Now if you think mySql class to inherits the mysqlFactory class, then here there is some missing concept.
         Means another very important point is, inheritance should always be logical. if you inherited something
@@ -89,7 +90,7 @@ public class AbstractFactoryPattern {
         this example to remember, means suppose there is one very rich person involved in so many multiple
         things like land ownership, lend money/ low/ businesses etc etc...now since he is your friend and
         you want to buy a land so you go to him and tell him that I want to buy land in some area. So that
-        rich person has told you to that ok instead of having me to come with you, I can call one person
+        rich person has told you that ok instead of having me to come with you, I can call one person
         who is handling my land related things, and he will help to get what you want.
 
         - Client file looks like:-
@@ -101,8 +102,8 @@ public class AbstractFactoryPattern {
         dbFactory.createQuery()
 
 
-        - This above design is known as Abstract Factory Design Pattern. in which we are creating the seperate
-        abstract class/interface and which has the concreate implementation of same classes which eventually
+        - This above design is known as Abstract Factory Design Pattern. in which we are creating the separate
+        abstract class/interface and which has the concrete implementation of same classes which eventually
         provides the objects.
 
         - Real World Usecase:-

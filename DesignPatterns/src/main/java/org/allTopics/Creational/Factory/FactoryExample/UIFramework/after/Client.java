@@ -44,7 +44,7 @@ public class Client {
 /*
 - So just create the ThemeFactory class inside the base package since it is generic. And delegate the responsibility
 to identify which kind of theme object to return.
-- Make sure to return Theme object as return type (not specific concrete implementation class).
+- Make sure to return Theme object as return type (not specific concrete implementation class as return type).
  */
 
 public class Client{
@@ -76,7 +76,7 @@ public class Client{
 /*
 - Now this is actually very well structured, loosely coupled, & modular code.
 - Because now if you are having requirement at high level to add new Theme called AndroidUITheme, then also simple
-you can create seperate folder called Android, & create all the components present inside the IOS/MaterialUI folder.
+you can create separate folder called Android, & create all the components present inside the IOS/MaterialUI folder.
 
 Homework for me:-
 - Add the new theme AndroidUI, in the current UI Framework.

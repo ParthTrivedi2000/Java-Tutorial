@@ -1,4 +1,4 @@
-package org.allTopics.Creational;
+package org.allTopics.Creational.Singleton;
 
 // SingleTon Deign Patterns :-
 
@@ -7,7 +7,7 @@ So as singleton pattern is creational design pattern, it is related to how objec
 
 when to use singleton?
 - So whenever in our project, if you want to create (instantiate) object only 1 time in your whole
-project and then you want to keep using the same object only in that case you Singleton Design Pattern
+project and then you want to keep using the same object only in that case Singleton Design Pattern
 is used.
 - Means suppose for example:- DBConnection. So always we need to work with DB ryt while working on any of the
 project. And during whole project if you want to perform continuous CRUD operation with DB during different
@@ -16,7 +16,7 @@ object only once, instead everytime you create connection object and do the same
 also why to waste space of memory as that object is doing the same thing for all the classes in whichever it was
 created, like just to establishing connection.
 
-- So suppose I am having Object ob, and I want to use it 3-4-5-10 times in my project but i don't want to create
+- So suppose I am having Object ob, and I want to use it 3-4-5-10 times in my project but I don't want to create
 the same object 3-4-10 times, but instead I want to create it only 1 time and want to use it multiple time
 during my project, then SingleTon Design Pattern comes into the picture (hence the name as it is only creating
 the object 1 time and allow us to use the same object multiple times so known as SingleTon Pattern).
@@ -78,7 +78,7 @@ as a return value.
 
 - But wait, like how to call this method? means to call method of any class, we need object ryt? and object to
 hm bna nh skte h for this particular class. then how to call this method? --> so answer is since we don't want
-this method to be called with any object name, instead we want method to be called from any class, so we can
+this method to be called with any object name, instead we want this method to be called from any class, so we can
 create this method as static.
 
 public Samosa{
@@ -97,7 +97,7 @@ public Samosa{
 samose k 5 objects create ho jayenge ryt. which we don't want. muje to mri puri application m ek hi bar samosa
 ka Object create krna h and usko hi multiple times use krna h.
 
-- So what we can do is, we can create an object typed Samosa inside the Samosa class. (And we also have to
+- So what we can do is, we can create an object with type Samosa inside the Samosa class. (And we also have to
 keep it as static otherwise usko hm jb static method m use krenge tb error aayegi ki non static variables can
 not be used in static context so we are creating this variable also a static). So hm kya krenge ki simply
 ek check lga denge, ki ye variable samo me koi value aa chuki h ki nh. agr nhi aayi h means null he to hi
@@ -158,15 +158,15 @@ public Samosa{
 // jb client ko (i.e. here Main method) ko jarurat thi tbhi aapne call kiya.
 
 // So hmne above jo singleton class and object bnaya is known as Lazy way. bec jb tk client h wo call nh
-// krega tb tk it won't get it. means jb client ko jarurat hogi tb wo pehlei bar call krega tb aap provide
-// kr rhe ho. So a way in which object is created whenever there is requirement is known as lazy way
+// krega tb tk it won't get it. means jb client ko jarurat hogi tb wo pehli bar call krega tb aap provide
+// kr rhe ho. So a way in which object is created whenever there is requirement is known as Lazy way
 // of creating object. But there is another way Eager way to create Singleton class and object. Let's
 // see it.
 
 
 // In eager way of creating singleton object, what we are doing is, we are directly initialising the
 // private static variable with the object in the class. And then we are returning it whenever getJalebi()
-//method is called. See below code for more information.
+// method is called. See below code for more information.
 
 
 
@@ -202,7 +202,7 @@ public class Singleton {
 // Or what is the advantages and disadvantages between both of them?
 
 /*
-- So eager way me hm kya kr rhe h, ki we are initialising static variable. And whenever class loads
+- So eager way me hm kya kr rhe h, ki we are initialising static variable. And whenever class loads,
 static variables are automatically loads 1st. So in Eager Way, whenever class Jalebi loads, automatically
 my jalebi() object will be instantiated (as we have called bec static variables automatically got called or
 initialised during class loads) and assigned to the myJalebi static variable.
@@ -215,20 +215,20 @@ can degrade the performance.
 
 
 Now what is the problem with Lazy Loading?
-- So in lazy loading what happens is, whenever client calls the  method 1st time at that time only object
+- So in lazy loading what happens is, whenever client calls the method 1st time at that time only object
 will be created and return back. and from next time onwards whenever client calls, it will get the same object.
 But here we haven't focus or consider Threads. means here only 1 thread is there. So if in your case if there
 is no concern of Thread Safety, then you can 100% use the Lazy Way of SingleTone Pattern to create the objects.
 
 - But if there are multiple threads working in your application, then suppose any 2 threads ne sath me wo
-samosa.getSamosa() call kr diya and dono thread wo sampsa class ki wo method call p chle gye then there
+samosa.getSamosa() call kr diya and dono thread wo samosa class ki wo method call p chle gye then there
 will be 2 Objects instantiate ryt and which will violate our SingleTon Pattern principal of creating once and
 use it multiple time. So we have to handle it ryt?
 
 - One way is we can use the Synchronized keyword in the method declaration. what that keyword will do is,
 if 2 threads simultaneously wo method call pr pahuchenge and hmne wo method p synchronized keyword lgaya h,
-then koi ek hi thread at a time wo method ko execute kr payega and dusra thread 1st trhread k complete hone
-ka wait krege. And after competion of 1st, 2nd thread start calling the method and uss tym pe mari if
+then koi ek hi thread at a time wo method ko execute kr payega and dusre thread 1st thread k complete hone
+ka wait krege. And after completion of 1st, 2nd thread start calling the method and uss tym pe meri if
 condition false ho jayegi and dusri bar object create nh hoga.
 
 class Samosa{
@@ -247,10 +247,10 @@ class Samosa{
 - But problem with Synchronized method in above case is, hmne yha pe itna 6ota code likha h. but in actual
 case me to bahot bda code hoga isme. To sirf ye upper ki line samo = new Samosa();  ki vjh se thread 2 ka
 execution stuck ho jayega jb tk thread-1 pura execute nh ho jata uspe. So kehne ka mtlb h ki we don't want
-to synchronize all the lines of method. instead we want to let the treads work simultaneously on all the
-lines of the method except only this line.
+to synchronize all the lines of code of method. instead we want to let the threads work simultaneously on all the
+lines of the method except only this line. (this line is known as critical section of code).
 
-- So above we have used method synchrnization ryt. But now we don't want that to be used instead we will use
+- So above we have used method synchronization ryt. But now we don't want that to be used instead we will use
 synchronize block to make only few line of code to be synchronised, not whole method. See below code in case
 of multiple thread/or thread safety.
  */
@@ -262,7 +262,7 @@ class Samosa{
 
     public static Samosa getSamosa(){
         if(samo == null){
-            //till this line if any 2 threads reach simultaneously, then there is no problem. But after this
+            // till this line if any 2 threads reach simultaneously, then there is no problem. But after this
             // we have to check if object is not created previously by any of the threads then only I want
             // to create so that has been taken care by if condition and only 1 thread at a time can enter/or
             // hit the synchronised block is taken care by synchronised() block.
@@ -310,7 +310,7 @@ class Samosa{
     private static Samosa samo;
     private Samosa(){
         if(samo!=null){
-            throw new RuntimeException("You are trying to break the SingleTon Design Patter");
+            throw new RuntimeException("You are trying to break the SingleTon Design Pattern");
         }
     }
     public static Samosa getSamosa(){
@@ -347,7 +347,7 @@ public static void main(String[] args){
 
 video - completed 47:00 mins...
 
-3) by Object Cloning also singlton pattern can be broken.
+3) by Object Cloning also singleton pattern can be broken.
 public static void main(String[] args) throws Exception, CloneNotSupportedException{
     Samosa samosa1 = Samosa.getSamosa();
     System.out.println(samosa1.hashCode());
@@ -359,7 +359,7 @@ class Samosa implements Cloneable{
     private static Samosa samo;
     private Samosa(){
         if(samo!=null){
-            throw new RuntimeException("You are trying to break the SingleTon Design Patter");
+            throw new RuntimeException("You are trying to break the SingleTon Design Pattern");
         }
     }
     public static Samosa getSamosa(){
@@ -410,18 +410,20 @@ class Samosa implements Cloneable{
 Q.How
  to break a Singleton pattern ?
 
-While the Singleton pattern ensures only one instance of a class, several techniques can break this pattern, leading to multiple instances. Understanding these vulnerabilities is crucial to prevent them.
+While the Singleton pattern ensures only one instance of a class, several techniques can break this pattern, leading to
+multiple instances. Understanding these vulnerabilities is crucial to prevent them.
 
 Ways to Break Singleton & Fixes
 
 1. Reflection
- - Reflection can be used to bypass the private constructor of a singleton class, allowing the creation of multiple instances.
+ - Reflection can be used to bypass the private constructor of a singleton class, allowing the creation of multiple
+instances.
 
 Example:
 Constructor<Singleton> constructor = Singleton.class.getDeclaredConstructor();
 constructor.setAccessible(true);
 Singleton instance2 = constructor.newInstance();
-Fix: Throw an exception if an instance already exists.
+Fix: Throw an exception from constructor if an instance already exists.
 private Singleton() {
  if (instance != null) {
  throw new IllegalStateException("Instance already exists!");

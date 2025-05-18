@@ -1,6 +1,6 @@
 package org.allTopics.Creational.Builder.Version_04;
 /*
-Since student class needs to provide the builder object, let's create seperate method for it.
+Since student class needs to provide the builder object, let's create separate method for it.
  */
 
 class Student{
@@ -48,7 +48,7 @@ class Student{
     object and setup the values, Student object will not be present.
 
     Then how to call this method first to get the builder object?(bec we don't have s1 object to call this method)
-     So we have to make this method as static to be accessible via class name.
+    So we have to make this method as static to be accessible via class name.
      */
 
     public static Builder getBuilder(){

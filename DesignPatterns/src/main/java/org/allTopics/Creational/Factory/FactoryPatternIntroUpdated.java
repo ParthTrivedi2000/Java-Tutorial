@@ -11,15 +11,15 @@ Factory Pattern means Code Unit to create the Objects, very simple!!
 
 Doubt:-
 Builder is also used for object creation ryt?
---> yes, but actually builder is also providing other features while creating objects using Builder patter for example
-Chaining, immutability of objects etc etc... But factory method is not applying any logic to create object ot on
+--> yes, but actually builder is also providing other features while creating objects using Builder pattern for example
+Chaining, immutability of objects etc etc... But factory method is not applying any logic to create object or on
 object, it simply creates the object.
 
 Let's see how Factory pattern create objects?
 
 --> Suppose for example, you want to create the DataBase. But problem is you have to create the database object based
 on som String provided by user.
-means for example if user passes typeOfDb="MySQL", then you have to written mysqldb() instance, if user asks for
+means for example if user passes typeOfDb="MySQL", then you have to return mysqldb() instance, if user asks for
 "postgres" then you have to return postgresdb(), if user passes "mongo", you have to return mongodb() instance.
 
 - So for example there is string typeOfDb in the code.
@@ -41,7 +41,7 @@ input string you need to return the DB Instance.
  else if(typeOfDb.equals("mongo")) return new MongoDb();
 
  So here simply we can think of to implement the Factory Design Pattern.
-- So we need to create DatabaseFactory class (bec this class is creating different types of objects based on the
+- So we need to create DatabaseFactory class (bec this class is creating different types of database objects based on the
 input we provides)
 
 class DatabaseFactory{
@@ -54,7 +54,7 @@ class DatabaseFactory{
 
 - See now it remove code duplicacy, modifying/inserting DB won't change all the files of codebase, instead of
 violating SRP by having this DB instance's if-else logic to identify type of db and creation of DB as one of the
-responsibility in each class, we have created separate class only which will take care as a primary responsibility
+responsibility in each class/ service, we have created separate class only which will take care as a primary responsibility
 of this thing. etc etc..so many usecases.
 
 Above is known as Simple Factory Method. And this simple factory method is the most practical use case
@@ -74,7 +74,7 @@ singleton return same single object each time. So that is the main difference.
 
 Q) But lets say in case of database, the implementation itself needs a singleton, then we have to go with
 singleton + factory ryt?
-- ok so what I mean to say is suppose in the code base, we my Mysql/postgreess/mongo are singleton classes. And now
+- ok so what I mean to say is suppose in the code base, we my Mysql/postgres/mongo are singleton classes. And now
 inside Factory class, in the if condition:- if(type=="mysql") return Mysql.getInstance();
 if we do like this then?
 - Yes, we can create in this way, but then it doesn't consider exactly as Factory. I mean this is not the usecase

@@ -3,7 +3,7 @@ package org.allTopics.Behavioral.Strategy;
 /*
 What do we understand by the term Strategy? (not in terms of design pattern, but in general).
 - Plan to do something ryt.
-- Algorihm to do something.
+- Algorithm to do something.
 - Way to do something.
 
 So in the world of Computer Science, Strategy means Algorithm to do something/ Way to do something.
@@ -13,7 +13,7 @@ Now just tell me, when we are doing something, will there be only 1 way to do th
 It means can I say that, There can be multiple Strategies to do that particular thing. say yes or no? --> yes
 So this is how you should remember the Strategy Design Pattern.
 
-Means When should Strategy Design Pattern  comes to your mind?
+Means When should Strategy Design Pattern comes to your mind?
 - So whenever you see some Behavior, for which there can be potentially multiple ways to do that particular thing
 in future, you should think of it as Strategy. So Strategy is nothing but a way to do something.
 
@@ -173,7 +173,7 @@ But now, how will you use these different strategies inside your Client code/ Ap
 actually you want to plugin this code., how will you plugin this in your client code?
 - So to plugin the code, we need to use the Factory.
 
-Q) so factory in itself can be around entities( vehicle , car, bus) or it can b aroud behaviors, so strategy
+Q) so factory in itself can be around entities( vehicle , car, bus) or it can be around behaviors, so strategy
 revolves specifically around behaviors ?
 - yes, so that's what we have discussed firstly like previously what we thought is, only every entity should be a
 class ryt, behavior should not be a class, but it should be a method inside class. But with Strategy design pattern
@@ -184,7 +184,7 @@ And yes we can have a Factory for anything, anyclass.
 
 - Now as per our discussion above, our client is depending on the Strategy Interface(here RouteFindingStrategy) ryt.
 So basically I want to inject this RouteFindingStrategy. so other which design principle I should use?
--Dependency Inversion is already using above (how?--> see we are coding directly to an infterface, not to any concrete
+-Dependency Inversion is already using above (how?--> see we are coding directly to an interface, not to any concrete
 class.
 - Yes correct, so we can use Dependency Injection principle here to inject the dependency externally to the client.
 (Anyhow client ko mtlb h sirf uske pass RouteFindingStrategy type dependency hona).

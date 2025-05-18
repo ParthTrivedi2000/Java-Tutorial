@@ -40,10 +40,10 @@ public class FactoryPatternIntro {
 //    }
 
 // Note:- consider here DataBase and Query as interfaces/abstract classes, since we already learnt ryt
-// like in the cases where we can have multiple implementation at those places we should use interaface
-// instead of direct concreate implementation. Or you can understand like as per the
+// like in the cases where we can have multiple implementation at those places we should use interface
+// instead of direct concrete implementation. Or you can understand like as per the
 // Liskov's Sub. principle, we should not have direct/concrete implementation of classes since it will
-// make code tight coupled.
+// make code tightly coupled.
 
 
     /*
@@ -60,12 +60,12 @@ public class FactoryPatternIntro {
     Solution:- So yes. means think what actually is happening over here. like everytime query object is dependent
     on the db object ryt. hence we have to write multiple if else to check which db instance is there and
     correspondingly I am providing the query object. Now since query object is dependent on the db, why can't
-    we give this query object returning responsibility to the db itself. measn bhai tu hi decide kr rha h ki
+    we give this query object returning responsibility to the db itself. means bhai tu hi decide kr rha h ki
     knse type ki query chahiye muje, then tu hi create krke de de n, why us to check the same and doing extra
-    implementation evreytime (generally in almost service we require db instance so) wherever we have to use
+    implementation everytime (generally in almost service we require db instance so) wherever we have to use
     any db instance.
 
-    So since Databse is an interface and Query is also an interface.
+    So since Database is an interface and Query is also an interface.
        <<DataBase>> (having createQuery()-> return instance of query)
        _____|_____________
        |      |          |
@@ -77,7 +77,7 @@ class:MySql  Postgres  MongoDB
 class:SQLQuery   NoSQLQuery
 
 
-    - So we can have the the DataBase interface having createQuery method declaration. And each db class has
+    - So we can have the DataBase interface having createQuery method declaration. And each db class has
     to provide the implementation of it. so for example
 
     class MySql implements DataBase{

@@ -45,7 +45,7 @@ public class Client {
 
         - Next point is, always try to keep key of Hashmap of registry as the kinds of main entity.
         means for example here, we want to store different students based on Batches. so which all batches
-        types are available inside code in the form of ENUM type generally. for examle with ENUM class name
+        types are available inside code in the form of ENUM type generally. for example with ENUM class name
         of StudentBatchType.(we haven't created it in this sample code to keep it simple & understandable. But
         in normal production grade code this is the practice we are following. So in that case, always try to create
         the HashMap with <StudentBatchType, Student>.
