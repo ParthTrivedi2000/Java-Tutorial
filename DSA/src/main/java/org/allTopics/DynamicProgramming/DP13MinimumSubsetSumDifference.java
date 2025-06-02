@@ -36,8 +36,9 @@ Constraints:
 public class DP13MinimumSubsetSumDifference {
     public int minDifference(int arr[]) {
         // Your code goes here
-        // Approach - 3:- Tabulative :-
 
+        /*
+        // Approach - 3:- Tabulative :-
         int sum = 0;
         for(int elem:arr) sum+=elem;
 
@@ -71,6 +72,49 @@ public class DP13MinimumSubsetSumDifference {
             }
         }
         return mini;
+
+         */
+
+
+        // (Please read understanding from above approach as well, for clarity)
+
+        // Approach - 3:- By me, as per standard subset sum template :-
+        if(arr.length==1) return arr[0];
+
+        int totalSum = 0;
+        for(int elem:arr) totalSum+=elem;
+        int target = totalSum/2;
+
+        boolean[][] dp = new boolean[arr.length+1][target+1];
+        for(int i=0;i<=arr.length;i++){
+            for(int j=0;j<=target;j++){
+                if(j==0) dp[i][j]=true;
+                else if(i==0) dp[i][j]=false;
+                else{
+                    boolean notPick = dp[i-1][j];
+                    boolean pick = false;
+                    if(j-arr[i-1]>=0) pick = dp[i-1][j-arr[i-1]];
+                    dp[i][j] = pick||notPick;
+                }
+            }
+        }
+
+        // now till here DP table is ready which contains weather with below cells contains
+        // true or false. means what each cell represent is, weather sum=j is possible with
+        // elems 1st i elems. Now what I want is, I want with all the elems, I want sum/2 if
+        // possible. if it's not possible than just lesser than that. if not then just more
+        // lesser than that.
+        // So you can use this created dp table to know weather you can get sum or not?
+        // means just start traversing last row of your dp table (why last row only? -->
+        // bec using all the array elems we want to heck so), check from last column to
+        // 1st column, weather you get true anywhere or not. if yes, then you can return
+        // toatalSum-2*j as the answer.
+
+
+        for(int j=dp[0].length-1;j>=0;j--){
+            if(dp[dp.length-1][j]==true) return totalSum-2*j;
+        }
+        return 0;
     }
 
     // Space optimised code is remaining, please pick it from takeuforward.com
@@ -78,7 +122,7 @@ public class DP13MinimumSubsetSumDifference {
 
 /*
 yrrr see, I am having one array. I have to perform the partition such that difference between 2 partitioned subset
-should be minimum. Now means what could be the minimal idfference between any 2 numbers. 0 ryt?, so simply 1st
+should be minimum. Now means what could be the minimal difference between any 2 numbers. 0 ryt?, so simply 1st
 thought came in my mind is, suppose there is subset exists with sum=total/2, then we can say that this subset and
 subset with remaining elems can be partitioned. But now what if sum=total/2 doesn't exists? so obviously we will try
 to find the subsets with sums such that difference between the sum of them would be 1. means just mean to say that
@@ -94,6 +138,6 @@ we can say as close as possible ryt?
 
 Now see as per the subset sum question, we know the dp table we are creating, in that table what each cell is
 representing? --> dp[i][j] --> maximum possible subset such that sum=j with first i elems.
-So now just see the dp talbe's last line. what it will represent. It actually represents like by considering
+So now just see the dp table's last line. what it will represent. It actually represents like by considering
 all the given elements will you be able to make sum 0,1,2,3,4.... or not if yes, it has shown as true.
  */

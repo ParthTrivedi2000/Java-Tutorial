@@ -32,13 +32,98 @@ import java.util.Arrays;
 public class DP12CountOfSubsetWithGivenSum {
     public int perfectSum(int[] nums, int target) {
 
-        // // Approach - 2:- Memoized:- TC:- O(N*target), SC:- O(N*Target)
+        // // Approach - 1:- recursive :- TC :- O(2^N), SC:- O(N) calls inside stack space
+        // return rec(nums,target,nums.length-1);
+
+        // // Approach - 2:- Memoized:- TC:- O(N*target), SC:- O(N*Target)+ O(N)
+        /*
         int[][] dp = new int[nums.length+1][target+1];
         for(int rows[] : dp){
             Arrays.fill(rows, -1);
         }
         return memo(nums, target, nums.length-1, dp);
 
+         */
+
+
+        // // Approach - 3:- Tabulation:- TC:- O(N*target), SC:- O(N*Target)
+        /*
+        See here, please understand this, your below solution will work normally when there is no involvement of any
+        elem=0 in array. but for element with 0 value needs to be handled same way as we are handling others. why?
+        bec for elem=0, if you pick then also target remain same & if you won't pick then also target remain same. so
+        both pick & not pick is valid in that case. but if we put, dp[i][0], i.e. 1st whole column = 1, it means we
+        are explicitly saying that we are having only 1 choice for this positions which i not the case when elem=0.
+        so we need to remove that conditions and let it grow dynamically with pick & notPick options only.
+        But yes for dp[0][0], we need to put 1 bec that will fail if we start with i=0 since we are accessing arr[i-1].
+         */
+
+        /*
+        int[][] dp = new int[nums.length+1][target+1];
+        dp[0][0] = 1;
+        for(int i=1;i<=nums.length;i++){
+            for(int j=0;j<=target;j++){
+                // if(j==0) dp[i][j]=1;
+                // else if(i==0) dp[i][j]=0;
+                // else{
+                int notPick = dp[i-1][j];
+                int pick=0;
+                if(j-nums[i-1]>=0) pick = dp[i-1][j-nums[i-1]];
+                dp[i][j] = pick+notPick;
+                // }
+            }
+        }
+        return dp[nums.length][target];
+
+         */
+
+
+        // Approach - 4:- Space Optimised version :- Using 2 1D array
+        // TC:- O(N*target), SC:- O(2*target)
+        /*
+        int[] prev = new int[target + 1];
+        prev[0] = 1; // base case: sum == 0 is always true
+        for (int i = 1; i <= nums.length; i++) {
+            int[] curr = new int[target + 1];
+            for (int j = 0; j <= target; j++) {
+                int notPick = prev[j];
+                int pick = 0;
+                if (j - nums[i - 1] >= 0)
+                    pick = prev[j - nums[i - 1]];
+                curr[j] = pick + notPick;
+            }
+            prev = curr; // Move to the next row
+        }
+        return prev[target];
+
+         */
+
+
+        // Approach - 5:- Using single 1D array.
+        // TC:- O(N*target), SC:- O(target)
+
+        int[] dp = new int[target + 1];
+        dp[0] = 1;
+        for(int i = 0; i < nums.length; i++) {
+            for (int j = target; j >= nums[i]; j--) {
+                dp[j] = dp[j] + dp[j - nums[i]];
+            }
+        }
+        return dp[target];
+    }
+
+    private int rec(int[] arr, int cap, int idx){
+        if(idx==0){
+            if(cap==0 && arr[idx]==0) return 2;
+            if(cap==0 || cap-arr[idx]==0) return 1;
+            else return 0;
+        }
+
+        if(idx<0 || cap<0) return 0;
+
+        int notPick = rec(arr,cap,idx-1);
+        int pick=0;
+        if(cap-arr[idx]>=0) pick=rec(arr,cap-arr[idx],idx-1);
+        return notPick+pick;
     }
 
     private int memo(int[] nums, int target, int end, int[][] dp){
@@ -65,7 +150,6 @@ public class DP12CountOfSubsetWithGivenSum {
         if(target-nums[end]>=0) pick = memo(nums,target-nums[end], end-1,dp);
         return dp[end][target] = pick+notPick;
     }
-
 }
 
 /*

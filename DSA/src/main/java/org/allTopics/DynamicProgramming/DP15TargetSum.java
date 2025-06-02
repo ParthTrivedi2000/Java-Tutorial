@@ -34,7 +34,7 @@ Constraints:
 
  */
 
-// Intution :-
+// Intuition :-
 /*
 - So here what we need to do is, we have to use +,-  operators to get the target sum by using given array elems.
 Now means see, suppose I am having arr=[1,1,2,3], target=1. Now I can use +,- signs to get the target. Now see i can
@@ -46,7 +46,7 @@ So if you observe carefully, we can group elems with + signs together & elems wi
 for above 1st combination:- 1,1,2 and 3, same for 2nd combination:- 1,3 & 1,2.
 - So with above observation, try to think how with which question it is related to the problems we did so far.
 - Exactly, it looks similar (not even similar, I can say same as the question of partition with given difference ryt?
-- means we just have do partition of the elems in such a manner that differece = target, then I can put + sign to
+- means we just have do partition of the elems in such a manner that difference = target, then I can put + sign to
 the 1st partition & - sign to the another partition.
 - So solution is exact same code of above partition array to get the given difference problem.
  */

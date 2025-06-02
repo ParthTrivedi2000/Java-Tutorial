@@ -16,7 +16,7 @@ Then obviously agr koi question m longest common chahiye from 2 strings, to hm w
 - So again base case would be same. Smallest Minimum Input for index i & j would be 0.
 Then Initialization is also done in the same way as LCS. (put 0 for the 1st row & 1st col in dp)
 
-- Now inside code, previously what happen if s1 = abcde, s2 = abfce ==> then we are basically addin + to our count
+- Now inside code, previously what happen if s1 = abcde, s2 = abfce ==> then we are basically adding + to our count
 irrespective of those matching characters are continuous or not. But here if they are matching, then same as before
 we will keep on increasing count, but if not, then we have to start counting again correct, means simply we can again
 make count as 0 in case of != strings, so that whenever next time same character mile to again count will be started

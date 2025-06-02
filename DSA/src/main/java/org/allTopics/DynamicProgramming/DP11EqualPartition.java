@@ -109,4 +109,84 @@ public class DP11EqualPartition {
         dp[end][sum] = (pick||notPick)==false?-1:-2;
         return pick||notPick;
     }
+
+
+
+
+    // Please check below codes. perfectly working fine with booleans and with our template of knapsack.
+    // means instead of boolean --> use Boolean bec Boolean
+    // arrays having default values as null while boolean array having default values as false.
+    /*
+
+    static boolean equalPartition(int arr[]) {
+        // code here
+        int sum = 0;
+        for(int elem:arr) sum+=elem;
+        if(sum%2!=0) return false;
+
+        // // Approach - 1:- recursive
+        // return rec(arr,sum/2,arr.length-1);
+
+        // // Approach - 2:- Memoised
+        // Boolean[][] dp = new Boolean[arr.length+1][sum/2+1];
+        // return memoised(arr,sum/2,arr.length-1,dp);
+
+        // Approach - 3:- Tabulation
+        Boolean[][] dp = new Boolean[arr.length+1][sum/2+1];
+        for(int i=0;i<=arr.length;i++){
+            for(int j=0;j<=(sum/2);j++){
+                if(j==0) dp[i][j]=true;
+                else if(i==0) dp[i][j]=false;
+                else{
+                    boolean notPick = dp[i-1][j];
+                    boolean pick=false;
+                    if(j-arr[i-1]>=0) pick = dp[i-1][j-arr[i-1]];
+                    dp[i][j]=pick||notPick;
+                }
+            }
+        }
+        return dp[arr.length][sum/2];
+
+    }
+
+    private static boolean rec(int[] arr, int cap, int idx){
+        if(idx==0){
+            if(cap==0) return true;
+            else return false;
+        }
+
+        if(idx<0) return false;
+        if(cap<0) return false;
+
+        boolean notPick = rec(arr,cap,idx-1);
+        boolean pick = false;
+        if(cap>=arr[idx]) pick = rec(arr,cap-arr[idx],idx-1);
+        return pick || notPick;
+    }
+
+    private static boolean memoised(int[] arr, int cap, int idx, Boolean[][] dp){
+        if(idx==0){
+            if(cap==0){
+                dp[idx][cap]=true;
+                return true;
+            }
+            else return false;
+        }
+
+        //sanity chekc
+        if(idx<0 || cap<0) return false;
+
+        // dp check
+        if(dp[idx][cap] != null) return dp[idx][cap];
+
+        // rec calls
+        boolean notPick = memoised(arr,cap,idx-1,dp);
+        boolean pick=false;
+        if(cap-arr[idx]>=0) pick = memoised(arr,cap-arr[idx],idx-1,dp);
+        dp[idx][cap] = pick||notPick;
+        return pick||notPick;
+    }
+
+     */
+
 }

@@ -46,14 +46,14 @@ based on previously stored results.
 - DP table :- it is nothing but simply DP array.
 - DP State :- DP state is nothing but the place at which you got final answer. i.e. here in fibonacci problem you have
 returned the DP[n] ie. DP[5]. So DP[n] is DP state. bec sometimes you will see in some other problems ki you are
-geting final answer on DP[0] or DP[N-1] something, So the place at which I am getting final answer to return the result
+getting final answer on DP[0] or DP[N-1] something, So the place at which I am getting final answer to return the result
 is called DP State. means wese to every cell is called DP State.
 So just redefining, state is every cell of DP array is DP state. i.e here DP[i] is a state. But in case of 2D array
 problems DP[i] is not state of DP ryt, DP[i][j] is the state of DP. bec it is the one which is representing a single
 cell in DP.
 
 - DP Expression :- is simply nothing but whatever expr we are using in iterative approach to compute the current ith
-value from previousy calculated values. for examp:- for fibbo problem DP expr :- DP[i] = DP[i-1] + DP[i-2].
+value from previously calculated values. for examp:- for fibbo problem DP expr :- DP[i] = DP[i-1] + DP[i-2].
 
 
 Note :- After above discussion, just recalling you, like previously also we have used the DP just unknowingly as just
