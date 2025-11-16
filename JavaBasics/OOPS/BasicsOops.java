@@ -306,7 +306,7 @@ class D{
 // and also can reference the parent class's methods as well.
 
 // Note:- Always remember one thing that, even child class can inherit all from parent class, but child class won't be
-// able to access private members of parent class since private member meant to be accessible withing the current same
+// able to access private members of parent class since private member meant to be accessible within the current same
 // class only. Not for any other class. If you want that member to be accessible by child class as well, then you need
 // to change modifiers from private to protected for those members.
 
@@ -495,13 +495,13 @@ class Account{
 
 // Advantages :-
 // - Security
-// - Enhancement is very easy without effecting outside person or client side appliaction or GUI.
+// - Enhancement is very easy without effecting outside person or client side application or GUI.
 // - Manintanability
 // - Modularity
 
 // Drawbacks :-
 // - for every data member, we will be having getters and setter methods to call from client side. and also we have to 
-// perform validation in all those methods. it measn code becomes very lengthy as we have to do it for each nd every data member.
+// perform validation in all those methods. it means code becomes very lengthy as we have to do it for each nd every data member.
 // so it increases length of the code and slows down the execution. so performance is down.
 
 // Tightly Encapsulated Class :- 

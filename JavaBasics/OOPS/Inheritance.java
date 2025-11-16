@@ -52,7 +52,7 @@ class B extends class A {}
 
 // 2) Multiple Inheritances :-
 // The process of extending more than 1 parent class at a time such type of inheritance is known as Multiple Inheritance.
-// Java won't provide support for multiple inheritances for classes. why that we will discuss later. but yes interfaces in java is
+// Java won't provide support for multiple inheritances for classes. why that we will discuss later. but yes interfaces in java
 // is providing support for multiple inheritances. 
 class C extends A,B {} // Compilation error.
 
@@ -168,7 +168,7 @@ class A extends B{};
 class B extends A{};  // Compilation Error
 // Bec what does it means is child class A requires all data members and methods of parent class B. and below line's
 // meaning is class B requires all the data members and methods of parent class A. Now if all the data members and 
-// methods are commonly requried then create once class only n why to create 2 classes.
+// methods are commonly required then create once class only n why to create 2 classes.
 // So java doesn't support cyclic Inheritance. even almost none of the languages support this type of cyclic inheritance. Not
 // Python as well.
 
@@ -268,7 +268,7 @@ class Test{
         // both can be different ryt. like P p = new Test(). so here reference type of object p is 'P' but runtime
         // object type is 'Test' ok.)
         t.m1(); // void type arg
-        t.m1(10); //int type method will be called hence o/p wolud be int type arg.
+        t.m1(10); //int type method will be called hence o/p would be int type arg.
         t.m1(10.5); // double type method will be called. hence i/p would be double type arg.
 
         // So how resolution of method calls will be done in these cases are based on the object's reference type(here
@@ -316,7 +316,7 @@ class Test{
 // nd check. After checking all levels if nothing is present then only it will raise an C.E.
 t.m1('a'); // o/p:- int type arg
 t.m1(7L); // o/p:- float type arg (as long type method is not available hence promoted to float type and it exists so it will be executed)
-t.m1(10.5) // Compilation Error. 
+t.m1(10.5); // Compilation Error. 
 // bec 10.5 is by default double type in java ryt. now double type method is not available, so compiler
 // tried to promote it's data type bt next promotion data type is also not avialble so now compiler will raise C.E.
 }
@@ -440,7 +440,7 @@ Class Test{
         t.m1(10,10);
     }
 // What would be output in above case?
-// So 1st thing is we haven't eaxct match m1(int,int) ryt. so now we can think of compiler is promoted to 2nd int to float and 
+// So 1st thing is we haven't exact match m1(int,int) ryt. so now we can think of compiler is promoted to 2nd int to float and 
 // int float version will be printed. or compiler can promote 1st int to float and float-int version will be printed. So
 // again in this case compiler is confused as it is not able to found the matched method hence it will give C.E. with
 // this err msg: reference to m1 is ambiguous to identify.
@@ -491,7 +491,7 @@ class Test{
 // So as we know parent class methods are by default available to child class by using concept of inheritance. So methods
 // are available to child without re writing. But sometimes what happens is child is not satisfied with the implementation
 // of method of parent class. so child class is allowed to redefine the implementation of methods as per it's requirement. This concept
-// is known as 'Oveririding'. The method of parent which is overridden is known as 'Overridden Method'. And the method in child
+// is known as 'Overriding'. The method of parent which is overridden is known as 'Overridden Method'. And the method in child
 // which is overriding the parent's method is known as 'Overriding Method'.
 
 // Now how Method Resolution will work in Overriding?
@@ -606,7 +606,7 @@ class C extends P{
 // what would be the output for above lines?
 // So compiler give CE. as m1 method is private so it can't accessible outside that class itself. so it will give CE.
 
-// Conclusion :- Private methods are not visible to child classes. hence 'Overriding concept' is not applicatble for
+// Conclusion :- Private methods are not visible to child classes. hence 'Overriding concept' is not applicable for
 // 'private methods'. but yes certainely we can create the same private method in the child class as well.
 
 // So above analysis is for 'private modifier'. Now let's check for 'final modifier'.
@@ -621,7 +621,7 @@ class C extends P{
 // modifiable. So child can't redefine it. Hence 'Overriding Concept' is not applicable for 'final modifier' as well. So another
 // question might be like parent is having that method 'final' and in child also I am re defining the same method with 'final'
 // then also compiler will give CE. bec once it is declared as 'final' in parent, it could not be redefinable ok.
-// But yes if reverse was the case, like parent was having non-final method and ten child is overriding it as 
+// But yes if reverse was the case, like parent was having non-final method and then child is overriding it as 
 // final then it will work fine. there is no CE.
 
 // 'Abstract Modifier'
@@ -693,7 +693,7 @@ class C extends P{
     public void m1(){}
 }
 //  what about this case?
-// so for this case we are incresing the scope. bt rule is we can't decrese the scope but here we are increasing the scope.
+// so for this case we are increasing the scope. bt rule is we can't decrease the scope but here we are increasing the scope.
 // so this is also perfectly fine. and compiler won't give CE.
 
 // Parent method modifier :- public
