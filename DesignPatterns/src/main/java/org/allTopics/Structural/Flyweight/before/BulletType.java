@@ -1,4 +1,4 @@
-package org.allTopics.Structural.Flyweight.after;
+package org.allTopics.Structural.Flyweight.before;
 
 public enum BulletType {
     FIVE,

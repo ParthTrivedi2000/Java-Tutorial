@@ -16,7 +16,7 @@ public class AbstractFactoryPattern {
     depends on the DataBase object.
     Now just think, for each of this 3 dependent objects you have to write 3 times if else for the same
     value of db bec since you can't have single if like db==MySQL and generate all the 3 instance, bec since
-    other query can have other transaction/updator instance support as well means think about different compbinations
+    other query can have other transaction/updator instance support as well means think about different combinations
     between above 3 dependent objects, that much classes we have to create. so inshort you need to have
     if else for each of these 3 dependent objects.
 
@@ -64,7 +64,7 @@ public class AbstractFactoryPattern {
         then in java we don't have concept of multiple inheritance.
         - Another thing is, those concrete classes will still be bloated ryt. means anyhow they have to
         unnecessarily override all the methods.
-        - So as discussed we are having DataBaseFactory, and we can have it'e concrete implementation classes
+        - So as discussed we are having DataBaseFactory, and we can have it's concrete implementation classes
         separately, like mysqlfactory, postgresqlfactory and mongodbfactory.
 
         - Now if you think mySql class to inherits the mysqlFactory class, then here there is some missing concept.
@@ -77,7 +77,7 @@ public class AbstractFactoryPattern {
 
         - Now see requirement is mysql needs it's corresponding factory method, same postgres needs only
         it's corresponding factory and same for others if exists. but we have completely moved factory in
-        some another place. then how to provide only mysql factory to mysql, postgresfactory to postgres?
+        some another place. then how to provide only mysql factory to mysql, postgres factory to postgres?
 
         - So yes we can have createFactory() -> {returns Factory} in the DataBase Interface/Abstract class
         which concrete class needs to implement. So now inside mySql implementation class, it can provide
@@ -112,8 +112,8 @@ public class AbstractFactoryPattern {
         you are creating button like createButton() method, then it depends on what's the value of Platform
         object. And based on it you have to define. same for Menu component. same for dropdown. so all these
         objects are dependent on Platform's object. So here we can use the Factory design pattern in which we
-        will be having Pattern abstract class which is implemented by Android and IOS. And platform class having
-        abstract method of createUIFactory() method which needs to be implemented by concrete classes. And
+        will be having Platform abstract class which is implemented by Android and IOS. And platform class having
+        abstract method of createUIComponentFactory() method which needs to be implemented by concrete classes. And
         there will <<UIComponentFactory>> which was having createButton(), createMenu(), createDropdown() etc
         etc...which will be implemented by AndroidFactory and IOSFactory classes.
 

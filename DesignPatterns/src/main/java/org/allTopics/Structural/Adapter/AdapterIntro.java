@@ -92,12 +92,12 @@ you’re integrating legacy systems or working with third-party libraries, the A
 to ensure compatibility and reusability in your software projects.
 
 
-Reference :-
+Reference (Please read more about it):-
 1) https://medium.com/@akshatsharma0610/adapter-design-pattern-in-java-fa20d6df25b8
 2) https://www.baeldung.com/java-adapter-pattern
 3) https://www.scaler.com/topics/design-patterns/adapter-design-pattern/
 4) https://refactoring.guru/design-patterns/adapter/java/example
-
+5) https://qbalsdon.github.io/patterns/programming/adapter/android/kotlin/focus/2020/11/19/adapter-pattern.html
  */
 
 public class AdapterIntro {

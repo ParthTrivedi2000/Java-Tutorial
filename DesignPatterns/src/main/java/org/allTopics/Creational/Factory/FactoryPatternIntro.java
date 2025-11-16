@@ -5,7 +5,7 @@ public class FactoryPatternIntro {
     - Again it is one the creational design patterns.
     - There are mainly 3 design patterns for factory.
         - Simple Factory Design
-        - Factory Design
+        - Factory Method Design
         - Abstract Factory Design
 
     Generally in everywhere you will be seen Simple Factory Design only. But for high level codebase

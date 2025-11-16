@@ -468,4 +468,11 @@ Serialization: Use readResolve() to return the existing instance.
 Cloning: Override clone() to prevent cloning.
 Class Loaders: Use an Enum Singleton for safety.
 Ensuring a robust Singleton requires addressing these vulnerabilities to truly guarantee a single instance.
+
+
+Read More about Singleton:-
+- https://en.wikipedia.org/wiki/Double-checked_locking
+- https://www.baeldung.com/java-singleton-double-checked-locking
+- https://poltora.info/blog/all-you-want-to-know-about-singleton/
+
  */

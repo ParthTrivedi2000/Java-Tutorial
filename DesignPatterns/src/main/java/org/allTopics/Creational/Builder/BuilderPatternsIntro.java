@@ -74,6 +74,14 @@ The Builder Design Pattern is an effective creational pattern frequently used in
 handle complex object creation processes. It provides an elegant approach for managing construction, validation,
 and the immutability of objects, making code more readable, maintainable, and flexible.
 
+
+Read More :-
+- Telescoping Constructor Anti Pattern :- https://www.vojtechruzicka.com/avoid-telescoping-constructor-pattern/
+- Why Objects should be immutable? :- https://octoperf.com/blog/2016/04/07/why-objects-must-be-immutable
+- Builder Pattern variants :- https://blog.ploeh.dk/2020/02/17/builder-as-a-monoid/
+- Builder Isomorphisms :- https://blog.ploeh.dk/2020/02/10/builder-isomorphisms/
+
+
  */
 
 }

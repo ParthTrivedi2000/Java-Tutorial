@@ -26,6 +26,9 @@ they are creating those objects and placed inside the registry ( in spring langu
 and then they return it whenever it's needed. So inshort concept is same means to store object somewhere & use
 it later whenever it's needed.
 
+The registry can be implemented as a key-value store where the key is the name of the prototype and the value is the
+prototype object.
+
  */
 
 public class RegistryIntro {
