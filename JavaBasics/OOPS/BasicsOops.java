@@ -28,21 +28,21 @@ class D{
 
 class A{
     public static void main(String[] args)
-    (
-        System.out.println ('A class main method');
-    )
+    {
+        System.out.println ("A class main method");
+    }
 }
 class B{
     public static void main(String[] args)
-    (
-        System.out.println ('B class main method');
-    )
+    {
+        System.out.println ("B class main method");
+    }
 }
 class C{
     public static void main(String[] args)
-    (
-        System.out.println ('C class main method');
-    )
+    {
+        System.out.println ("C class main method");
+    }
 }
 class D{
     
@@ -50,7 +50,7 @@ class D{
 
 // - next thing is now suppose our program has 4 classes A, B, C and D. And consider A, B, and C classes contains main method and class D 
 // doesn't have main method. And I have named this program file as Parth.Java. So whenever we complie or run 
-// our program file it means java source file, it will always generate    .Class file for each class available inside it. 
+// our program file it means java source file, it will always generate    .Class file (Bytecode) for each class available inside it. 
 // - now if we run A.Class file then, only A class ki main method execute hogi. Same B.Class file run krne pe B class ki Main method run hogi. 
 // Same for class C as well. Now whenever we run D.Class file, java will give error saying something:- class doesn't have any Main method 
 // to execute. Please define it. 
@@ -96,7 +96,7 @@ class D{
 // String s = new String() 
 // So i don't have to explicitly import it bt by default it is available to use as almost all the java program requires it so. 
 
-// - 2nd is : default package:- it means from Cureent Working Directory. 
+// - 2nd is : default package:- it means from Current Working Directory. 
 // it means if I am having another package or .java file placed inside the same folder then I can direclty 
 // utilize it's class in my file. I don't need to explicitely import it.
 
@@ -443,11 +443,11 @@ class Account{
     private double balance;
     // So above you have hide the balance data from everyone. private declared means only accessible for internal use.
     // now suppose person wants to know balance of his account how he came to know? he must have call the method which
-    // is available as 'public'. and we have to provide the valiadtion or authentication in that method, then if it's
+    // is available as 'public'. and we have to provide the validation or authentication in that method, then if it's
     // valid then only we have to return the balance.
     public double getBalance(){
         // Validation or Authentication code
-        if valid 
+        if(valid) 
             return balance;
     }
 }

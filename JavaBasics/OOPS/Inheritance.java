@@ -4,21 +4,21 @@ public class Inheritance {
     // - by using 'extends' keyword, we can implements the inheritance concept.
 
 
-}
+
 
 class P{
-    public void p1(){
+    public void m1(){
         System.out.println("Parent");
     }
 }
 // When we use extends keyword, all the methods and variables of parent class are available to the child class as well.
 // this concept is known as Inheritance.
 class C extends P{
-    public void p2(){
+    public void m2(){
         System.out.println("Child");
     }
 }
-Class Test{
+class Test{
     public static void main(String args[]){
         P p = new P();
         p.m1(); // Will work
@@ -33,12 +33,12 @@ Class Test{
 
         // 2nd imp conclusion :-  Parent reference can be used to hold the child object. but remember we can't call the child
         // specific methods and variables on parent referenced object.
-        P p = new C();
-        p.m1(); // Will work
-        p.m2(); // Compilation Error
+        P p1 = new C();
+        p1.m1(); // Will work
+        p1.m2(); // Compilation Error
 
         // 3rd Conclusion :- Child reference can not be used to hold the parent object.
-        C c = new P(); // Compilation Error
+        C c1 = new P(); // Compilation Error
     }
 }
 
@@ -48,13 +48,13 @@ Class Test{
 // 1) Single Inheritance :-
 // If only one child class extends only one parent class then, this is known as Single Inheritance.
 // All the languages are providing support for this type of inheritance.
-class B extends class A {}
+class B extends A {}
 
 // 2) Multiple Inheritances :-
 // The process of extending more than 1 parent class at a time such type of inheritance is known as Multiple Inheritance.
 // Java won't provide support for multiple inheritances for classes. why that we will discuss later. but yes interfaces in java
 // is providing support for multiple inheritances. 
-class C extends A,B {} // Compilation error.
+// class C extends A,B {} // Compilation error.
 
 // 3) Multi Level Inheritance :- 
 class B extends A {}
@@ -64,7 +64,7 @@ class C extends B {}
 // It is counter part of Multiple Inheritance.
 // In multiple Inheritance we can have multiple parent classes extended by 1 child class ryt. but in Hierarchical Inheritance
 // 1 parent class is extended by more than 1 child classes.
-// Java is supporting this type of inhritance.
+// Java is supporting this type of inheritance.
 class A{}
 class B extends A{}
 class C extends A{}
@@ -193,18 +193,21 @@ class B extends A{};  // Compilation Error
 class Test{
     public void m1(int i){};
     public void m2(String s){};
+
+    public static void main(String[] args) {
+        Test t = new Test();
+        t.m1(10);
+        t.m2("Parth");
+    }
 }
-Test t = new Test();
-t.m1(10);
-t.m2('Parth');
 
 // So above we have 2 method calls. so how compiler will compile it?
 // Pls understand very carefully. So for every Class compiler will maintain the Method table. and in Method table it stores
 // the Method Signature. so in above case Compiler is having one Method Table:-
 // which contains 2 rows. in 1st row, m1(int) was written and in 2nd raw m2(String) was written. Now whenever compiler will
 // be having object creation nd then after object creation whenver it will be having any method call then how it will be resolving.
-// so it will be check like this. here m1 is called by object t ryt? so which type of object t is? it is of type T ryt.
-// so it will go to class T's Method Table. so it will check like is there any method m1 available in Method Table of class T
+// so it will be check like this. here m1 is called by object t ryt? so which type of object t is? it is of type Test ryt.
+// so it will go to class Test's Method Table. so it will check like is there any method m1 available in Method Table of class Test
 // which can take argument of int type. So if m1 will present and it's argument type matches with the called method then it will
 // not give any error and move ahead and compiled successfully. else it will give appropriate error.
 
@@ -247,16 +250,16 @@ class Test{
 // developer.
 class Test{
     public void m1(){
-        System.out.println('void type arg')
+        System.out.println("void type arg");
     }
-    public void m1(int){
-        System.out.println('int type arg')
+    public void m1(int i){
+        System.out.println("int type arg");
     }
-    public void m1(long){
-        System.out.println('long type arg')
+    public void m1(long l){
+        System.out.println("long type arg");
     }
-    public void m1(double){
-        System.out.println('double type arg')
+    public void m1(double d){
+        System.out.println("double type arg");
     }
     // So from defination discussed above, we can say that above methods are said to be 'Overloaded Methods' as 
     // all of them are having same method name and different argument data type.
@@ -271,7 +274,7 @@ class Test{
         t.m1(10); //int type method will be called hence o/p would be int type arg.
         t.m1(10.5); // double type method will be called. hence i/p would be double type arg.
 
-        // So how resolution of method calls will be done in these cases are based on the object's reference type(here
+        // So how resolution of method calls will be done in these cases are based on the Object's Reference Type(here
         // it it type 'Test' and the Method Signature it means method name and data type of passed arguments.) and
         // the method with the arguments' data type.
 
@@ -289,18 +292,18 @@ class Test{
     
 // Case - 1 :- 
 class Test{
-    public void m1(int){
-        System.out.println('int type arg')
+    public void m1(int i){
+        System.out.println("int type arg");
     }
-    public void m1(float){
-        System.out.println('float type arg')
+    public void m1(float f){
+        System.out.println("float type arg");
     }
     public static void main(String[] args){
         Test t = new Test();
         t.m1(10); // int type arg
         t.m1(10.5f); // float type arg
         t.m1('a');
-    }
+    
 // Now what compiler will do in the above case?
 // So compiler won't give directly Compilation Error. 
 // So in 'Overloading', if exact match method is not available then compiler won't raise Compilation Error immediately, 1st
@@ -319,22 +322,23 @@ t.m1(7L); // o/p:- float type arg (as long type method is not available hence pr
 t.m1(10.5); // Compilation Error. 
 // bec 10.5 is by default double type in java ryt. now double type method is not available, so compiler
 // tried to promote it's data type bt next promotion data type is also not avialble so now compiler will raise C.E.
+    }
 }
 
 
 // Case - 2 :-
-Class Test{
+class Test{
     public void m1(Object o){
-        System.out.println('Object Version');
+        System.out.println("Object Version");
     }
     public void m1(String s){
-        System.out.println('String Version');
+        System.out.println("String Version");
     }
     public static void main(String[] args){
         Test t = new Test();
 
         t.m1(new Object()); // Object Version
-        t.m1('Parth');  // String Version
+        t.m1("Parth");  // String Version
         // Bec we know in Overloading exact match will be having highest priority ryt. So above will be my o/p.
         t.m1(null);
     }
@@ -364,15 +368,15 @@ Class Test{
 // Case - 3 :-
 class Test{
     public void m1(String s){
-        System.out.println('String Version');
+        System.out.println("String Version");
     }
     public void m1(StringBuffer sb){
-        System.out.println('StringBuffer Version');
+        System.out.println("StringBuffer Version");
     }
     public static void main(String[] args){
         Test t = new Test();
-        t.m1('Parth'); // String Version
-        t.m1(new StringBuffer('Parth')); // StringBuffer Version
+        t.m1("Parth"); // String Version
+        t.m1(new StringBuffer("Parth")); // StringBuffer Version
         t.m1(null);
     }
 // What would be the output for above case?
@@ -394,10 +398,10 @@ class Test{
 // Case - 4 :-
 class Test{
     public void m1(int i){
-        System.out.println('General Version');
+        System.out.println("General Version");
     }
     public void m1(int... i){
-        System.out.println('Variable arg Version');
+        System.out.println("Variable arg Version");
         // in case of variable argument you can pass any number of arg. 0,1,2,3...etc any. So m1(), m1(5), m1(6,4)... all are valid
     }
     public static void main(String[] args){
@@ -423,12 +427,12 @@ class Test{
 
 
 // Case - 5 :-
-Class Test{
+class Test{
     public void m1(int i, float f){
-        System.out.println('int-float Version');
+        System.out.println("int-float Version");
     }
     public void m1(float f, int i){
-        System.out.println('float-int Version');
+        System.out.println("float-int Version");
     }
     // 1st of all can we say above 2 methods as overloaded? so from the defination of overloading if method is having same
     // name but with different argument types. so here name is same and arguments types are not exact same. means sequence
@@ -438,7 +442,7 @@ Class Test{
         t.m1(10,10.5F); // int-float version
         t.m1(10.5F,10); // float-int version
         t.m1(10,10);
-    }
+    
 // What would be output in above case?
 // So 1st thing is we haven't exact match m1(int,int) ryt. so now we can think of compiler is promoted to 2nd int to float and 
 // int float version will be printed. or compiler can promote 1st int to float and float-int version will be printed. So
@@ -450,6 +454,7 @@ t.m1(10.5F,10.5F); // C.E. with msg: cannot find Symbol like m1(float, float)
 // so pls understand the reason of error. in above 1st case, both the methods are matches hence giving C.E. bt in 2nd case
 // this type of method is not found as float can not be promoted to int so it will be check as it is m1(float,float) which
 // is not present so give C.E.
+    }
 }
 
 
@@ -458,10 +463,10 @@ class Animal{}
 class Monkey extends Animal{}
 class Test{
     public void m1(Animal a){
-        System.out.println('Animal Version');
+        System.out.println("Animal Version");
     }
     public void m1(Monkey m){
-        System.out.println('Monkey Version');
+        System.out.println("Monkey Version");
     }
     public static void main(String[] args){
         Test t = new Test();
@@ -497,20 +502,20 @@ class Test{
 // Now how Method Resolution will work in Overriding?
 class Parent{
     public void property(){
-        System.out.println('Cash + Gold + Land');
+        System.out.println("Cash + Gold + Land");
     }
     public void marry(){
-        System.out.println('Subblaxmi');
+        System.out.println("Subblaxmi");
     }
 }
 
 class C extends Parent{
     public void marry(){
-        System.out.println('Kiara');
+        System.out.println("Kiara");
     }
 }
 
-Class Test{
+class Test{
     public static void main(String[] args){
         Parent p = new Parent();
         p.marry();  // Parent class's method will be priority and executed.
@@ -738,7 +743,7 @@ class C extends P{
 
 // 2) P : public void m1() 
 //    C : public void m1() throws Exception
-// Invalid. as child has exception b parent has not thrown any exception so compiler will give CE.
+// Invalid. as child has exception but parent has not thrown any exception so compiler will give CE.
 
 // 3) P : public void m1() throws Exception
 //    C : public void m1() throws Exception
@@ -819,12 +824,12 @@ class C extends P{
 // What is the difference between 'Overriding' and 'Method Hiding'?
 class P{
     public static void m1(){
-        System.out.println('Parent');
+        System.out.println("Parent");
     };
 }
 class C extends P{
     public static void m1(){
-        System.out.println('Child');
+        System.out.println("Child");
     };
 }
 class Test{
@@ -863,12 +868,12 @@ class Test{
 // Overriding w.r.t var-arg methods :-
 class P{
     public void m1(int... i){
-        System.out.println('Parent');
+        System.out.println("Parent");
     }
 }
 class C extends P{
     public void m1(int i){
-        System.out.println('Child');
+        System.out.println("Child");
     }
 }
 class Test{
@@ -882,7 +887,7 @@ class Test{
         P p1 = new C();
         p1.m1();
 // So in these cases what happens is, we were having var arg method in parent. but in child we can see we don't have
-// the var arg method. it means method name is same but arg types are different. it menans in these case, it is not called
+// the var arg method. it means method name is same but arg types are different. it means in these case, it is not called
 // 'Method Overriding concept'. But it is called 'Method Overloading Concept'. So o/p in above case would be based on
 // Reference Type it means 'Parent'.
     }
@@ -904,10 +909,10 @@ class Test{
 // So pls pls remember this thing, Variable Resolution always takes care by compiler, and that is based on the 
 // 'Reference Type'. And this rule is same for weather the variable is Instance variable or static variable.
 class P{
-    String s = 'Parent';
+    String s = "Parent";
 }
 class C extends P{
-    String s = 'Child';
+    String s = "Child";
 }
 // here both the declared variables are 'Instance Variable'. but rule is same for Instance or Static Variale. like 
 // Variable Resolution is done by Compiler and based on the Reference Type.
@@ -924,10 +929,10 @@ class Test{
 // And above concept of defining same variable in the Child Class is known as 'Variable Hiding' or 'Shadowing'.
 
 class P{
-    static String s = 'Parent';
+    static String s = "Parent";
 }
 class C extends P{
-    String s = 'Child';
+    String s = "Child";
 }
 class Test{
     public static void main(String[] args){
@@ -964,8 +969,8 @@ class Test{
 
 // Object Typecasting :- it is also very important but confusive topic. we know how to typecast primitive types. so let's
 // learn now for Object types.
-Object o = new String('Patrh');
-StringBuffer sb = (StringBuffer) o;
+Object o1 = new String("Patrh");
+StringBuffer sb1 = (StringBuffer) o1;
 // Above is valid or not? 
 // So lets learn 3 rules for Object Typecasting.
 
@@ -983,8 +988,8 @@ StringBuffer sb = (StringBuffer) o;
 // So type of 'd' and type of 'C' must have some relationship ok. either parent to child or child to parent or have the
 // same type. If there are not relationship between them then compiler will give CE. with msg:- inconverteble type
 // for examp:-
-String s = new String('Parth');
-StringBuffer sb = (StringBuffer) s;
+String s = new String("Parth");
+StringBuffer sb2 = (StringBuffer) s;
 // will give CE. as there is no any relationship between String type and StringBuffer.
 
 // Compiler Check - 2 :-
@@ -992,19 +997,19 @@ StringBuffer sb = (StringBuffer) s;
 // when can we say it legal?
 // So as per above syntax, type 'C' should be either same as 'A'. or 'C' should be child type of 'A'.
 // If this both conditions met then 100% code will compiled successfully.
-Object o = new String('Patrh');
-StringBuffer sb = (String) o;
+Object o3 = new String("Patrh");
+StringBuffer sb3 = (String) o3;
 // will give CE. as 1st condition satisfied. but 2nd condition is not satisfied as Sting type is not same as StringBuffer nor 
 // child of StringBuffer.
 
 // JVM Check :- 'Run time object type' of 'd' must be same as 'C' or it's child type. else we will get the RE (Run time exception)
 // with msg:- CCE (Class Cast Exception).
-Object o = new String('Patrh');
-StringBuffer sb = (StringBuffer) o;
+Object o4 = new String("Patrh");
+StringBuffer sb4 = (StringBuffer) o4;
 // so for this case, it will compile successfully. but it will give RE. as run time object type of o is String
 // which is not same or child type of StringBuffer.
 
-Object o = new String('Patrh');
+Object o = new String("Patrh");
 String sb = (String) o;
 // Compile successfully and also run successfully and code go for execution of next lines in program.
 
@@ -1014,20 +1019,20 @@ String sb = (String) o;
 // 2) Because of Object Typecasting, we are not going to create any new Object in heap memory. For the existing object we
 // are trying to provide new reference variable. So after typecasting mutiple or more than 1 reference variable are pointing
 // out to the same Object which presents in heap memory.
-String s = new String("parth")
-Object o = (Object)s
+String str = new String("parth");
+Object obj = (Object) str;
 // to check it you can System.out.println(s==o); // in java double equals sign will return true only if both the operand is
 // referencing to the same object in the memory. double equals sign is used for Reference comparison.
 
-// Q) guess th o/p.
+// Q) guess the o/p.
 class P{
     public void m1(){
-        System.out.println('Parent');
+        System.out.println("Parent");
     }
 }
 class C extends P{
     public void m2(){
-        System.out.println('Child');
+        System.out.println("Child");
     }
 }
 class Test{
@@ -1104,4 +1109,6 @@ class Test{
 // 777
 // 888
 // 999
+}
+
 }
