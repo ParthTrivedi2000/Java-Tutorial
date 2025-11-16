@@ -33,7 +33,7 @@ public class BS2SearchForRange {
         int mid=0;
         int[] ans = {-1,-1};
 
-        // For first Occurance
+        // For first Occurrence
         while(s<=e){
             mid=(e-s)/2 + s;
             if(target>nums[mid]){
@@ -48,7 +48,7 @@ public class BS2SearchForRange {
             }
         }
 
-        // For last occurance
+        // For last occurrence
         s = 0;
         e = nums.length-1;
         mid=0;

@@ -67,22 +67,22 @@ Time Limit: 1 sec
 
  */
 
-// Intution :-
+// Intuition :-
 /*
 From Aditya Verma:-
-- See this is also as similar as 0/1Kapsack problem.
+- See this is also as similar as 0/1Knapsack problem.
 - Here what is the only difference is, Unbounded knapsack allows any element to be picked multiple times.
 - It means what, when we are doing 2 choices for each call, here also we will do 2 choice only for any elem.
 notPick & Pick.
 - but previously in 0/1Knapsack, since we have performed choices for any element, we can't consider same elem
 2nd time to pick, bec it was constraint that we can consider any element only 1 time.
-- But here it was not the case. in case of Unbounded Knapsack, we can consider any element any numberof times.
+- But here it was not the case. in case of Unbounded Knapsack, we can consider any element any number of times.
 
 - So how we will proceed?
 - See, while performing 2 choices for any elem, in case of notPick, if elem is not considered to be picked due to
 condition, then during next time also it will not be considered ryt. for example, capacity given is 6, and suppose
 we are performing choices on elem 4, then for this time it falls under notPicked category, then during next iterations
-also it will again fall in the same category only. So inshort, notPick code will stays as is.
+also it will again fall in the same category only. So in-short, notPick code will stays as is.
 - But for pick recursive call, once we pick we were doing end-1 for each elem/recursive call bec we were allowed
 to consider elem only single time. But in unbounded problem we were allowed to pick elem any number of times
 so for pick we won't do end-1, instead we keep end same as end only while doing next recursive call for pick. so

@@ -1,6 +1,6 @@
 package org.allTopics.Hashing;
 
-// Problem Link :-
+// Problem Link :- https://www.geeksforgeeks.org/problems/common-elements5420/1
 
 /*
 Problem Description:-
@@ -37,7 +37,7 @@ Output 2:
 Example Explanation
 Explanation 1:
  Elements (1, 2, 2) appears in both the array. Note 2 appears twice in both the array.
-Explantion 2:
+Explanation 2:
  Elements (2, 10) appears in both the array.
 
  */
@@ -50,7 +50,7 @@ import java.util.Map;
 public class H03CommonElements {
     public int[] solve(int[] A, int[] B) {
         /*
-        // Approach - 1:- Using 2 seperate map and then adding the common elems to the ans list.
+        // Approach - 1:- Using 2 separate map and then adding the common elems to the ans list.
         Map<Integer,Integer> newA = new HashMap<>();
         for(int elem:A){
             if(newA.containsKey(elem)){

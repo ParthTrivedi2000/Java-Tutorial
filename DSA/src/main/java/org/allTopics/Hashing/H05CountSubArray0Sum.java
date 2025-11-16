@@ -1,6 +1,6 @@
 package org.allTopics.Hashing;
 
-// Problem Link :-
+// Problem Link :- https://www.geeksforgeeks.org/problems/zero-sum-subarrays1825/1
 
 /*
 Problem Statement:-
@@ -44,10 +44,10 @@ public class H05CountSubArray0Sum {
     public int solve(int[] A) {
 
 /*
- So previously we did question on weather subarray exist with 0 sum or not. concept is same as that question, so as we discussed
- ki if any currentSum is seen previously then we can say subarray exists between those to indexes.
- So similarly here as well hitni bar different currSum ki value dikhegi utni bar mre pass 0 sum subarray mila hoga.
- so in this case we need to hasve Map to store the frequesncy of currSum ki kitni bar koi sum previously dikha and we are done.
+ So previously we did question on whether subarray exist with 0 sum or not. concept is same as that question, so as we
+ discussed ki if any currentSum is seen previously then we can say subarray exists between those to indexes.
+ So similarly here as well jitni bar different currSum ki value dikhegi utni bar mre pass 0 sum subarray mila hoga.
+ so in this case we need to have Map to store the frequency of currSum ki kitni bar koi sum previously dikha and we are done.
  */
 
         if(A.length==1 && A[0]==0) return A.length;
@@ -73,7 +73,7 @@ public class H05CountSubArray0Sum {
         }
         return (int)(count%mod);
         /*
-        But why are we adding the value from the map instead of just 1? This is the key insight:
+        But why are we adding the value from the map instead of just 1 while incrementing count? This is the key insight:
         When we find a prefix sum that we've seen before, we're not just finding one new subarray with sum zero. We're
         actually finding a new subarray for each previous occurrence of this prefix sum.
         Let's use an analogy:
@@ -82,6 +82,21 @@ public class H05CountSubArray0Sum {
         step, but with every previous time you were at this altitude.
         Can you think of a small example where this would make a difference? Try to construct an array where you'd
         get a different (correct) result by adding the map value instead of just 1.
+         */
+
+        // Approach - 2:- Using Carry Forward:- TC:- O(N), SC:-O(N)
+        /*
+        Map<Integer,Integer> mp = new HashMap<>();
+        mp.put(0,1);
+        int sum=0;
+        int cnt=0;
+        for(int elem:A){
+            sum+=elem;
+            if(mp.containsKey(sum)) cnt+=mp.get(sum);
+            mp.put(sum,mp.getOrDefault(sum,0)+1);
+        }
+        return cnt;
+
          */
     }
 }

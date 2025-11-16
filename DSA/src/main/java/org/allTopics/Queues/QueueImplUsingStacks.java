@@ -76,9 +76,9 @@ public class QueueImplUsingStacks {
     }
 
     // While we are performing polling operation, 1st we need to check weather queue is empty or not.
-    // If it's not empty, we have to perform the transefer operation of all the elems from stack s1 to
+    // If it's not empty, we have to perform the transfer operation of all the elems from stack s1 to
     // stack s2. And at last return top of the s2. so we will return the top of the s2 till the moment it
-    // becomes empty. once it is empty then only we should transefer the element from stack s1 to s2.
+    // becomes empty. once it is empty then only we should transfer the element from stack s1 to s2.
 
     /** Removes the element from in front of queue and returns that element. */
     static int pop() {

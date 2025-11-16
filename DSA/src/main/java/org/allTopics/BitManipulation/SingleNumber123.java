@@ -23,6 +23,8 @@ Constraints:
 Each element in the array appears twice except for one element which appears only once.
  */
 
+import java.util.Arrays;
+
 public class SingleNumber123 {
 
     /*
@@ -42,14 +44,14 @@ public class SingleNumber123 {
     // similar problem.
     /*
     If you see bit by bit in the question, then you came to know that no of 1 in sum of 0th bit of all the element is
-    3 and noof zeros are = 4. out of both this things, no of ones are odd hence choosing 1 as the 0th bit to form an ans
+    3 and noOf zeros are = 4. out of both this things, no of ones are odd hence choosing 1 as the 0th bit to form an ans
     same to choose 1st bit of ans, sum the no of 1's and sum the no of 0's of 1st bit of all the elems of the array.
     and again choose odd numbered from both this. similarly choose for all the remaining bits of an ans.
      */
 
 
     /*
-Problem Link :-
+Problem Link :- https://leetcode.com/problems/single-number-ii/description/
 Problem Description :-
 Given an integer array nums where every element appears three times except for one, which appears exactly once. Find
 the single element and return it.
@@ -76,7 +78,7 @@ Each element in nums appears exactly three times except for one element which ap
 
     // Approach - 3:-
     /*
-    Intution and Idea:-
+    Intuition and Idea:-
     suppose consider the following array as an example:-
     [12, 8, 12, 8, 12, 8]
     for above array, represent elem in bits format.
@@ -93,11 +95,13 @@ no of 0's: 0 3 6 6
     - Above very good observation is:- at each index sum of no of 1's and sum of no of 0's are multiple of 3 since
     each number repeated 3 times.
     - So we can use this property to get the answer. means we will find the sum of no of 0's and 1's of all the elems
-    and then check. whichever sum is not in multiple of 3 that can be choosen to put my bit at that place.
+    and then check. whichever sum is not in multiple of 3 that can be chosen to put my bit at that place.
 
      */
 
     // Approach - 3:- Using bit representation
+    // TC:- O(N*32) Be it for any case best, better or worst case analysis, everytime it will run 32 times always.
+    /*
     public int singleNumber2(int[] nums) {
         int ones=0;
         long res = 0;
@@ -112,7 +116,7 @@ no of 0's: 0 3 6 6
             // and then I want to generate the number by performing below operation.
             // if(ones%3!=0) res = res + Math.pow(2,i);
             // but with above line, it's giving incorrect result for array having -ve numbers.
-            // and reason for that is becuase, for each -ve, we are having MSB=1 in 2's complement.
+            // and reason for that is because, for each -ve, we are having MSB=1 in 2's complement.
             // so instead, we have to use below line to calculate the number.
             // So here in this line what we are doing is, at starting res=0 ryt? i.e. all the 64 bits are 0
             // hence res has value =0. now suppose I find a place which needs to be added in answer, it simply
@@ -122,6 +126,73 @@ no of 0's: 0 3 6 6
         }
         return (int)res;
     }
+
+     */
+
+    // Approach - 4:- Using concept of cluster/grouping
+
+    // Intuition & Idea :-
+        /*
+        So intuition is, suppose array given is [1,1,1,2,2,2,3,4,4,4]
+        Now see, we will start checking from 1st index (not 0th). We will check if 1st index elem is equals to prev
+        elem i.e. 0th idx. if yes, we will move my currentIndex to 3 places ahead. (try to follow by visualising
+        solution to above array).
+        - Now see, since array is sorted next time my currentIndex will represent element of middle 2 in above array.
+        So again keep on checking like elem at currIdx is same as prev idx, if yes move it again to 3 places ahead.
+        same keep on checking till end.
+        - Suppose if elem at currIdx is not equals as prev idx, then we return prev idx elem then and there. see above
+        for elem 2 we have checked, then if we move to 3 steps ahead, it will be on 7th idx i.e. on 1st occurrence of
+        4 in above array. because 3 (or any single time occurred element comes in between else at 7th idx 2nd occurrence
+        of 4 should be present ryt). So in short whenever currIdx elem != prev idx elems, in that case we must have
+        any single occurred element present in-between. And that should be on currIdx-1th place. Hence it should
+        be returned.
+        - Now if we talk about edge cases, then suppose elem is present at 0th index then array would be
+        [1,2,2,2,3,3,3,4,4,4] => in this case, obviously in 1st time checking only we got my answer based on above logic
+        itself. So no issue with this case.
+        - But suppose if single occurred element present at last then what? --> [1,1,1,3,3,3,4]
+        in this case, if you dry run, you came to know like if you complete iterating whole array and didn't return
+        anything, then last element will be my answer because since question already states that always there will be
+        single occurrence of element is there.
+
+        Note:- Obviously this approach will only work if elems is sorted. hence 1st of all we have to sort the whole
+        array then only above approach possible.
+         */
+    // TC:- O(NlogN) + O(N/3), SC:- O(1)
+    public int singleNumber2(int[] nums) {
+        Arrays.sort(nums);
+        for(int i=1;i<nums.length;i+=3){
+            if(nums[i]!=nums[i-1]) return nums[i-1];
+        }
+        return nums[nums.length-1];
+    }
+
+    // Note:-
+    /*
+     above approach 4 is better than approach 3. you might think but in 4th approach we are doing sorting
+     of array, ryt so complexity will become O(NlogN), but let me tell you the logic.
+     Let's compare the complexity with previous one. because above approach-3 always run in O(N*32 times).
+     So when this O(NlogN) of approach-4 will behave as O(N*32)? --> only & only in case of array with size
+     2^32 is given ryt, else it will be lesser since log of something will behave smaller only. and that log of size
+     we are multiplying here with N always in case of best/better/worst case. but in approach-3 we multiplying
+     always with 32 so it should be always much more complexity than this approach-4.
+     */
+
+
+
+
+    // Approach - 5:- Using Concept of Bucket
+    // Note:- This approach you can never think in interview if you never seen it before.
+
+    // Intuition && Approach :-
+    /*
+    So we will be having 3 variables. ones,twos & threes. so as from the name itself, ones will be having elems which
+    occurs ones in the array, twos having elems which occurs 2 times in an array, threes having elems which occurs
+    3 times in an array.
+
+    - Now see,
+
+     */
+
 
 
 
@@ -150,7 +221,7 @@ no of 0's: 0 3 6 6
     Each integer in nums will appear twice, only two integers will appear once.
      */
 
-    // Aprpoach:-
+    // Approach:-
     /*
     So here in all these types of questions, in which more than 1 element is single time and remaining elems present
     are multiple times, And we have to find those numbers which are single times, then we have to use below approach only.
@@ -168,12 +239,12 @@ no of 0's: 0 3 6 6
     following thing. See, property says those 2 elems we can get from,
         - number1 & RSB == 0
         - number2 & RSB !=0
-    - So just need to perform the above thing to get seperate 2 variables and store it in ans[] array and we are done.
+    - So just need to perform the above thing to get separate 2 variables and store it in ans[] array and we are done.
 
     Summary:-
     - Perform xor operation on array.
     - get RSB of xor.
-    - perform the seperation of elems from xor variable.
+    - perform the separation of elems from xor variable.
      */
     public int[] singleNumber3(int[] nums) {
         // Performing xor operation on arr

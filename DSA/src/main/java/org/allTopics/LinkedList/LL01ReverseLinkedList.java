@@ -2,10 +2,11 @@ package org.allTopics.LinkedList;
 
 //Problem Link:- https://leetcode.com/problems/reverse-linked-list/
 
-/* Q) Reverse a Linked List. head is given as an argument.
+// Q) Reverse a Linked List. head is given as an argument.
+/*
 
 Problem Description :- Given the head of a singly linked list, reverse the list, and return the reversed list.
-Exmaple:-
+Example:-
 Input: head = [1,2,3,4,5]
 Output: [5,4,3,2,1]
 Example 2:
@@ -113,13 +114,14 @@ public class LL01ReverseLinkedList {
 
         // Follow below instead of above:-
         /*
-         Try to always think about smallest case in recursion, and how will you perform reverse in that case simply think about it
+         Try to always think about the smallest case in recursion, and how will you perform reverse in that case simply
+         think about it
          1 ===> 1
          1-->2 ===> 2-->1
          head.next i.e. 2 ka next I have to set it as 1 i.e. head => head.next.next=head;
          and need to remove the link between them hence:- head.next=null;
          And 3rd imp point is, every time whenever you are returning, at that time
-         propogate that what is last elem you were? hence simply you are not doing
+         propagate that what is last elem you were? hence simply you are not doing
          anything with last but always doing something with head, hence last always stays
          as it is of 1st call's return value i.e. here 2 during all the calls.
          see code for more understanding.

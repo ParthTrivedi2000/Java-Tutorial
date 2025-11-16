@@ -6,7 +6,8 @@ package org.allTopics.LinkedList.ExecellentQuestions;
 Problem Description :-
 There is a singly-linked list head and we want to delete a node node in it.
 You are given the node to be deleted node. You will not be given access to the first node of head.
-All the values of the linked list are unique, and it is guaranteed that the given node node is not the last node in the linked list.
+All the values of the linked list are unique, and it is guaranteed that the given node node is not the last node in the
+linked list.
 Delete the given node. Note that by deleting the node, we do not mean removing it from memory. We mean:
 
 The value of the given node should not exist in the linked list.
@@ -54,10 +55,10 @@ public class DeleteNodeInaLinkedList {
         // node.prev.next = node.next;
 
         // So next option is to reverse the current node's next node. But for that as well
-        // we need to have prev pointer, which is not aailable
+        // we need to have prev pointer, which is not available
 
         // So next solution would be just change the value of current node's value with
-        // next node's value. And then delete that next node. (Just an execellent approach).
+        // next node's value. And then delete that next node. (Just an excellent approach).
         int currVal = node.val;
         node.val = node.next.val;
         node.next.val = currVal;

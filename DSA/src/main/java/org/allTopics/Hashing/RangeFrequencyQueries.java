@@ -51,9 +51,9 @@ public class RangeFrequencyQueries {
         }
     }
 
-    // Now logic is to search for the 1st occurance of the given element from range
-    // 0 to left. and last occurance of element from range 0 to right. then if we do
-    // last occurance-first occurance, we came to know about the count ryt.
+    // Now logic is to search for the 1st occurrence of the given element from range
+    // 0 to left. and last occurrence of element from range 0 to right. then if we do
+    // last occurrence-first occurrence, we came to know about the count ryt.
 
     public int query(int left, int right, int value) {
         // Find the position of first occurrence of element

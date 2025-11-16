@@ -7,7 +7,9 @@ import java.util.List;
 
 public class HP02DeleteMin_DownHeapify {
     public static void main(String[] args) {
-        List<Integer> list = new ArrayList<>(List.of(3, 4, 10, 6, 8, 12, 13, 10, 12)); //
+        List<Integer> list = new ArrayList<>(List.of(3, 4, 10, 6, 8, 12, 13, 10, 12)); // We are creating
+        // immutable list, and then since we are wrapping it with mutable list constructor, final list will behave
+        // as the mutable list only.
 
         deleteMinElemFromHeap(list,0);
 

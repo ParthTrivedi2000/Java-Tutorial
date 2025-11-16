@@ -20,7 +20,7 @@ In First Out) / LILO (Last In Last Out) principle. So to maintain this FIFO prop
 insertion and deletion operation on the different ends instead of same unlike in stacks.
 - So to represent both the ends, we require to variables. front and rear. Initialise the front with 0 and rear
 with -1.
-- then whenever there is need to perform add opreation on queue, just check weather queue is empty or not (you
+- then whenever there is need to perform add operation on queue, just check weather queue is empty or not (you
 can check it using rear variable), if yes increase the rear i.e. rear++. and add the element at the rear index.
 - if there is need to perform the poll() operation, just check weather queue is having any element or not (you can
 check like if front<rear then yes queue is having elems. else not. and increase the front++.
@@ -55,7 +55,7 @@ public class QueueImplUsingArray {
         else if(front<rear){
             elem = queue[front];
             // we can simply increment our front to indicate we have removed our element instead of actually removing
-            // elem ryt just for the easyness in the implementation.
+            // elem ryt just for the easiness in the implementation.
             front++;
         }
         return elem;
@@ -68,10 +68,10 @@ public class QueueImplUsingArray {
     }
 
 /*
-In above implementation of dequeue actually we have to delete the element of front then nedd to shift all the elems to
+In above implementation of dequeue actually we have to delete the element of front then need to shift all the elems to
 left and need to decrement the rear ryt. (but we haven't done it) which actually took O(N) TC for the deletion. But
 as we know queue is meant to be there to provide O(1) TC for both insertion and deletion.
-That is why if we wish to implement a queue using  circular array (because of array advantages like cache friendliness and
+That is why if we wish to implement a queue using circular array (because of array advantages like cache friendliness and
 random access), we do circular array implementation of queue.
  */
 

@@ -45,7 +45,7 @@ What is Cache?
 - It is a temporary Storage for fast retrieval of data. So that we don't have to go to other server / hard disk
 frequently which actually make read performance slow.
 
-- But Main disadvantage is, like cache take space in main memory only. So space assigned for chaching purpose
+- But Main disadvantage is, like cache take space in main memory only. So space assigned for caching purpose
 is never be huge/large. It is having very less space like typically ranges from 1 MB to 8 MB.
 
 - So due to space constraints it can't store everything. So cache is designed by developer/designer in such a way
@@ -57,7 +57,7 @@ LFU (Least Frequently Used)
 etc etc...
 
 So we are trying to design/implement LRU cache. As we know it is based on the principle like Always keep
-new/latest?Most recently used data in the memory And always remove the oldest/Least Recently Used data from memory.
+new/latest? Most recently used data in the memory And always remove the oldest/Least Recently Used data from memory.
  */
 
 /*

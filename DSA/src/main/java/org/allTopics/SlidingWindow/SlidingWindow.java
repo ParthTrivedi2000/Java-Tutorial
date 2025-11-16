@@ -61,9 +61,8 @@ while(j<n){
 }
 */
 
+//    Q - 1) Maximum Sum SubArray of size K.
 /*
-Q - 1) Maximum Sum SubArray of size K.
-
 Problem Link:- https://www.geeksforgeeks.org/problems/max-sum-subarray-of-size-k5313/1
 
 Problem Statement:- Given an array of integers Arr of size N and a number K. Return the
@@ -89,11 +88,44 @@ Expected Time Complexity: O(N)
 Expected Auxiliary Space: O(1)
 
 Constraints:
-1 <= N <= 105
-1 <= Arri <= 105
+1 <= N <= 10^5
+1 <= Arri <= 10^5
 1 <= K <= N
 
+Companies:- OYO Rooms
+
  */
+
+    public int maximumSumSubarray(int[] arr, int k) {
+        // // Approach - 1:- Very Bruteforce:- TC:- O(N^3), SC:- O(1)
+        // int maxi = Integer.MIN_VALUE;
+        // for(int i=0;i<arr.length;i++){
+        //     for(int j=0;j<arr.length;j++){
+        //         int sum=0;
+        //         for(int p=i;p<=j;p++){
+        //             if(i<=j){
+        //                 sum+=arr[p];
+        //             }
+        //         }
+        //         if(j-i+1==k) maxi = Math.max(maxi,sum);
+        //     }
+        // }
+        // return maxi;
+
+         // Approach - 2:- TC:- O(N^2), SC:- O(1)
+         int maxi=Integer.MIN_VALUE;
+         for(int i=0;i<arr.length;i++){
+             int sum=0;
+             for(int j=i;j<arr.length;j++){
+                 sum+=arr[j];
+                 if(j-i+1==k) maxi = Math.max(maxi,sum);
+             }
+         }
+         return maxi;
+
+    }
+
+    // Approach - 3:- Sliding Window:- TC:- O(N), SC:-O(1)
     public long maximumSumSubarray(int K, ArrayList<Integer> Arr, int N){
 
         int i = 0; // represents start of window/subarray
@@ -140,8 +172,11 @@ Constraints:
         // end<windowSize and end==windowSize
     }
 
+
+
+//    Q - 2) First negative in every window of size k
 /*
-Q - 2) First negative in every window of size k
+
 Problem Link :- https://www.geeksforgeeks.org/problems/first-negative-integer-in-every-window-of-size-k3345/1
 
 Problem Statement:- Given an array A[] of size N and a positive integer K, find the first
@@ -165,47 +200,63 @@ Expected Time Complexity: O(N)
 Expected Auxiliary Space: O(K)
 
 Constraints:
-1 <= N <= 105
--105 <= A[i] <= 105
+1 <= N <= 10^5
+-105 <= A[i] <= 10^5
 1 <= K <= N
+
+Company Tags :- Amazon
+
  */
     public long[] printFirstNegativeInteger(long A[], int N, int K){
 
-        //BruteForce :-
-//        int[] ans = new int[N-K+1];
-//        for(int i=0;i<A.length;i++){
-//            for(int j=i;j<i+K;j++){
-//                if(A[j]<0) ans[i] = A[j];
-//                else ans[i] = 0;
-//            }
-//        }
-//        So what happens here is, like we are doing repetitive things how? means suppose array given
-//        is 12,-1,-7,8,-10,30,17,25
-//        So when we have started my loop, i will be at 0th index. then we have checked like element is
-//        -ve or not for next 3 elems. then i++ will be happen. then again in above case during 2nd
-//        iteration we are checking for elems -1 & -7. But we have already checked it during 1st iteration
-//        But still we are checking and same thing will happen till the end of the loop. this is how
-//        Repetitive work is done. (Pls explain to the interviewer if possible).
+        // Approach - 1:- BruteForce :- TC:- O(N^2), SC:- O(1)
+        /*
+        int[] ans = new int[N-K+1];
+        for(int i=0;i<A.length;i++){
+            boolean flg=false;
+            for(int j=i;j<i+K;j++){
+                if(A[j]<0) {ans[i] = A[j]; flg=true; break;}
+            }
+            if(!flg) ans[i] = 0;
+        }
+        return ans;
 
-//        So now we need to improve this. Accha and remember 1 thing, for all the Sliding Window problem
-//        we were doing repetitive work in bruteforce approach then to improve it we are going with
-//        optimal approach sliding window.
+         */
 
-//        Optimal Approach:- TC:- O(N), SC:O(N)
+        /*
+        So what happens here is, like we are doing repetitive things how? means suppose array given
+        is 12,-1,-7,8,-10,30,17,25
+        So when we have started my loop, i will be at 0th index. then we have checked like element is
+        -ve or not for next 3 elems. then i++ will be happen. then again in above case during 2nd
+        iteration we are checking for elems -1 & -7. But we have already checked it during 1st iteration
+        But still we are checking and same thing will happen till the end of the loop. this is how
+        Repetitive work is done. (Pls explain to the interviewer if possible).
+
+        So now we need to improve this. Accha and remember 1 thing, for all the Sliding Window problem
+        we were doing repetitive work in bruteforce approach then to improve it we are going with
+        optimal approach sliding window.
+
+         */
+
+        // Approach - 2:- Optimal Approach:- Sliding Window TC:- O(N), SC:O(N) for ArrayList/LL/Queue
         int i=0;
         int j=0;
-//         As per use case here I want to store all the -ves while moving ahead ryt. So now which DS I should
-//        use. means just think here what I want to do is, when I am moving forward, I have to store the
-//        -ve values. see we are only moving for windowSize, so wo windowSize me jitni bhi -ve value hogi wo
-//        add ho jayegi DS m...but usme se muje to 1st wali h whi chahiye ryt...and during next time as well
-//        when I am sliding the window, my DS should store only -ves which are currently in current window.
-//        So I have to remove the -ve of previous window if it's present. So I have to choose DS in which I can
-//        perform both of the above thing.
-//        So if you think carefully, here I want 1st elem added. i.e. 1st In 1st out type structure (FIFO).
-//        So I can have Queue.
-//        But here if I think, I just want to remove the starting elem, that I can achieve via List DS as well
-//        So either Queue/List would be fine here for above problem.
-        List<Long> negatives = new ArrayList<>();
+        /*
+         As per use case here I want to store all the -ves while moving ahead ryt. So now which DS I should
+        use. means just think here what I want to do is, when I am moving forward, I have to store the
+        -ve values. see we are only moving for windowSize, so wo windowSize me jitni bhi -ve value hogi wo
+        add ho jayegi DS m...but usme se muje to 1st wali h whi chahiye ryt...and during next time as well
+        when I am sliding the window, my DS should store only -ves which are currently in current window.
+        So I have to remove the -ve of previous window if it's present. So I have to choose DS in which I can
+        perform both of the above thing.
+        So if you think carefully, here I want 1st elem added. i.e. 1st In 1st out type structure (FIFO).
+        So I can have Queue.
+        But here if I think, I just want to remove the starting elem, that I can achieve via List DS as well
+        So either Queue/List would be fine here for above problem.
+
+         */
+        List<Long> negatives = new LinkedList<>(); // with arrayList, only last 1111th TS is failing by giving TLE. So I
+        // have used LL here since we are doing multiple time insertions and deletions.
         long[] ans = new long[N-K+1]; // to store and return the answer
         while(j<N){
             // calculations
@@ -219,9 +270,9 @@ Constraints:
                 //window since it is tracking the current window elems only so.
                 else ans[i] = negatives.get(0);
 
-//                Nullifying impact of prev i
+                // Nullifying impact of prev i
                 if(A[i]<0) negatives.remove(0);
-//                Slide the window
+                // Slide the window
                 i++;
                 j++;
             }
@@ -229,8 +280,11 @@ Constraints:
         return ans;
     }
 
+
+
+//    Q-3) Count Occurrences of Anagrams
 /*
-Q-3) Count Occurrences of Anagrams
+
 Problem Link :- https://www.geeksforgeeks.org/problems/count-occurences-of-anagrams5839/1
 
 Problem Statement:- Given a word pat and a text txt. Return the count of the occurrences of anagrams
@@ -319,8 +373,11 @@ Both strings contain lowercase English letters.
          return ans;
     }
 
+
+
+//    Q - 4) Maximum of all subarrays of size K
 /*
-Q - 4) Maximum of all subarrays of size K
+
 Problem Link:- https://leetcode.com/problems/sliding-window-maximum/description/
 
 Problem Statement:-
@@ -353,6 +410,8 @@ Constraints:
  */
     public int[] maxSlidingWindow(int[] nums, int k) {
 
+        // Intuition:-
+        /*
         // Why we are using queue data structure here instead of simply using one max variable or
         // 2 variables 1st to store max and 2nd to store secondMax?
         // Please understand, here we can use max variable. but the point when we are sliding the
@@ -364,6 +423,8 @@ Constraints:
         // done for each and every window on which we are iterating. so we have to store max and all
         // the smaller than max from ryt side of jth element. that's why we can't use just simply 2
         // variables and instead we are using doubly ended queue open from both ends.
+
+         */
 
         // ArrayList<Integer> ans = new ArrayList<>(); // To store answer
         int[] ans = new int[nums.length-k+1];
@@ -437,8 +498,11 @@ Constraints:
 //        return ans;
     }
 
+
+
+//    Q - 5) Longest Subarray of Sum K :-
 /*
-Q - 5) Longest Subarray of Sum K :-
+
 Problem Link :- https://www.geeksforgeeks.org/problems/longest-sub-array-with-sum-k0809/1
 
 Problem Statement :- Given an array arr containing n integers and an integer k. Your task is to find
@@ -528,8 +592,11 @@ above technique won't work.  it is failing for this test case ( arr:- -59 -25 58
  */
     }
 
+
+
+//    Q - 6) Longest Substring with K unique characters.
 /*
-Q - 6) Longest Substring with K unique characters.
+
 Problem Link :- https://www.geeksforgeeks.org/problems/longest-k-unique-characters-substring0853/1
 
 Problem Statement :- Given a string you need to print the size of the longest possible substring that
@@ -622,8 +689,10 @@ All characters are lowercase latin characters.
     }
 
 
+
+//    Q - 7) Longest Substring Without Repeating Characters :-
 /*
-Q - 7) Longest Substring Without Repeating Characters :-
+
 Problem Link :- https://leetcode.com/problems/longest-substring-without-repeating-characters/description/
 Problem Statement:- Given a string s, find the length of the longest substring without repeating characters.
 Example:-
@@ -730,8 +799,10 @@ s consists of English letters, digits, symbols and spaces.
          */
     }
 
+
+//    Q - 7) Pick Toys :-
 /*
-Q - 7) Pick Toys :-
+
 Problem Statement :- No it's not given anyWhere, it was an interview problem. statement is something like below.
 John is at a toy store. help him pick maximum number of toys. He can only select in a continuous manner
 and he can select only two types of toys.
@@ -747,8 +818,10 @@ Please see the solution in one of the above question. just put k=2 over there.
  */
 
 
+
+//    Q -8) Minimum Window Substring
 /*
-Q -8) Minimum Window Substring
+
 Problem Link:- https://leetcode.com/problems/minimum-window-substring/description/
 Problem Description:- Given two strings s and t of lengths m and n respectively, return the minimum window
 substring of s such that every character in t (including duplicates) is included in the window. If there
@@ -829,11 +902,12 @@ Follow up: Could you find an algorithm that runs in O(m + n) time?
 
 
     
-/* Striver's Sliding Window & 2 Pointers Questions continued....
- */
+// ------------ Striver's Sliding Window & 2 Pointers Questions continued....----------------
 
+
+//    Q - 9) Maximum points you can obtain from cards
 /*
-Q - 9) Maximum points you can obtain from cards
+
 Problem Link :- https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards/description/
 
 Problem Description:-
@@ -880,8 +954,10 @@ Constraints:
 // Next question is Longest Substring without repeating characters. Please check Question-7 above.
 
 
+
+//    Q - 10) Maximum Consecutive Ones III :-
 /*
-Q - 10) Maximum Consecutive Ones III :-
+
 Problem Link :- https://leetcode.com/problems/max-consecutive-ones-iii/description/
 
 Problem Description :-
@@ -963,7 +1039,7 @@ nums[i] is either 0 or 1.
          // // can take at max N ). So total TC:- O(N) + O(N) ~ O(2N) ~ O(N).
          // // SC:-O(1).
 
-         // // But now if inerviewer might ask ki still optimise the code to remove internal
+         // // But now if interviewer might ask ki still optimise the code to remove internal
          // // while loop.
 
          // Approach:- 3:- Best Optimised Approach:-
@@ -986,8 +1062,9 @@ nums[i] is either 0 or 1.
 
 
 
+//    Q-11) Fruits into Basket:-
 /*
-Q-11) Fruits into Basket:-
+
 Problem Link :- https://leetcode.com/problems/fruit-into-baskets/description/
 
 Problem Description :-

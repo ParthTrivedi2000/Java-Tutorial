@@ -50,10 +50,12 @@ public class AddTwoNumbers {
 
 
 
-// Another version of above problem. Please look this as well, slight modified problem. Trickier than above one
-// Link :- https://www.geeksforgeeks.org/problems/add-two-numbers-represented-by-linked-lists/1
+// Another Good Question of related above problem. Please look this as well, slight modified problem.
+// This is a bit Trickier than above one
+// Problem Link :- https://www.geeksforgeeks.org/problems/add-two-numbers-represented-by-linked-lists/1
+
+// Problem Description :-
 /*
-Problem Description :-
 
 For example, num1 represented by the linked list : 1 -> 9 -> 0, similarly num2 represented by the linked
 list: 2 -> 5. Sum of these two numbers is represented by 2 -> 1 -> 5.

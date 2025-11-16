@@ -72,7 +72,8 @@ public class H13ValidSudoku {
         // we need to return true.
         // So total I will be having 9+9+9=27 HashSets available.
 
-        // TC of above approach:- O(N^2). but here N=9 always, so we can say fix 81 iterations at max always, not more than that except in future sudoku of size 18 comes.
+        // TC of above approach:- O(N^2). but here N=9 always, so we can say fix 81 iterations at max always, not more
+        // than that except in future sudoku of size 18 comes.
 
         Map<Integer, HashSet<Character>> rowsMp = new HashMap<>(); // 0 to 9 rows as key
         Map<Integer, HashSet<Character>> colsMp = new HashMap<>(); // 0 to 9 cols as key

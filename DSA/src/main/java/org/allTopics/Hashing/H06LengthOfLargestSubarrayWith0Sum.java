@@ -1,6 +1,7 @@
 package org.allTopics.Hashing;
 
 // Problem Statement:- https://www.scaler.com/topics/largest-subarray-with-0-sum/
+// https://www.geeksforgeeks.org/problems/largest-subarray-with-0-sum/1
 
 /*
 Problem Description :-
@@ -125,6 +126,25 @@ public class H06LengthOfLargestSubarrayWith0Sum {
         }
         //returning the length of largest subarray with sum 0
         return max_length;
+
+
+        // Better version of above code (by me):- Using carryforward
+        /*
+        Map<Integer,Integer> mp = new HashMap<>();
+        mp.put(0,0);
+        int sum=0;
+        int maxLen=0;
+        for(int i=1;i<=arr.length;i++){
+            sum+=arr[i-1];
+            if(mp.containsKey(sum)) maxLen = Math.max(maxLen, i-mp.get(sum));
+            else mp.put(sum,i);
+        }
+        return maxLen;
+
+        // Note:- here we need to handle te edgecase. I mean if we start i from 0, then while adding to the longest
+        // string it will be adding 0 for the 1st elem, so for that we are considering 1-based indexing.
+
+         */
     }
 
 

@@ -34,7 +34,7 @@ Constraints:
 /*
 So pls keep below few things in mind.
 
-- There can be either Minimisation or Maximisation type of problem based on the Monitonicity / monotonic function that
+- There can be either Minimisation or Maximisation type of problem based on the Monotonicity / monotonic function that
 you have to design. So if it's Minimisation type:- then pattern of your condition's return value can be like
 [FFFFTTT] --> here you need to find the 1st True/Valid value. And we always return hi in case of Minimisation problem.
 If it' s maximisation type problem, it can be [TTTTFFF] --> i.e. here you need to find the last True/Valid value.
@@ -106,7 +106,7 @@ function condition(arr, idx) {
 public class BS1FindFirstBadVersion {
     public int firstBadVersion(int n) {
         int lo = 0; //1st invalid value
-        int hi = n; // max vaid value
+        int hi = n; // max valid value
         while(lo+1<hi){
             int mid = lo + (hi-lo)/2;
 //            if(isBadVersion(mid)){ // Commenting out as it is showing error in IDE so.

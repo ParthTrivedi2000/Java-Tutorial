@@ -7,7 +7,7 @@ package org.allTopics.Stacks;
 // and deletion operation in O(1) time.
 // So now another option of implementation of stack is, Linked List. as using linked list we don't have any
 // size issues. and we will be having dynamic size. And 2nd thing is, in linked list if you can recall
-// there are some places at which if we want to delete or insert something then it will take O(N) TC only.
+// there are some places at which, if we want to delete or insert something then it will take O(N) TC only.
 // So let's implement stack using Linked List. But there are also few positions in Linked List, at which
 // If I want to perform insertion/deletion then I can do it in O(1). such position:- head. another is
 // Tail (bt only if you are maintaining Tail element from starting of linked list).

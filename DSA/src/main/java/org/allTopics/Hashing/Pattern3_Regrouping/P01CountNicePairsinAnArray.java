@@ -11,7 +11,7 @@ satisfies all of the following conditions:
 
 0 <= i < j < nums.length
 nums[i] + rev(nums[j]) == nums[j] + rev(nums[i])
-Return the number of nice pairs of indices. Since that number can be too large, return it modulo 109 + 7.
+Return the number of nice pairs of indices. Since that number can be too large, return it modulo 10^9 + 7.
 
 
 
@@ -41,9 +41,9 @@ public class P01CountNicePairsinAnArray {
 
     /*
     Always remember this pattern. For this kind of problem where you have been asked like there is equal to and
-    on LHS side something needs to be checked on i , j and same on RHS side need to perfrom things on i,j and check.
+    on LHS side something needs to be checked on i , j and same on RHS side need to perform things on i,j and check.
     So in this kind of questions, solution is, simply you should bring all the operations on i to one side of the array
-    and all the operations of j take another side of the aray. And now perform those operations and try to solve the
+    and all the operations of j take another side of the array. And now perform those operations and try to solve the
     problem
 
     For Example:-

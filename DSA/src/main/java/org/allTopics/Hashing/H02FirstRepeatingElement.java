@@ -56,19 +56,19 @@ public class H02FirstRepeatingElement {
 /*
 // Another very good and optimised solution:-
 
-// public class Solution {
-//     public int solve(ArrayList<Integer> A) {
-//         HashMap<Integer, Integer> vis = new HashMap<Integer, Integer>();
-//         int ans = -1;
-//         for(int i = A.size()-1; i >= 0; --i){
-//             if(vis.containsKey(A.get(i))){
-//                 ans = A.get(i);
-//             }
-//             else{
-//                 vis.put(A.get(i), 1);
-//             }
-//         }
-//         return ans;
-//     }
-// }
+ public class Solution {
+     public int solve(ArrayList<Integer> A) {
+         HashMap<Integer, Integer> vis = new HashMap<Integer, Integer>();
+         int ans = -1;
+         for(int i = A.size()-1; i >= 0; --i){
+             if(vis.containsKey(A.get(i))){
+                 ans = A.get(i);
+             }
+             else{
+                 vis.put(A.get(i), 1);
+             }
+         }
+         return ans;
+     }
+ }
  */

@@ -58,11 +58,12 @@ public class H11CountRightTriangles {
     /*
     So we need to find weather right angled triangle formed between 3 points or not. so suppose we are having points(x,y) in
     the array form as i/p:- for exa:- [(3,3),(6,3),(9,3),(2,3),(5,5),(5,10),(3,5),(9,5)].
-    So concept says that for any 3 points, if 2 of them have same x coordinates and remaining 1 is having same y coordinates with
-    any of them, then there is triangle possible between these 3 points. And common point between them is where right angle created.
-    And 2 sides are parallel with x and y axis.
+    So concept says that for any 3 points, if 2 of them have same x coordinates and remaining 1 is having same y
+    coordinates with any of them, then there is triangle possible between these 3 points. And common point between them
+    is where right angle created. And 2 sides are parallel with x and y axis.
 
-    So for implementation of bruteforce, we will pick each 3 points from array and checking that right angled triangle is possible or not.
+    So for implementation of bruteforce, we will pick each 3 points from array and checking that right angled triangle
+    is possible or not.
 
     considering i/p as collection of points (x,y) object.
 
@@ -89,9 +90,9 @@ public class H11CountRightTriangles {
     But we want to optimise it further. so concept is we will pick each single point everytime, and consider like right
     angle is created at that point, then property says, ki that point should share same x coordinate with 1 point and share
     same y coordinate with another point. so if such points exists then we can say ki yes current point is actually creating
-    right angle. And jitne points milenge on same x axis and y axis utne right angled traingle can be possible for that particular
-    point.
-    So we need to have 2 hashmap to store the x coordinates ans y coordinates. See belo code for more understanding.
+    right angle. And jitne points milenge on same x axis and y axis utne right angled triangle can be possible for that
+    particular point.
+    So we need to have 2 hashmap to store the x coordinates ans y coordinates. See below code for more understanding.
      */
     public int solve(int[] A, int[] B) {
         // need to create map for x-axis points and y-axis points
@@ -108,8 +109,8 @@ public class H11CountRightTriangles {
         // So now mpX has values and mpY also has the values
         int triangles=0;
         for(int i=0;i<A.length;i++){
-            // suppose right angle is there on this current i,j point. So finding corresponding points on x and y axis and multiply it so getting
-            // ans by considering right angle at this current point(i,j)
+            // suppose right angle is there on this current i,j point. So finding corresponding points on x and y axis
+            // and multiply it so getting ans by considering right angle at this current point(i,j)
             triangles += ((mpX.get(A[i])-1) * (mpY.get(B[i])-1));
         }
         return triangles;

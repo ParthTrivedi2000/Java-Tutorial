@@ -106,9 +106,9 @@ public class DP13MinimumSubsetSumDifference {
         // lesser than that.
         // So you can use this created dp table to know weather you can get sum or not?
         // means just start traversing last row of your dp table (why last row only? -->
-        // bec using all the array elems we want to heck so), check from last column to
+        // bec using all the array elems we want to check so), check from last column to
         // 1st column, weather you get true anywhere or not. if yes, then you can return
-        // toatalSum-2*j as the answer.
+        // totalSum-2*j as the answer.
 
 
         for(int j=dp[0].length-1;j>=0;j--){

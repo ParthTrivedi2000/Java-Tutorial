@@ -17,7 +17,7 @@ Input: arr[] = [10, 12, 10, 15, -1], target = 125
 Output: 0
 Constraints:
 1 <= arr.size() <= 10^5
--104 <= arr[i] <= 10^4
+-10^4 <= arr[i] <= 10^4
 1 <= target <= 10^4
  */
 
@@ -27,7 +27,16 @@ import java.util.Map;
 public class P02CountPairSum {
     int countPairs(int arr[], int target) {
         // Your code here
-        // Bruteforce:- Will write it later
+
+        // // BruteForce :- TC:-O(N^2)  SC:-O(N)
+        // int cnt=0;
+        // for(int i=0;i<arr.length;i++){
+        //     for(int j=i+1;j<arr.length;j++){
+        //         if(arr[i]-arr[j]==target || arr[j]-arr[i]==target) cnt++;
+        //     }
+        // }
+        // return cnt;
+
         // Better Approach:- Hashing
         Map<Integer,Integer> mp = new HashMap<>();
         int cnt=0;

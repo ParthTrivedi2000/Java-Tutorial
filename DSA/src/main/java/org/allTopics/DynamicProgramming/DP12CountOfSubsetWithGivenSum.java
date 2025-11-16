@@ -52,7 +52,7 @@ public class DP12CountOfSubsetWithGivenSum {
         elem=0 in array. but for element with 0 value needs to be handled same way as we are handling others. why?
         bec for elem=0, if you pick then also target remain same & if you won't pick then also target remain same. so
         both pick & not pick is valid in that case. but if we put, dp[i][0], i.e. 1st whole column = 1, it means we
-        are explicitly saying that we are having only 1 choice for this positions which i not the case when elem=0.
+        are explicitly saying that we are having only 1 choice for these positions which is not the case when elem=0.
         so we need to remove that conditions and let it grow dynamically with pick & notPick options only.
         But yes for dp[0][0], we need to put 1 bec that will fail if we start with i=0 since we are accessing arr[i-1].
          */

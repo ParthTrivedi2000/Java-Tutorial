@@ -54,17 +54,19 @@ public class H04SubArrayWith0Sum {
 
 
 /*
- If at any point of time, my currSum is seen previously, then I can say ki subarray from the previously sam value to the current value
- is the resultant array which is giving you the result as total 0 sum.
+ If at any point of time, my currSum is seen previously, then I can say ki subarray from the previously sam value to
+ the current value is the resultant array which is giving you the result as total 0 sum.
 
- Now at current point, I always can have currSum only right, so to look into prev sum, I have to store all the currSum to sum where ryt, then
- only I will be able to look into it in future. So storing something for future lookup is nothing but Hashing.
+ Now at current point, I always can have currSum only right, so to look into prev sum, I have to store all the currSum
+ to somewhere ryt, then only I will be able to look into it in future. So storing something for future lookup is nothing
+ but Hashing.
 
- Now as we discussed above, I need something to store the sum (i.e. integers/long). So I can use anything Array/ArrayList/Map/Set to store
- the currSum. But now think at each point after storing currSum what I need to do?
+ Now as we discussed above, I need something to store the sum (i.e. integers/long). So I can use anything
+ Array/ArrayList/Map/Set to store the currSum. But now think at each point after storing currSum what I need to do?
 
- So I need to look/search for current currSum weather it exists previously or not. So it will take O(N) for searching in Array/ArrayList if
- we use them as a storing bucket. while if I will choose Set/Map, then it will cost me O(1) for searching each time.
+ So I need to look/search for current currSum weather it exists previously or not. So it will take O(N) for searching
+ in Array/ArrayList if we use them as a storing bucket. while if I will choose Set/Map, then it will cost me O(1)
+ for searching each time.
 
  So we will use the Set.
  */

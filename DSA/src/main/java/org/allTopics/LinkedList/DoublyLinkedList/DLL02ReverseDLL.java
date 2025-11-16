@@ -47,7 +47,7 @@ public class DLL02ReverseDLL {
         // return newHead;
 
         // // Approach - 2:- Bruteforce :- Using Stack DS
-        // // - So very simple brutefoce solution I can think of is, instead of modifying
+        // // - So very simple bruteforce solution I can think of is, instead of modifying
         // // pointers I can simply keep structure as is, and pick up the data from each
         // // node and start swapping it will from last side.
         // // - We can use stack DS.
@@ -89,7 +89,7 @@ public class DLL02ReverseDLL {
 
 
         // More Optimised :-
-        // But above we used 2 variables fro swapping the links. Instead if you want
+        // But above we used 2 variables for swapping the links. Instead, if you want
         // you can do it by using only single link only.
         DLLNode curr = head;
         DLLNode prevNd = null;

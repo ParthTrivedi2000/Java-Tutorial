@@ -45,7 +45,7 @@ public class LL03RemoveNthNodeFromEndOfList {
 //        node.next = node.next.next;
 //        return A;
 
-        // Follow up Question:- Can you please do it in 1 pass.
+        // Follow-up Question:- Can you please do it in 1 pass.
         /*
         Solution:- Always remember in LinkedList one pass is only possible using slow and fast pointer. So
         whenever in interview discussion/question is about single pass, you can think of using slow-fast

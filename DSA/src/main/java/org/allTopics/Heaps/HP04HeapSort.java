@@ -44,7 +44,7 @@ public class HP04HeapSort {
         // Note:-
         // - Heap Sort is In-Place sorting Algo ? --> yes, since we are not using any extra space.
         // - Heap Sort is stable sorting algo? --> No, it's not, since in case of 2 same values, their
-        // relative order may changed during heapification process.
+        // relative order may be changed during heapification process.
 
 
         buildHeap(arr); // TC:- O(N), SC:- O(1)

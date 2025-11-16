@@ -36,7 +36,8 @@ public class H08SubArraySumEqualsK {
  Concept:-
  Concept says, 1st precalculate the sum. Now if this sum-target is available previously in the DS(Map/Set) then i.e. there
  exists a subarray with that target sum. hence you can get the count of (sum-target) key. And then you have to update the
- DS with the current sum available for future use (remember here you need to put the sum not the element arr[i])
+ DS with the current sum available for future use (remember here you need to put the sum not the element arr[i] because
+ I made this mistake so many times by tracking elem instead of currSum, so highlighting here)
 
  And to handle one of the edge case, at starting only, put (0,1) in the mp.
 
