@@ -2,8 +2,8 @@ package org.allTopics.SlidingWindow;
 
 // Problem Link :- https://www.geeksforgeeks.org/problems/minimum-swaps-required-to-bring-all-elements-less-than-or-equal-to-k-together4847/1
 
+// Problem Description :-
 /*
-Problem Description :-
 Given an array arr and a number k. One can apply a swap operation on the array any number of times, i.e choose
 any two index i and j (i < j) and swap arr[i] , arr[j] . Find the minimum number of swaps required to bring
 all the numbers less than or equal to k together, i.e. make them a contiguous subarray.
@@ -26,7 +26,7 @@ Constraints:
 1 ≤ k ≤ 10^6
  */
 
-public class MinimumSwapsAndKtogether {
+public class SW13MinimumSwapsAndKtogether {
     int minSwap(int[] arr, int k) {
         /*
          So I have make all the numbers with less than k together

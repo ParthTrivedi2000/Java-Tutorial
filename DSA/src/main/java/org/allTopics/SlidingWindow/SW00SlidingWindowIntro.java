@@ -2,7 +2,7 @@ package org.allTopics.SlidingWindow;
 
 import java.util.*;
 
-public class SlidingWindow {
+public class SW00SlidingWindowIntro {
 /*
 
 Identification:-
@@ -416,7 +416,7 @@ Constraints:
         // 2 variables 1st to store max and 2nd to store secondMax?
         // Please understand, here we can use max variable. but the point when we are sliding the
         // window (i.e. i++), at that time if the element at i is maximum and we are sliding to next
-        // elem. it means that elem  on previous i is not now max in new window. so we need to remove
+        // elem. it means that elem on previous i is not now max in new window. so we need to remove
         // it ryt. and at that time we want 2nd maximum, or we can say maximum from remaining window
         // element before adding new element to window(i.e. before j++).  so here if we are using
         // 2nd max variable then it will store it for 1st window only. then but we want this thing to be
