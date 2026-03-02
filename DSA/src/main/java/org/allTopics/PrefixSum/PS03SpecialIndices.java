@@ -39,7 +39,7 @@ Constraints:
 1 <= nums[i] <= 10^4
  */
 
-public class PS02SpecialIndices {
+public class PS03SpecialIndices {
     public int waysToMakeFair(int[] nums) {
 
 /*
@@ -118,5 +118,53 @@ return the cnt.
             if(preEven+postEven==preOdd+postOdd) cnt++;
         }
         return cnt;
+
+
+
+        // Optimised Approach:- TC:- O(N), SC:- O(2*N)
+        // Solely by me (Working & Tested):-
+        /*
+        int[] evenIndicesSum = new int[nums.length];
+        int[] oddIndicesSum = new int[nums.length];
+        // Pre-calculating & storing result for even & odd indices.
+        evenIndicesSum[0] = nums[0];
+        oddIndicesSum[0] = 0;
+        evenIndicesSum[1] = nums[0];
+        oddIndicesSum[1] = nums[1];
+        for(int i=2;i<nums.length;i++){
+            if(i%2==0) {
+                evenIndicesSum[i] = evenIndicesSum[i-1]+nums[i];
+                oddIndicesSum[i] = oddIndicesSum[i-1];
+            }
+            else {
+                oddIndicesSum[i] = oddIndicesSum[i-1]+nums[i];
+                evenIndicesSum[i] = evenIndicesSum[i-1];
+            }
+
+        }
+
+        // now for each indices:-
+        int es=0;
+        int os=0;
+        int count=0;
+        for(int i=0;i<nums.length;i++){
+            if(i==0){
+                es=0 + oddIndicesSum[nums.length-1]-oddIndicesSum[0];
+                os = 0 + evenIndicesSum[nums.length-1] - evenIndicesSum[0];
+            }
+            else if(i==nums.length-1){
+                es = evenIndicesSum[i-1];
+                os = oddIndicesSum[i-1];
+            }
+            // get sum from 0 to i-1 + i+1 to n
+            else{
+                es = evenIndicesSum[i-1] + oddIndicesSum[nums.length-1]-oddIndicesSum[i];
+                os = oddIndicesSum[i-1] + evenIndicesSum[nums.length-1] - evenIndicesSum[i];
+            }
+
+            if(es==os) count++;
+        }
+        return count;
+        */
     }
 }

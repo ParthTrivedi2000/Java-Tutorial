@@ -1,6 +1,7 @@
 package org.allTopics.PrefixSum;
 
 // Problem Link:- https://leetcode.com/problems/find-the-middle-index-in-array/description/
+// https://leetcode.com/problems/find-pivot-index/description/
 
 // Problem Description:-
 /*
@@ -33,7 +34,7 @@ Constraints:
 Note: This question is the same as 724: https://leetcode.com/problems/find-pivot-index/
  */
 
-public class PS03EquilibriumPoint {
+public class PS02EquilibriumPoint {
 
     public static int equilibriumPoint(int nums[]) {
         // code here
