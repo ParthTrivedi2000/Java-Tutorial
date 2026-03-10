@@ -28,7 +28,7 @@ Constraints:
 Both strings contain lowercase English letters.
  */
 
-public class SW03CountOccurrencesOfAnagrams {
+public class SW07CountOccurrencesOfAnagrams {
 
     // Approach - 1:- BruteForce :-
     //  TC:- O((N-M)*MlogM), SC:- O(M)
@@ -83,7 +83,7 @@ public class SW03CountOccurrencesOfAnagrams {
 
         // As we don't want to traverse on whole map everytime, we have initialised the count
         // Variable. and it will have all the distinct keys. as soon as value corresponding to
-        // any key becomes 0 then we can reduce count as well.
+        // any key becomes 0 then we can reduce count, instead of actually removing element from map.
         // Since I don't want to traverse the Map each time, I am using count variable
         // to increase/decrease when any element of Map hits zero or again come back to>0 state
         int count = mp.size();

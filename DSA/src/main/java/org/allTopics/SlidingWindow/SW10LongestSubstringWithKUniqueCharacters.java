@@ -28,7 +28,7 @@ Constraints:
 All characters are lowercase latin characters.
  */
 
-public class SW06LongestSubstringWithKUniqueCharacters {
+public class SW10LongestSubstringWithKUniqueCharacters {
     public int longestkSubstr(String s, int k) {
         // code here
         // Adity Verma's Template :-
@@ -77,23 +77,29 @@ public class SW06LongestSubstringWithKUniqueCharacters {
         char ch = '0';
         Map<Character,Integer> mp = new HashMap<>();
         while(j<s.length()){
+            // general calc
             ch = s.charAt(j);
             if(mp.containsKey(ch)){
                 mp.put(ch,mp.get(ch)+1);
             }else{
                 mp.put(ch,1);
             }
+            // for false condition
             if(mp.size()>k){
+                // nullifying impact of prev i
                 mp.put(s.charAt(i),mp.get(s.charAt(i))-1);
                 if(mp.get(s.charAt(i))==0){
                     mp.remove(s.charAt(i));
                 }
+                // shrink the window
                 i++;
             }
+            // for true condition
             else if(mp.size()==k){
                 // if (mp.size()==K)
                 maxLen = Math.max(maxLen,j-i+1);
             }
+            // commonly expand the window
             j++;
         }
         return maxLen;

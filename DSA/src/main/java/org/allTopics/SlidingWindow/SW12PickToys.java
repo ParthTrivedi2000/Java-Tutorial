@@ -17,5 +17,5 @@ Find the Longest Substring with 2 distinct characters.
 Please see the solution in one of the above question. just put k=2 over there.
  */
 
-public class SW08PickToys {
+public class SW12PickToys {
 }

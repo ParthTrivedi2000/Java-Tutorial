@@ -36,7 +36,7 @@ Constraints:
 
  */
 
-public class SW04SlidingWindowMaximum {
+public class SW08SlidingWindowMaximum {
     public int[] maxSlidingWindow(int[] nums, int k) {
 
         // Intuition:-

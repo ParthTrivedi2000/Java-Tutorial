@@ -27,7 +27,7 @@ nums[i] is either 0 or 1.
 
  */
 
-public class SW11MaximumConsecutiveOnesIII {
+public class SW15MaximumConsecutiveOnesIII {
     public int longestOnes(int[] nums, int k) {
 
         // // Approach - 1:-  BruteForce Approach :- Approach is same only like we need to

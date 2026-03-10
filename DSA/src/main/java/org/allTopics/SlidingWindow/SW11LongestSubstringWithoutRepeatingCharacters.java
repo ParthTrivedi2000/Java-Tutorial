@@ -30,7 +30,7 @@ s consists of English letters, digits, symbols and spaces.
  */
 
 
-public class SW07LongestSubstringWithoutRepeatingCharacters {
+public class SW11LongestSubstringWithoutRepeatingCharacters {
     public int lengthOfLongestSubstring(String s) {
         // Brute force Approach :-
         /*

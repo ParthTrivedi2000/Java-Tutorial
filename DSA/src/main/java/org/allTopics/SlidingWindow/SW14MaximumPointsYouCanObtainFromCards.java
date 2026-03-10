@@ -28,7 +28,7 @@ Constraints:
 1 <= k <= cardPoints.length
  */
 
-public class SW10MaximumPointsYouCanObtainFromCards {
+public class SW14MaximumPointsYouCanObtainFromCards {
     public int maxScore(int[] cardPoints, int k) {
         // Approach:-
         // 1st I can have the sum of 4 cards from starting.

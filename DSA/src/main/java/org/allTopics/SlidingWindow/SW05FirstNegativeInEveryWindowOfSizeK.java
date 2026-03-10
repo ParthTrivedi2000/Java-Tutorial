@@ -37,7 +37,7 @@ Company Tags :- Amazon
 
  */
 
-public class SW02FirstNegativeInEveryWindowOfSizeK {
+public class SW05FirstNegativeInEveryWindowOfSizeK {
 
     public long[] printFirstNegativeInteger(long A[], int N, int K){
 

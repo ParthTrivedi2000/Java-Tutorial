@@ -38,7 +38,7 @@ Follow up: Could you find an algorithm that runs in O(m + n) time?
  */
 
 
-public class SW09MinimumWindowSubstring {
+public class SW13MinimumWindowSubstring {
     // As per Aditya Verma's Sliding Window Approach:-
     public String minWindow(String s, String t) {
         Map<Character,Integer> mp = new HashMap<>();

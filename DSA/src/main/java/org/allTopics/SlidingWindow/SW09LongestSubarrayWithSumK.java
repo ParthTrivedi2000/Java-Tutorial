@@ -23,7 +23,7 @@ Constraints:
 
  */
 
-public class SW05LongestSubarrayWithSumK {
+public class SW09LongestSubarrayWithSumK {
     public static int lenOfLongSubarr (int A[], int N, int K) {
 
         // Bruteforce Approach :- TC:- O(N^3), SC:- O(1)
@@ -110,7 +110,7 @@ In short, the discussed approach will not work with array having negative number
 /*
 For above question, Sliding Window will only work if array contains only +ve values. if it contains -ve values, then
 above technique won't work.  it is failing for this test case ( arr:- -59 -25 58 -59 -25 58, k=-85 ). So if array contains
--ve integers as well, then we have to use the Hashing (since it is problem of subarray with sum k).
+-ve integers as well, then we have to use the Hashing + PF/Carry-Forward (since it is problem of subarray with sum k).
 
         Map<Long,Integer> mp = new HashMap<>();
         long sum=0;

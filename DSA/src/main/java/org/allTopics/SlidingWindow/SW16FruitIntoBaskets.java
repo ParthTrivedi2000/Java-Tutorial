@@ -43,7 +43,7 @@ Constraints:
 
  */
 
-public class SW12FruitIntoBaskets {
+public class SW16FruitIntoBaskets {
     public int totalFruit(int[] fruits) {
         // Approach - 1:-
         /*

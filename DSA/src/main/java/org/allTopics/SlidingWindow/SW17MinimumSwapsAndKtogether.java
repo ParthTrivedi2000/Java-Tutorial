@@ -26,7 +26,7 @@ Constraints:
 1 ≤ k ≤ 10^6
  */
 
-public class SW13MinimumSwapsAndKtogether {
+public class SW17MinimumSwapsAndKtogether {
     int minSwap(int[] arr, int k) {
         /*
          So I have make all the numbers with less than k together
