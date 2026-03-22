@@ -32,9 +32,32 @@ public class M02PrimeNumberConcepts {
 //        return true;
     }
 
+    // Q-2) Count of Prime Numbers from 1 to N. or may be return all the prime numbers between 1 to N.
+
     // Q-2) Return all the prime numbers from 1 to N.
     public ArrayList<Integer> allPrimeNumbers(int N){
-        // Approach - 1:- TC:- O(n*sqrt(n)), SC:- O(1)
+
+        // BruteForce :- TC:-O(N^2), SC:-O(1)
+        /*
+        ArrayList<Integer> ans = new ArrayList<>();
+         int cnt = 0;
+         // Looping from 1 to N
+         for(int i=1 ; i<=N ; i++){
+             int factors = 0;
+             // Looping from 1 to i
+             for(int j=1;j<=i;j++) {
+                 if(i%j==0){
+                     factors++;
+                 }
+             }
+             if(factors==2) {
+                 cnt++;
+             }
+         }
+         return cnt;
+         */
+
+        // Approach - 2:- TC:- O(n*sqrt(n)), SC:- O(1)
         /*
         ArrayList<Integer> ans = new ArrayList<>();
         for(int i=2;i<=N;i++){
@@ -44,7 +67,7 @@ public class M02PrimeNumberConcepts {
 
          */
 
-        // Approach - 2:- Seive Of Eratosthenes:- TC:- O(n*log(log(n)), SC:- O(n)
+        // Approach - 3:- Seive Of Eratosthenes:- TC:- O(n*log(log(n)), SC:- O(n)
         /*
         In this method simply we are trying to trade off the TC and SC i.e. we use SC to reduce the TC. let's see how.
         Steps:-
