@@ -15,12 +15,12 @@ public class Basics{
         // Scanner input = new Scanner(System.in);  // creating object from scanner class
         // int a = input.nextInt();   // taking Integer value only as an input.
         // float b = input.nextFloat();  // taking float value only as an input.
-        // String c = input.next(); //taking only one character or one word. not whole sentance.
-        // String name = input.nextLine(); // taking string with some words or more than one words.(i.e. sentances)
+        // String c = input.next(); //taking only one character or one word. not whole sentence.
+        // String name = input.nextLine(); // taking string with some words or more than one words.(i.e. sentences)
         // or we can say taking all the strings or words from that whole line in which cursor is present.
         // long p = input.nextLong(); // taking input as long datatype.
         // it is good practice to write L or l with constants as well while performing operations
-        // with long type variable. or else anyway constants will also be converted into long by implicite
+        // with long type variable. or else anyway constants will also be converted into long by implicit
         // type casting.
         // long sum = p*(p+1L)/2L;
         // System.out.println(name);
@@ -42,10 +42,10 @@ public class Basics{
         // 57
         // this is also fine.and store each value in each variable. 
         // Because in java, they will inputting the input based on space. means they are using space
-        // as identifire.
+        // as identifier.
 
         // so jst mean to say that, on so many platforms input is given like so many integers are space
-        // seperated. so we can take that input as shown above.
+        // separated. so we can take that input as shown above.
 
 
 
@@ -66,7 +66,7 @@ public class Basics{
         // }
         // For above loop
         // initially i = 1
-        // Stpe - 1:- i = 2*1 = 2
+        // Step - 1:- i = 2*1 = 2
         // Step - 2:- i = 2*2 = 4
         // Step - 3:- i = 4*2 = 2^3 = 8
         // Step - 4:- i = 8*2 = 2^4 = 16
@@ -104,7 +104,7 @@ public class Basics{
         // total no. of operations = N^2.
 
         // Time Complexity Theory:- the time complexity is the computational complexity that describes
-        // the amount of computer time it takes to run an algorithm.
+        // the amount of time computer takes to run an algorithm.
         // The amount of memory used by a program contributes to the space complexity.
         // Big-O notation is the language we use for talking about how long an algorithm takes to
         // run(time complexity) or how much memory is used by an algorithm(space complexity)
@@ -113,7 +113,7 @@ public class Basics{
         // Big-O notation is a way to track how quickly the runtime grows relative to the size of
         // the input.
         
-        // total no. of operations is contributing to the time complxity. and  variables and
+        // total no. of operations is contributing to the time complexity. and  variables and
         // data structures is contributing to the space complexity.
 
         // for(int i=0;i<5*n;i=i+1)
@@ -131,16 +131,16 @@ public class Basics{
         //     System.out.println(i);
         // }
         // How many times above loop will run?
-        // avobe loop has n/5 no. of operations. bt as discussed above, constant wo't included in
+        // above loop has n/5 no. of operations. bt as discussed above, constant won't included in
         // time complexity. hence time complexity of above loop will be O(N).
 
-        // One more important thing is in whole programm, hmare pass bahot sara code hota he (including
+        // One more important thing is in whole program, hmare pass bahot sara code hota he (including
         // so many single line operations(which has having constant O(1) time complexity) and so many
-        // loops which are having different time complexities.) so pure programm me se hm log vhi loop
+        // loops which are having different time complexities.) so pure program me se hm log vhi loop
         // ki time complexity ko apne main code ki time complexity consider krenge jiski time
         // complexity sbse jyada hogi.
         
-        // order:- O(1) < O(log n) < (log N)^2 < O(N) < O(N*log N) < O(N^2) < O(N^3) < O(2^n)
+        // order:- O(1) < O(log(log n)) < O(log n) < (log N)^2 < O(sqrt(n)) < O(N) < O(N*log N) < O(N^2) < O(N^3) < O(2^n) < O(n!)
 
         // for(int i=0;i<=n;i++)
         // {
@@ -152,7 +152,7 @@ public class Basics{
             // step - 2:- i=2, N-2 operations
             // Step - 3:- i=3, N-3 operations
 
-            // Stpe - n:- i=n, 0 operations
+            // Step - n:- i=n, 0 operations
 
             // total operations:- (N-1)+(N-2)+(N-3)...+0 = N(N-1)/2=N^2 - N
             // Time complexity :- O(N^2)
@@ -203,13 +203,13 @@ public class Basics{
 
         // int arr1[] = new int[5];
         // Note:-
-        // 1) All the Variables and Funcions are stored inside the stack memory. And all the Objects
+        // 1) All the Variables and Functions are stored inside the stack memory. And all the Objects
         // and classes of code are stored inside the heap memory.
         // 2) Array always occupies continuous memory blocks in memory. Or array elements always
-        // stored in continous manner in memory in java
-        // 3) All the 5 elements are stored in heap memory only. But referrence variable (means here arr1)
+        // stored in continuous manner in memory in java
+        // 3) All the 5 elements are stored in heap memory only. But reference variable (means here arr1)
         // will be stored in the stack memory.
-        // 4) That reference variable will contain the starting address of arrays.Pls not that reference
+        // 4) That reference variable will contain the starting address of arrays. Pls note that reference
         // itself won't occupy any space in stack, it will jst point out the array presented in the 
         // heap.
         // 5) fetching or searching any element from the array for any indexes will be constant.
@@ -228,11 +228,11 @@ public class Basics{
         // int tmp[] = arr;
         // tmp[2] = 10;
 
-        // Now what happens? is the arr[2] is also changed or as it is?
+        // Now what happens? is the arr[2] is also changed or stays as it is?
         // Soln:- remember here while creating temp, we haven't used new keyword. and jb tk new 
         // keyword ka use nhi kiya tb tk heap memory me kuch nya create nhi hoga. So this tmp
-        // is present inside the stack and it is also referring he same array which is reffred by
-        // arr and which is actully present inside the heap memory.
+        // is present inside the stack, and it is also referring the same array which is referred by
+        // arr and which is actually present inside the heap memory.
 
 
         // How to input array from user?
@@ -250,24 +250,24 @@ public class Basics{
 
 
         // 2-D Arrays :-
-        // 2D array can be defined as an array of arrays. The 2D array is organized as  matrices
+        // 2D array can be defined as an array of arrays. The 2D array is organized as matrices
         // which can be represented as the collection of rows and columns.
-        // The syntax of declaring two dimensional array is very much similar to that of a one
+        // The syntax of declaring two-dimensional array is very much similar to that of a one
         // dimensional array, given as follows.
 
         // Syntax :- int arr[max_rows][max_columns];
 
         // Prototype:-
-        // datatype arrayName[][] = new datatype[rowsize][columnsize];
-        // exxample:- 
-        // int arr[][] = new int[4][3]; //Space Complexity:- O(Row*Coumn) or we can say Quadratic.
-        // memory allocated :- rowsize*columnsize*datatypeSize-->4*3*4(here)-->48 bytes
+        // datatype arrayName[][] = new datatype[rowSize][columnSize];
+        // example:-
+        // int arr[][] = new int[4][3]; //Space Complexity:- O(Row*Column) or we can say Quadratic.
+        // memory allocated :- rowSize*columnSize*datatypeSize-->4*3*4(here it's integer so 4 bytes)-->48 bytes
 
         // whenever we want to store data into matrices or in grid form then we can use 2D arrays.
 
         // How to print or input the elements of 2D array?
         // for(int i=0;i<row;i++){ // iteration n Rows (i.e. row times)
-        //     for(int j=0;j<column;j++){ // iterating on clumns (i.e. column times)
+        //     for(int j=0;j<column;j++){ // iterating on columns (i.e. column times)
         //         // arr[i][j] :- means element at ith row and jth column
         //         System.out.println(arr[i][j]); // it will print all the elements in single line.
         //         // arr[i][j] = any.nextInt(); // to take input or store in 2D array
@@ -281,7 +281,7 @@ public class Basics{
         // int column = input.nextInt();
         // int arr[][] = new int[row][column];
 
-        // Appraoch - 1) O(N^2) time complexity
+        // Approach - 1) O(N^2) time complexity
         // for(int i=0;i<row;i++){
         //     for(int j=0;j<column;j++){
         //         if(i==j){
@@ -310,17 +310,17 @@ public class Basics{
         // int a = any.nextInt(); // what nextInt will do is it will try to find integer. Once it
         // find integer then cursor will stop at space if something is there next after. bt if 
         // next input is in the next line or in 1st line only one integer is present then cursor
-        // will move to the nextline after finding 1st integer.
+        // will move to the nextLine after finding 1st integer.
         // String b = any.nextLine(); // above is not the case with nextLine. what nextLine will do is
         // it will store whole line or all the words in the line where cursor is present. after storing
         // it, it will move to the next line if 
         // System.out.println(a);
 
 
-        // So be very carefull while use nextLine(). so simple ek cheez yad rkhna ki nextInt,
+        // So be very careful while use nextLine(). so simple ek cheez yad rkhna ki nextInt,
         // nextFloat, nextDouble, nextLong, next() --> in sb ki working kese he ki jb for example
         // mene int a = nextInt likha he to kya hoga ki cursor jo line me he usme nextInt Integer find
-        // krne ka start krega. jese hi ,mil jayega integer to vo a me store kr dega and cursor vha pe
+        // krne ka start krega. jese hi ,mil jayega integer to vo variable 'a' me store kr dega and cursor vha pe
         // stop krke vha pe hi rhega. aur agr puri line me integer khi pe bhi nhi mila to cursor automatic niche
         // vali line me jump krega or usme apna search jari rkhega. Bt nextLine() ko use kiya he tb usme
         // cursor jo bhi line me he vo line me search sentence ka search start hoga. agr sentence ya word
@@ -330,12 +330,12 @@ public class Basics{
         
         // ****************** Functions ***********************
         // Prototype or syntax :-
-        // access_specifier static return_ytpe functionName(Some Argument)
+        // access_specifier static return_type functionName(Some Argument)
         // Argument = Give input to the function
-        // return_type = Value returned by function datatype is return type
+        // return_type = Value returned by function, datatype is return type
         //  If you don't want to return anything then return type will be void
 
-        //  Static--> keyword (currently writing this is cumpulsory, will learn more in OOPS)
+        //  Static--> keyword (currently writing this is compulsory, will learn more in OOPS)
         // Example:- see above main function.
 
 
@@ -350,7 +350,7 @@ public class Basics{
         // String s1 = "hello";
         // String s2 = "hello"; // will not create a new instance.
         // Important points :-
-        // 1) strings are object in java.
+        // 1) strings are objects in java.
         // 2) Strings are immutable in java. means once it is created we can't modify it.
         //      Case - 1] 
         // String s1 = "abc";
@@ -358,10 +358,10 @@ public class Basics{
         //      Case - 2]
         // String s1 = "abc";
         // String s2 = "abc"; // it will not create new instance means first java will check weather
-        // "abc" is available in heap mmory or not. if not then only it will create. but if present then java
+        // "abc" is available in heap memory or not. if not then only it will create. but if present then java
         // will point out to same value only. So here in this case both reference variable s1 and s2
         // are pointing out to same "abc" only. hence if we perform anything on s2 will make change in
-        // s1 as well and vice versa. And this senario is same applicable to array as well.
+        // s1 as well and vice versa. And this scenario is same applicable to array as well.
         //      Case - 3]
         // String s1 = "abc";
         // s1.concat("def"); // concat will add multiple strings.
@@ -370,11 +370,11 @@ public class Basics{
         // string. instead new value "abcdef" will be created in the heap memory after writing s.concat
         // line. bt no reference variable is pointing out to this value. bec s1 is still pointing out to 
         // "abc" only. So what if I want to add this value to string?
-        // we have to write s1 = s1.concat("def"); this will also create new instane in the heap memory
+        // we have to write s1 = s1.concat("def"); this will also create new instance in the heap memory
         // with the value of "abcdef". but now there is one reference variable (s1) also which is pointing 
         // out this value "abcdef". so now try to print s1. it will give "abcdef".
 
-        // 3) Strings are also stored similar as Arrays in java. for exmple:-  String name = parth;
+        // 3) Strings are also stored similar as Arrays in java. for example:-  String name = parth;
         // then parth is the value stored in the variable. so this value will be stored in the 
         // heap memory while execute above line. and name which is variable and which is
         // referencing the value. that reference will be there in the stack memory. And similar
@@ -384,7 +384,7 @@ public class Basics{
         // will jst point out the value in the heap.
 
         // --> if we write
-        // int x = 'A' - 'c';  // java will subtract the ASCII value of 'A' and 'c' and result will store in x.
+        // int x = 'A' - 'c';  // java will subtract the ASCII value of 'A' and 'c' and result will store in x as int.
 
         // Now if we want to compare 2 integers we are directly writing 5<10 or something. but what if we
         // want to compare 2 strings. So for that we are having compareTo function.
@@ -403,7 +403,7 @@ public class Basics{
         // String s1 = "ZZZ";
         // String s2 = "ZZZZABC";
         // System.out.println(s1.compareTo(s2));
-        // So compareTo function will start cheching from 1st character. if in any of the string will be
+        // So compareTo function will start checking from 1st character. if in any of the string will be
         // over then the function will return length difference. so here it will return -4.
 
         // --> Approach in which we are using 2 variables to iterate on single string or single array
@@ -432,9 +432,9 @@ public class Basics{
         // So this is the way to change the chars in the string.
         // One more imp thing is in above line u have tried to print char array arr. and it will be printed.
         // But same case is not true for Int array or double array or String array. means if u try to print
-        // Int or double or String or any other type of array, u will get some hexa decimal value on the screen
-        // which represents the address of first byte of that array. To print array I have to write loop. 
-        // But only in case of char array u can print whole array.
+        // Int or double or String or any other type of array, u will get some hexadecimal value on the screen
+        // which represents the address of first byte of that array. To print array I have to write the loop.
+        // But only in case of char array u can print whole array with println() function.
 
         // One more thing is we can't directly convert a character into the string. But we can convert 
         // char arr into string.
@@ -442,7 +442,7 @@ public class Basics{
         // String str2 = new String(arr2);
         // System.out.println(str2); // o/p :- "ABG"
 
-        // bt we can't convert explicitely char to string.
+        // bt we can't convert explicitly char to string.
         // char z = 'x';
         // String a = (String)(z);
         // System.out.println(a); // o/p :- error.
@@ -478,12 +478,12 @@ public class Basics{
 
         // Approach:- Here what we have to do is, from the array you can understand like I simply just need to swap the 2 values bt
         // twist is inside the same array i.e. without creating new array (as O(1) space complexity is given in que. so). So from the
-        // above sentence only we can understand like we will be requireing 2 variables representing both the 2 different values (hence
+        // above sentence only we can understand like we will be requiring 2 variables representing both the 2 different values (hence
         // from the name of approach it is called 2 pointers aese yad rkh skte ho. i.e. pls remember this, whenever it is required to
         // deal with 2 elements from of same data structure, we can use or we should use 2 pointers approach.)
         // Now aese hi 2 pointers (which represent 2 different values in the array) leke value swap krte rehni h bt kb tk? so here is the
-        // time to think about stopping condition as we have to repeate something so u r smart enough to start loop. but somewhere u have
-        // to stop. So stopping condition would be jb bhi swape hote hote i nd j equal ya to i>j ho jata h tb muje swaping stop kr deni h.
+        // time to think about stopping condition as we have to repeat something so u r smart enough to start loop. but somewhere u have
+        // to stop. So stopping condition would be jb bhi swap hote hote i nd j equal ya to i>j ho jata h tb muje swapping stop kr deni h.
         // u can iterate using pen nd paper, u might be able to see it correctly. and after each swap we jst need to increase one variable
         // and decrease another variable to move ahead in the loop.
 
@@ -526,7 +526,7 @@ public class Basics{
 
 
         // Q) Count the number of pairs from the array in which sum of element of pairs is divisible by given value K.
-        // Soultion :-
+        // Solution :-
         // Will write soon.
 
 
@@ -570,10 +570,10 @@ public class Basics{
         // }
         
         // So above solution will also correct ryt? but the main problem is above solution takes approx O(N^2) Time complexity.
-        // And we want to achive the result in the O(N) Time Complexity. So the solution is we have to use Prefix Array Concept.
+        // And we want to achieve the result in the O(N) Time Complexity. So the solution is we have to use Prefix Array Concept.
         // But yes there is one drawback. as we are reducing time complexity, I have to compromise with my space complexity. So
-        // in the for the above given Q, in prefix array solution my Time complexity will be O(N) but my Space Cmplexity 
-        // will be O(N) whcihc was previously O(1) during 1st Solution.
+        // in the for the above given Q, in prefix array solution my Time complexity will be O(N) but my Space Complexity
+        // will be O(N) which was previously O(1) during 1st Solution.
 
         // 2nd Method :- Using Prefix array
 
@@ -617,8 +617,8 @@ public class Basics{
 
 
         // Concept :- 
-        // Subarray:- Subarray is a part of array having some elements which are continous by index.
-        // SubSequence :- Subsequence is a part of array in which elements are not continous by index. but yes order
+        // Subarray:- Subarray is a part of array having some elements which are continuous by index.
+        // SubSequence :- Subsequence is a part of array in which elements are not continuous by index. but yes order
         // matters. i.e. in forward order only.
 
         // Q) Print all the subarray of a given array.
@@ -652,7 +652,7 @@ public class Basics{
         // Q) Find the Maximum Sum of Subarray of a given Array.
 
         // Approach :- 
-        // - take niput from system.
+        // - take input from system.
         // - initialize maxSum variable with minimum integer value possible.
         // - start creating subarray. (i.e loops for subarray).
         // - upr vale case me hme print krna tha element so hmne 3rd loop likha bt yha pe hme element or subarray print nh krna h. To
@@ -740,7 +740,7 @@ public class Basics{
         // Method -1 :- Using Prefix and/or Suffix Array.
 
         // Note:- Prefix array can be created to store summation or subtraction or multiplication or division results or any
-        // consequent result performed by continous elments of any array in forward order.
+        // consequent result performed by continuous elements of any array in forward order.
 
         // Similarly We can have Suffix array in which everything is same, but order is reverse. i.e. we are starting from end
         // element of an array to move till 1st element nd store the results in the array.
