@@ -24,7 +24,7 @@ class D{
 
 // So conclusion is any java program can have multiple classes but only 1 public class maximum. Public means outside of this java file 
 // someone can access it. And if there is any public class in the program then program name must be same as class name it means else 
-// compliler will give error if you won't save program by that public class name. 
+// compiler will give error if you won't save program by that public class name.
 
 class A{
     public static void main(String[] args)
@@ -49,8 +49,8 @@ class D{
 }
 
 // - next thing is now suppose our program has 4 classes A, B, C and D. And consider A, B, and C classes contains main method and class D 
-// doesn't have main method. And I have named this program file as Parth.Java. So whenever we complie or run 
-// our program file it means java source file, it will always generate    .Class file (Bytecode) for each class available inside it. 
+// doesn't have main method. And I have named this program file as Parth.Java. So whenever we compile or run
+// our program file it means java source file, it will always generate the .Class file (Bytecode) for each class available inside it.
 // - now if we run A.Class file then, only A class ki main method execute hogi. Same B.Class file run krne pe B class ki Main method run hogi. 
 // Same for class C as well. Now whenever we run D.Class file, java will give error saying something:- class doesn't have any Main method 
 // to execute. Please define it. 
@@ -70,20 +70,20 @@ class D{
 // now if we use fully qualified name here then java won't give any error and successfully compile the java source code. For exa:-
 // Java.Util.Scanner scn = new java.Util.Scanner() 
 
-// Above thing will run perfectly. But the problem is like evertime use of fully qualified name is not the best way ryt. It will increase 
+// Above thing will run perfectly. But the problem is like everytime use of fully qualified name is not the best way ryt. It will increase
 // the length of code and decrease the readability. 
 
 // - so now solution is to use import statement. If we write, 
 // Import java.Util.Scanner; at the top of the program, then I can use short name (Scanner) anywhere in the file and java will 
-// compiled it successfully as well. 
+// compile it successfully as well.
 
 
 // - there are 2 types of import. 
-// Explicit import :- import java. Util. Scanner;
-// Implicit import :- import java. Util. *;
+// Explicit import :- import java.Util.Scanner;
+// Implicit import :- import java.Util.*;
 
 // - next question is, from above both the imports which import is recommend to be used? 
-// - we should go for explicit import always bec it improves the readability and understandablity about the class we have 
+// - we should go for explicit import always bec it improves the readability and understandability about the class we have
 // used is actually present in which module. 
 
 
@@ -92,20 +92,20 @@ class D{
 // - below are the 2 interfaces available in java for which we don't need to import any classes from them if we want to use 
 // any from them but by default all those classes are available for any of the java program. 
 // - 1st interface is :- java.lang
-// - suppose i am creating new object for string. ( JFYI This class is from java.lang interface) 
+// - suppose i am creating new object for string. (JFYI This class is from java.lang interface)
 // String s = new String() 
 // So i don't have to explicitly import it bt by default it is available to use as almost all the java program requires it so. 
 
 // - 2nd is : default package:- it means from Current Working Directory. 
-// it means if I am having another package or .java file placed inside the same folder then I can direclty 
-// utilize it's class in my file. I don't need to explicitely import it.
+// it means if I am having another package or .java file placed inside the same folder then I can directly
+// utilize it's class in my file. I don't need to explicitly import it.
 
 
-// - whenever we are importing any java package, all the classes and interfaces available inside that package are availabel 
+// - whenever we are importing any java package, all the classes and interfaces available inside that package are available
 // but not the sub packages level classes. If you want to use sub package level classes and interfaces, we have to write import 
-// statement till sub package level. (For example :- if I want to use pattern class from regex sub pacakge to create new pattern instance then, 
+// statement till sub package level. (For example :- if I want to use pattern class from regex sub package to create new pattern instance then,
 // import java.Util.Regex.*   :- correct
-// Import java.Util.*                :- will give error of cannot find symbol Pattern. 
+// Import java.Util.*         :- will give error of cannot find symbol Pattern.
 // Pattern p = new Pattern();
 
 
@@ -130,7 +130,7 @@ class D{
 
 // Whenever we are defining any class, we have to provide some information to the JVM like weather this class can be accessible from
 // anywhere or not, weather child class can be created from this class or not, weather object creation is possible or not.
-// So how you can provide these kind of information to JVM is by using modifiers while creating class.
+// So how you can provide this kind of information to the JVM? --> we need to provide this info to JVM by using modifiers while creating class.
 
 // Modifiers describe the behaviour of the class.
 // Suppose for exa. :-
@@ -138,7 +138,7 @@ class D{
 // package or from outside the package or anywhere. there is no restriction of using this class from anywhere.
 // modifier 'default' provide info that this class can be accessible only within the package.
 // so default access is also known as package level access.
-// Pls note here that by default for any class if we won't specify any thing, it will be accessible in the same package only.
+// Pls note here that by default for any class if we won't specify anything, it will be accessible in the same package only.
 
 
 // Now Object creation is possible or not, how to provide this info?
@@ -161,7 +161,7 @@ class D{
 // strictfp
 
 
-// So we are having inner classes as well right (which you can refere as nested classes as well). So for any inner classes,
+// So we are having inner classes as well right (which you can refer as nested classes as well). So for any inner classes,
 // all the above modifiers are valid + few more we can use for any inner class.
 // private
 // protected
@@ -170,12 +170,12 @@ class D{
 
 // Abstract Modifier in detail :-
 // 1) So where we can use 'abstract' ? :- it can be used for Methods, Classes. but not for Variables.
-// Now Abstract from word itself we can undestand it like abstract means something not clear or not completed ryt. or we can say
+// Now Abstract from word itself we can understand it like abstract means something not clear or not completed ryt. or we can say
 // partially completed it means abstract ryt.
 
-// So sometimes what happens is we are not sure about implementation. So in this case we can use abstract method'. means
-// remember one thing that abstract method has only declaration is possible bt not implementation. So even remeber this 
-// thing as well, abstract method ends with semicolumn (;) not curly braces({}).
+// So sometimes what happens is we are not sure about implementation. So in this case we can use abstract method. means
+// remember one thing that abstract method has only declaration is possible bt not implementation. So even remember this
+// thing as well, abstract method ends with semicolon (;) not curly braces({}).
 // for exa:-
 // public class Vehicles{
 //     public abstract getNoOfWheels();
@@ -183,9 +183,9 @@ class D{
 
 // Note :- Child classes are responsible for the implementation.
 // So Conclusion is :- the method which has only declaration but not the implementation is known as abstract method. And abstract
-// method always ends with semicolumn. absrtact method doesn't have body (curly braces).
+// method always ends with semicolon. abstract method doesn't have body (i.e. curly braces).
 
-// Note :- If there is atleast 1 abstract method in my class then, compulsorily I have to declare that class as abstract.
+// Note :- If there is at-least 1 abstract method in my class then, compulsorily I have to declare that class as abstract.
 
 
 // ----- Abstract Class :-
@@ -199,7 +199,7 @@ class D{
 // exa:-a.getWheels(); won't possible if class 'a' is declared as abstract.
 
 // Abstract Class vs Abstract Methods :-
-// 1) if class contains atleast 1 abstract method then, class must have been declared as 'abstract'. reason is as it
+// 1) if class contains at-least 1 abstract method then, class must have been declared as 'abstract'. reason is as it
 // is partially implemented, not fully implemented. hence can't create object of it or can't call any method from that class.
 
 // 2) if class doesn't have any abstract method, still can I declare it as abstract class? :- yes if class doesn't have 
@@ -207,9 +207,9 @@ class D{
 // can prevent for object creation or class instantiation by declaring that class as 'abstract'. So abstract class
 // can have 0 abstract method.
 
-// 3) any class is called adapter class if it fullfill above 2nd point.
+// 3) any class is called adapter class if it fulfills above 2nd point. i.e. if it contains dummy impl for any method.
 
-// 4) very Imp Point :- child class is responsible for implementation of any abstract parent class's abstract methods. so for exa:-
+// 4) very Imp Point :- child class is responsible for providing the implementation of any abstract parent class's abstract methods. so for exa:-
 // abstract class Test{
 //     public abstract void m1();
 //     public abstract void m2();
@@ -260,7 +260,7 @@ class D{
 
 // Now suppose if you remove getNoOfWheels() method from that abstract class then also code is going to run bec parent is
 // abstract class nd it is not required that it have to have any method ryt. So what is the advantage of declaring that
-// abstract method in that class? so answer is:- main advantage is like if we won't define this method in class Vehicle, then
+// abstract method in that class? so answer is:- main advantage is like if we won't define this method in class Vehicle as abstract, then
 // any of it's child class may or may not provide the implementation of the getNoOfVehicle() method. but if we define it 
 // in Vehicle as abstract method, then any of the child classes must have to provide implementation of that abstract method.
 
@@ -268,8 +268,8 @@ class D{
 
 // ----------------------- Member Modifiers -------------------------------------------------
 // So we have seen class level modifiers. but now let's check member modifiers. member modifiers means those modifiers
-// which are applicable to members of class such as on methods and variables.
-// There are total 12 memeber modifiers. but we will check only few of them. public, private, protected, default, abstract, final etc
+// which are applicable to members of class such as on methods and variables both type of members.
+// There are total 12 member modifiers. but we will check only few of them. public, private, protected, default, abstract, final etc
 
 // Public :-
 // if member is declared with 'public' modifier then, we can access it anywhere it means within the class, outside the class
@@ -278,7 +278,7 @@ class D{
 // So imp conclusion is, always 1st check class visibility, then only check member visibility.
 
 // Default :- 
-// if we haven't specify anything as modifier for any member then, by defualt it will be 'default' modifier. else you can 
+// if we haven't specified anything as modifier for any member then, by default it will be 'default' modifier. else you can
 // specify 'default' keyword as well. so those members are accessible within the same package only. even default access is 
 // also called as package level access.
 
@@ -291,16 +291,16 @@ class D{
 // default :- Package level
 // private :- Class level
 
-// For any Data Members (i.e. Variables of the class): it is recommanded to use 'private' modifier as we can not expose data
+// For any Data Members (i.e. Variables of the class): it is recommended to use 'private' modifier as we can not expose data
 // to outside anywhere not out of the class as well. this concept is known as "Data Hiding" which we will see in detail.
-// For any Services (i.e. Methods of the class): it is recommanded to use 'public' modifier as everyone should be use methods
+// For any Services (i.e. Methods of the class): it is recommended to use 'public' modifier as everyone should be use methods
 // of the class.
 
 
 // Protected :-
-// if members of class has 'protected' modifiers it means those are accessible anywhere within the same package and outside
-// of the package it can be accessible to child classes only.
-// protected = <default> + kids (i.e. child or childern) // this is how you can remember.
+// if members of class has 'protected' modifier it means those are accessible anywhere within the same package and outside
+// the package it can be accessible to child classes only.
+// protected = <default> + kids (i.e. child or children) // this is how you can remember.
 
 // remember for child class, they can access everything of their parent class means all the methods of their parent.
 // and also can reference the parent class's methods as well.
@@ -329,7 +329,7 @@ class D{
 
 // M M Imp point :- for the protected members, from outside package you can access within the child class only (within
 // the package you can access anywhere) bt outside package only in child class and twist is compulsorily we
-// should use child class reference only. from outside of the package, we can't use parent reference to access protected
+// should use child class reference only. from outside the package, we can't use parent reference to access protected
 // members.
 
 // Most accessible modifier is 'public' and Least accessible or most restricted modifier is 'private'. 
@@ -355,13 +355,13 @@ class D{
 // Above is the valid implementation of interface or not?
 // So we made 2 mistakes. each mistake is very important conclusion.
 // Each method inside interface is public and abstract weather we are declaring or not or pls remember this. 
-// So we have to endwith ; in interface which is correct. but while implementing interface method,
+// So we have to end method with ; in interface which is correct. but while implementing interface method,
 // compulsorily we have to implement method as 'public' during implementation. which we haven't done above you can see.
 // So it is like parent class method we are implementing in child class ryt. so always remember like
 // while overriding, we can't reduce the scope of the modifiers. in above case, we are overriding (it means
 // using same method of another class and make changes in them ) ryt. so during overriding we can't reduce the scope
 // in OOPS java. above we are reducing scope from 'public' to 'default'. so it will give error. so solution
-// is to declare m1 method inside child class serviceprovider as 'public'. 
+// is to declare m1 method inside child class serviceProvider as 'public'.
 // interface Interf{
 //     public void m1();
 //     public void m2();
@@ -373,13 +373,13 @@ class D{
 //     }
 // }
 
-// 2nd mmistake we did is, like whenever we are providing implementation to an interface, a Class must provide
-// implementation of each and every abstract method of an interface. but here we haven't provide for all the 
+// 2nd mistake we did is, like whenever we are providing implementation to an interface, a Class must provide
+// implementation of each and every abstract method of an interface. but here we haven't provided for all the
 // abstract methods of interface Interf. m2() method is remaining. so solution is we have to provide
-// implementation of method m2() as well in the class ServiceProvider. then it will going to work fine.
+// implementation of method m2() as well in the class serviceProvider. then it will work fine.
 // Another solution for this 2nd problem is, we won't provide implementation of 1 or more methods of an
 // interface and declare this class as 'Abstract'. So abstract means partially implemented class. and it means
-// it can contains atleast 1 or more abstract methods. But remember in this case child class is responsible
+// it can contain at-least 1 or more abstract methods. But remember in this case child class is responsible
 // to provide the implementation of abstract methods of parent class.
 // interface Interf{
 //     public void m1();
@@ -424,19 +424,19 @@ class D{
 // }
 // So Conclusion :- whenever we are implementing any interface method, compulsorily that method should be declared as 'public'
 // 2nd point is whenever we are implementing an interface, for each nd every method of an interface we should provide the
-// implementation. if you are unable to provide the implementation for atleast one abstract method, declare the class as 
+// implementation. if you are unable to provide the implementation for at-least one abstract method, declare the class as
 // 'Abstract'.
 
 
 // -------------------------------- OOPS -------------------------------------------
 
 // 1st OOPS feature we are going to discuss is
-// 1) Data Hiding :- So data hiding menas hiding of data. so our internal data should not go out directly. it means
-// outside person should not access the our internal data directly. We have to hide our data. for exam:- mailbox. if
+// 1) Data Hiding :- So data hiding means hiding of data. so our internal data should not go out directly. it means
+// outside person should not access our internal data directly. We have to hide our data. for exam:- mailbox. if
 // we write www.gmail.com we won't get data directly ryt. 1st we have to provide our mail nd pwd nd if it is correct then 
 // only it will give data. so meaning is some sort of validation is required before giving data to anyone. so this type
 // of validation or authentication we can apply through this beautiful concept of 'Data Hiding' in java. So how to do 
-// it programatically?
+// it programmatically?
 // for exa:-
 class Account{
     // every account must have balance ryt.
@@ -452,10 +452,10 @@ class Account{
     }
 }
 
-// So how to implement Data Hiding ? :-  By declareing data member as 'private'. 
-// So biggest advanatage of data hiding is security. 
+// So how to implement Data Hiding ? :-  By declaring data member as 'private'.
+// So the biggest advantage of data hiding is security.
 
-// Note :- highly recommanded modifier for any variable is 'private' in java.
+// Note :- highly recommended modifier for any variable is 'private' in java.
 
 // 2nd feature is 
 // 2) Abstraction :- here abstraction means hiding internal implementation. it means it will surely tell like this
@@ -471,13 +471,13 @@ class Account{
 
 // 3) Encapsulation :-
 // The process of grouping combining the data members and corresponding methods or behaviour into a single unit is called
-// 'Encapsulation'. Every java class is an example of encapsulation. for examp class Student. it will contain the student
-// related infor in terms of data members and corresponding methods as well nd whole things are grouped into one class.
+// 'Encapsulation'. Every java class is an example of encapsulation. for example class Student. it will contain the student
+// related information in terms of data members and corresponding methods as well nd whole things are grouped into one class.
 // So class is good example of encapsulation.
 // If any component which follows data hiding and encapsulation then that component is said to be encapsulated comp.
 // Data Hiding + Abstraction = Encapsulation
 // it means if there is hiding and abstraction then we can say that component as encapsulated.
-// if any of the above 2 defination is there (1 is grouping or another is hiding,abstraction), 
+// if any of the above 2 definition is there (1 is grouping or another is hiding,abstraction),
 // then we can say component is encapsulated.
 class Account{
     private double balance;
@@ -496,11 +496,11 @@ class Account{
 // Advantages :-
 // - Security
 // - Enhancement is very easy without effecting outside person or client side application or GUI.
-// - Manintanability
+// - Maintainability
 // - Modularity
 
 // Drawbacks :-
-// - for every data member, we will be having getters and setter methods to call from client side. and also we have to 
+// - for every data member attribute, we will be having getters and setter methods to call from client side. and also we have to
 // perform validation in all those methods. it means code becomes very lengthy as we have to do it for each nd every data member.
 // so it increases length of the code and slows down the execution. so performance is down.
 
