@@ -1,17 +1,19 @@
+package OOPS;
+
 public class Inheritance {
     // - Inheritance is also known as 'IS-A relationship'.
     // - main advantage of inheritance is code reusability.
-    // - by using 'extends' keyword, we can implements the inheritance concept.
+    // - by using 'extends' keyword, we can implement the inheritance concept.
 
 
 
 
-class P{
+static class P{
     public void m1(){
         System.out.println("Parent");
     }
 }
-// When we use extends keyword, all the methods and variables of parent class are available to the child class as well.
+// When we use extends keyword, all the members i.e. methods and variables of parent class are available to the child class as well.
 // this concept is known as Inheritance.
 class C extends P{
     public void m2(){
@@ -29,7 +31,7 @@ class Test{
         c.m2(); //will work
 
         // So 1st imp conclusion :- on the parent reference, child specific methods or child specific variables we can not call.
-        // On child class reference, parent and child both the class's method and variables can be called.
+        // On child class reference, parent and child both the class's methods and variables can be called.
 
         // 2nd imp conclusion :-  Parent reference can be used to hold the child object. but remember we can't call the child
         // specific methods and variables on parent referenced object.
@@ -80,8 +82,8 @@ class D extends A{}
 // So for examp.:- there are 3 classes. P1, P2 and C. suppose C is extending from p1 as well and from p2 as well. now suppose
 // there is 1 method named m1() present in both the class P1 and P2. Now as Class C is the child class of P1 and P2 hence
 // it can have access for m1 method from both the classes. now if we write c.m1() then, which method should be called or
-// executed? class P1 or class P2's m1() method? So there is ambiguty to identify which method child class C is calling.
-// Hence Java is not supporting multiple inheritance. This problem is also known as 'Dimond Access Issue' or 'Ambiguity
+// executed? class P1 or class P2's m1() method? So there is ambiguity to identify which method child class C is calling.
+// Hence Java is not supporting multiple inheritance. This problem is also known as 'Diamond Access Issue' or 'Ambiguity
 // Issue' as well.
 
 // But Java is providing support of multiple inheritance for Interfaces how?
@@ -89,7 +91,7 @@ class D extends A{}
 // those methods are abstract it means there is only declaration of methods not implementation. implementation is given
 // by child interface or child class which will be called as implementation class. 
 // So for examp.:- we are having 2 interfaces PI1 and PI2 and suppose both the interfaces having method m1(). now there
-// is 1 implementaion class Test which is implementing method m1. so here now child class has only 1 m1 method right which 
+// is 1 implementation class Test which is implementing method m1. so here now child class has only 1 m1 method right which
 // will be called on child class object. in case of interface suppose reference is given by any interface bt object
 // creation is with child class only hence whenever we are calling any methods those will be on child class only.
 // So now there is no ambiguity to identify from multiple methods as there is only 1 method implementation written so.
@@ -103,7 +105,7 @@ interface C extends P1,P2{} // No C.E. program will run successfully.
 // like in classes we will be having ambiguity problem but in Interfaces we don't have that problem.
 
 // VVIMP Interview Question :-
-// So after asking above question like weather by default java support multiple inheritance or not ?:- you will give
+// So after asking above question like whether by default java support multiple inheritance or not ?:- you will give
 // answer like not for classes but yes for interfaces concept with reason in detail. then interviewer might ask this
 // question like, as we know whole Java API is child class of root 'Object' class ryt? so if you write like,
 // class B extends A{};
@@ -160,31 +162,31 @@ interface C extends P1,P2{} // No C.E. program will run successfully.
 // of concepts exists as we are covering topic Inheritance so.
 class A extends A{};  // Compilation Error
 // bec what does it mean is child Class A requires all the variables and methods of parent class A. So class A's all the
-// members are already available to class A. then what does it means of extending ryt. 
+// members are already available to class A. then what does it mean of extending ryt.
 
 // or 
 
 class A extends B{};
 class B extends A{};  // Compilation Error
-// Bec what does it means is child class A requires all data members and methods of parent class B. and below line's
+// Bec what does it mean is child class A requires all data members i.e. attributes and methods of parent class B. and below line's
 // meaning is class B requires all the data members and methods of parent class A. Now if all the data members and 
-// methods are commonly required then create once class only n why to create 2 classes.
+// methods are commonly required then create once class only na why to create 2 classes.
 // So java doesn't support cyclic Inheritance. even almost none of the languages support this type of cyclic inheritance. Not
 // Python as well.
 
 
 
 // So we have covered Abstraction then Encapsulation then Inheritance in very detailed. Now it's time for 
-// Polymorphysom. but in it we will be covering Method Overloading and Method Overriding. so before Jumping 
+// Polymorphism. but in it we will be covering Method Overloading and Method Overriding. so before Jumping
 // into it we must understand about Method Signature.
 
 // ------------------------------- Method Signature -----------------------------------------------------
 // public int m1(int a, float b);
 // So what is 'Method Signature' in above case?
-// So pls remember Method Signature contains method name followed by argument's data types (remeber sequence also should be same)
+// So pls remember Method Signature contains method name followed by argument's data types (remember sequence also should be same)
 // passed to it. it means for above case
 // Method Signature is m1(int,float).
-// JFYI, in C++ return type is also additionaly part of Method Signature. but in Java, only method name and argument types
+// JFYI, in C++ return type is also additionally part of Method Signature. but in Java, only method name and argument types
 // is part of method signature not return type of method.
 
 // Next who is going to use Method Signature? I mean why we are focusing on it?
@@ -205,8 +207,8 @@ class Test{
 // Pls understand very carefully. So for every Class compiler will maintain the Method table. and in Method table it stores
 // the Method Signature. so in above case Compiler is having one Method Table:-
 // which contains 2 rows. in 1st row, m1(int) was written and in 2nd raw m2(String) was written. Now whenever compiler will
-// be having object creation nd then after object creation whenver it will be having any method call then how it will be resolving.
-// so it will be check like this. here m1 is called by object t ryt? so which type of object t is? it is of type Test ryt.
+// be having object creation nd then after object creation whenever it will be having any method call then how it will be resolving.
+// so it will be checking like this. here m1 is called by object t ryt? so which type of object t is? it is of type Test ryt.
 // so it will go to class Test's Method Table. so it will check like is there any method m1 available in Method Table of class Test
 // which can take argument of int type. So if m1 will present and it's argument type matches with the called method then it will
 // not give any error and move ahead and compiled successfully. else it will give appropriate error.
@@ -240,13 +242,13 @@ class Test{
 // fabs(float)
 // labs(long)
 
-// So programming complexity increases as developer should remember 3 method names for 3 different data types or differnt
+// So programming complexity increases as developer should remember 3 method names for 3 different data types or different
 // method names for different data types.
 // But same is not the case with Java. in java we can have same method name with different data types as an argument.
 // abs(int)
 // abs(long)
 // abs(float)
-// this concept is known as 'Method Overloading'. Biggest advantage of Overloding is programming complexity reduced for
+// this concept is known as 'Method Overloading'. Biggest advantage of Overloading is programming complexity reduced for
 // developer.
 class Test{
     public void m1(){
@@ -261,26 +263,26 @@ class Test{
     public void m1(double d){
         System.out.println("double type arg");
     }
-    // So from defination discussed above, we can say that above methods are said to be 'Overloaded Methods' as 
+    // So from definition discussed above, we can say that above methods are said to be 'Overloaded Methods' as
     // all of them are having same method name and different argument data type.
 
     public static void main(String args[]){
         Test t = new Test();
-        // So now pls try to change the nerrative of seeing all the lines present inside the class or method.
+        // So now pls try to change the narrative of seeing all the lines present inside the class or method.
         // in above line we are having reference type as 'Test' and Run time Object type also 'Test' (but as we know
         // both can be different ryt. like P p = new Test(). so here reference type of object p is 'P' but runtime
         // object type is 'Test' ok.)
         t.m1(); // void type arg
         t.m1(10); //int type method will be called hence o/p would be int type arg.
-        t.m1(10.5); // double type method will be called. hence i/p would be double type arg.
+        t.m1(10.5); // double type method will be called. hence o/p would be double type arg.
 
         // So how resolution of method calls will be done in these cases are based on the Object's Reference Type(here
-        // it it type 'Test' and the Method Signature it means method name and data type of passed arguments.) and
+        // it is type 'Test' and the Method Signature it means method name and data type of passed arguments.) and
         // the method with the arguments' data type.
 
         // MMIMP Conclusion :- In 'Overloading', Method Resolution always takes care by compiler based on the 
         // 'Reference Type' of Object (not the Run time type of object). 
-        // So overloading is also known as 'Compile Time Polymorphysome' or 'Static Polymorphysom' or 'Early Binding
+        // So overloading is also known as 'Compile Time Polymorphism' or 'Static Polymorphysom' or 'Early Binding
         // Polymorphysom'.
 
         // So here Run time object type is dummy and JVM is not responsible for Method Resolution. but Reference type is
@@ -321,7 +323,7 @@ t.m1('a'); // o/p:- int type arg
 t.m1(7L); // o/p:- float type arg (as long type method is not available hence promoted to float type and it exists so it will be executed)
 t.m1(10.5); // Compilation Error. 
 // bec 10.5 is by default double type in java ryt. now double type method is not available, so compiler
-// tried to promote it's data type bt next promotion data type is also not avialble so now compiler will raise C.E.
+// tried to promote it's data type bt next promotion data type is also not available so now compiler will raise C.E.
     }
 }
 
@@ -355,10 +357,10 @@ class Test{
 // Child Argument gets the highest priority when compared with parent argument. So in this case t.m1(null). so argument null
 // is matched with both the method's argument Object and String. So priority will be given to String as it is the child of
 // Object. hence o/p will be :- String Version
-// This case you can think of collector and peun. for any small work which can be done by both collector and peun, we won't 
-// go to directly collector ryt as work is small nd can be done by peun then no need to go with collector directly ryt.
+// This case you can think of collector and peon. for any small work which can be done by both collector and peon, we won't
+// go directly to the collector ryt as work is small nd can be done by peon then no need to go with collector directly ryt.
 
-// Conclusion :- in oveloading, exact match of type will be always given highest priority. next if parent nd child both methods get 
+// Conclusion :- in overloading, exact match of type will be always given the highest priority. next if parent nd child both methods get
 // matched, both argument methods matched, priority given to Child argument method. if child class argument method is not matched then 
 // parent class argument matched method will be given priority.
 
@@ -381,7 +383,7 @@ class Test{
     }
 // What would be the output for above case?
 // So previously what happens is we will be having Parent class and Child class relationship between arguments' typed classes.
-// but here below is the case. both are the eqaual child classes of object.
+// but here below is the case. both are the equal child classes of object.
 //      Object
 //      /   \
 // String  StringBuffer
@@ -389,7 +391,7 @@ class Test{
 // So in this case compiler can't choose the method and it will give C.E. 
 // nd got error msg like :- method m1 is ambiguous to identify. Both the m1 methods are matched.
 
-// Concluion :- So pls remember, exact argument match will be given highest priority, parent and child case will be there then
+// Conclusion :- So pls remember, exact argument match will be given highest priority, parent and child case will be there then
 // child will be given priority. But multiple methods matched and there is no relation between argument then we will get C.E.
 
 }
@@ -417,7 +419,7 @@ class Test{
 // So o/p will be :- General Method.
 
 // Apart from this, in general saying 
-// please remember this point:- variable argument method is generally given least priority. if no other method matched then only
+// please remember this point:- variable argument method is generally given the least priority. if no other method matched then only
 // variable argument method will be given priority. it can be remembered as switch statement. as in switch clause, we will be having 
 // different case values ryt. but at last we will be having default. so if switch(x), value x is not matching with any of the case
 // then default will be executed. same here as well if no any other matched method found, then only variable argument method
@@ -434,7 +436,7 @@ class Test{
     public void m1(float f, int i){
         System.out.println("float-int Version");
     }
-    // 1st of all can we say above 2 methods as overloaded? so from the defination of overloading if method is having same
+    // 1st of all can we say above 2 methods as overloaded? so from the definition of overloading if method is having same
     // name but with different argument types. so here name is same and arguments types are not exact same. means sequence
     // is different ryt. So yes these methods can be considered as Overloaded methods.
     public static void main(String[] args){
@@ -452,7 +454,7 @@ class Test{
 
 t.m1(10.5F,10.5F); // C.E. with msg: cannot find Symbol like m1(float, float)
 // so pls understand the reason of error. in above 1st case, both the methods are matches hence giving C.E. bt in 2nd case
-// this type of method is not found as float can not be promoted to int so it will be check as it is m1(float,float) which
+// this type of method is not found as float can not be promoted to int so it will be checked as it is m1(float,float) which
 // is not present so give C.E.
     }
 }
@@ -483,7 +485,7 @@ class Test{
         Animal a1 = new Monkey();
         t.m1(a1);
 // What would be the output in above case?
-// so here pls pls pls don't think anything, this is the very base concept of 'Oveloading' ryt. pls recall for overloading we have
+// so here pls pls pls don't think anything, this is the very base concept of 'Overloading' ryt. pls recall for overloading we have
 // started from here only like:- in 'Overloading', Compiler is responsible for method resolution based on 'Reference Type'. no use
 // of Run time object type as those can be considered as dummy in case of 'overloading concept'.
 // So here o/p will be:- Animal Version
@@ -493,9 +495,9 @@ class Test{
 
 
 // ---------------------- Overriding Concept -----------------------------------------------------------
-// So as we know parent class methods are by default available to child class by using concept of inheritance. So methods
-// are available to child without re writing. But sometimes what happens is child is not satisfied with the implementation
-// of method of parent class. so child class is allowed to redefine the implementation of methods as per it's requirement. This concept
+// So as we know parent class methods are by default available to child class by using concept of Inheritance. So methods
+// are available to child without re-writing. But sometimes what happens is child is not satisfied with the implementation
+// of method of parent class. so child class is allowed to redefine the implementation of methods as per its requirement. This concept
 // is known as 'Overriding'. The method of parent which is overridden is known as 'Overridden Method'. And the method in child
 // which is overriding the parent's method is known as 'Overriding Method'.
 
@@ -535,7 +537,7 @@ class Test{
 // task to check nd gives green signal. if marry method is not present then we got CE. if it's present we got green signal
 // from Compiler.
 // So after compilation, now JVM will check what is the run time object here. so run type object is type 'C' ryt or we can 
-// say it is child class object. so now JVM will check in the child class C weather any overriding method is availabel in the
+// say it is child class object. so now JVM will check in the child class C weather any overriding method is available in the
 // Child class 'C' or not. so if overriding (here marry()) method is present, then JVM give priority to that 'Overriding Method'
 // of child class to execute.
 
@@ -552,7 +554,7 @@ class Test{
 // So method name should be same. it's argument's types also should be the same including order or sequence. So this is
 // nothing but called 'Method Signature' ryt. so for 'Overriding', 'Method Signature' should be the same. what about return
 // type of the methods? So till version 1.4 it is required to have the same return type in Parent and Child classes' to
-// be called as 'Overriding Methods'. but from version 1.5 onwards return type could be 'Co-Varient'. What 'Co-Varient'
+// be called as 'Overriding Methods'. but from version 1.5 onwards return type could be 'Co-Variant'. What 'Co-Variant'
 // means is, Child class's method's return type need not to be same as Parent class's method's return type. but it could
 // be same or parent return type's child types. let's understand through example.
 class P{
@@ -568,18 +570,18 @@ class C extends P{
 // Above is valid. but if it's reverse, it means P has return type String and C has return type Object, then compiler 
 // will raise C.E.. as Parent has return type String, then my child class methods return type can be any of the Child datatypes
 // of String. but here Object was return which is actually not child bt parent of String type. This is called the
-// 'Co-Varient Type Concept'.
+// 'Co-Variant Type Concept'.
 
-// 2nd thing is 'Co-Varient Concept' is applicable to Object types only not primitive types. it means suppose in above case
+// 2nd thing is 'Co-Variant Concept' is applicable to Object types only not primitive types. it means suppose in above case
 // P is having return type double, and C is having return type int, then compiler will raise CE. as those are we are trying to
 // map relationship between 2 primitive types. So in case of primitive return type of parent, child method's return type
-// also must be the same primitive type. But in case of Object type, 'Co-Varient Concept' is allowed.
+// also must be the same primitive type. But in case of Object type, 'Co-Variant Concept' is allowed.
 
 // if Parent return type :- Object 
 // Then Child can have :- Object, String, StringBuffer
 
 // if Parent Return Type :- Number
-// Then Child can have :- Number, shortbyte, int, long, float, double
+// Then Child can have :- Number, shortByte, int, long, float, double
 
 
 
@@ -603,16 +605,16 @@ class C extends P{
 }
 // So what about above scenario?
 // nothing. we can create the same method with the same name, arg nd return type in child class. as that are private method so both
-// the methods are independent from each other. 
+// the methods are independent of each other.
 // So next Question is what if I will write in class Test like
 // P p = new C();
 // p.m1();
 
 // what would be the output for above lines?
-// So compiler give CE. as m1 method is private so it can't accessible outside that class itself. so it will give CE.
+// So compiler give CE. as m1 method is private so it can't be accessible outside that class itself. so it will give CE.
 
 // Conclusion :- Private methods are not visible to child classes. hence 'Overriding concept' is not applicable for
-// 'private methods'. but yes certainely we can create the same private method in the child class as well.
+// 'private methods'. but yes certainly we can create the same private method in the child class as well.
 
 // So above analysis is for 'private modifier'. Now let's check for 'final modifier'.
 class P{
@@ -625,7 +627,7 @@ class C extends P{
 // bec final means it can not be changed further anymore. Now if Parent has defined it as final then it means it can not be
 // modifiable. So child can't redefine it. Hence 'Overriding Concept' is not applicable for 'final modifier' as well. So another
 // question might be like parent is having that method 'final' and in child also I am re defining the same method with 'final'
-// then also compiler will give CE. bec once it is declared as 'final' in parent, it could not be redefinable ok.
+// then also compiler will give CE. bec once it is declared as 'final' in parent, it could not be re-definable ok.
 // But yes if reverse was the case, like parent was having non-final method and then child is overriding it as 
 // final then it will work fine. there is no CE.
 
@@ -647,14 +649,14 @@ abstract class C extends P{
 }
 // Weather above is valid or not?
 // So above non-abstract to abstract for corresponding parent to child is also valid. as here what happens just try to
-// understand. 1st method is defined in parent. now child is not satisfied with that method so it wants to modify or 
+// understand. 1st method is defined in parent. now child is not satisfied with that method implementation so it wants to modify or
 // redefine the method. But it doesn't know exactly what to modify it. so it can redefine it as abstract and it wants
 // it's child to provide the implementation for this method. So it's compiled successfully. won't give any CE.
 
-// Remaining modifiers are :- Synchronised, Native, Strictfp not so important but still rememeber for knowledge sake.
+// Remaining modifiers are :- Synchronised, Native, Strictfp not so important but still remember for knowledge's sake.
 
 // for synchronised to non-synchronised and vice versa also for it's corresponding to parent to child is valid. and even if
-// suppose parent is used keword synchronised, then it is not necessary to use synchronised keyword in child. So basically
+// suppose parent is used keyword synchronised, then it is not necessary to use synchronised keyword in child. So basically
 // both ways working valid for 'synchronised modifier'
 // Same for 'native modifier' as well. it valid in both the ways native to non-native for corresponding parent to child
 // and vice versa is also valid. 
@@ -662,8 +664,8 @@ abstract class C extends P{
 // and vice versa is also valid. 
 
 // Conclusion :- so if you observe, for almost all the modifiers except final will be valid in both the ways. but
-// if parent method is 'final' then it can't be overwrite by child.
-// for 'private modifier' we have already covered seperately. And now only 1 modifier will be remaining that is static.
+// if parent method is 'final' then it can't be overwritten by child.
+// for 'private modifier' we have already covered separately. And now only 1 modifier will be remaining that is static.
 // That we will discuss soon.
 
 
@@ -675,7 +677,7 @@ class C extends P{
     private void m1(){}
 }
 // Above is the valid 'Overriding' or not?
-// No. for above code compiler will give CE. bec remember very very very impotant conclusion is:- while 'Overriding'
+// No. for above code compiler will give CE. bec remember very very very important conclusion is:- while 'Overriding'
 // methods, we can't reduce the scope of the methods. we can expand the scope of methods bt can't reduce it.
 // So in above case we have tried to reduce the scope of the methods from 'public' to 'private'. so compiler
 // will raise CE.
@@ -718,13 +720,13 @@ class C extends P{
 // This rule is about how and when can we use throws or exceptions for 'Overriding' or not.
 
 // So as we know 'Throwable' is the root class of all the Exceptions and errors. Throwable has mainly 2 child classes.
-// Exception and Error. Exception is having multiple child classes (RE(Runtime Exe), IO(Input Output E), IE(Interupted E
-// which is very common exception in Multithreading), SE(Servelet Exception) etc etc...)
-// now under RE class we are having multiple childs ( AE(Arithmetic E), NPE(Null Pointer E), CCE ...)
+// Exception and Error. Exception is having multiple child classes (RE(Runtime Exe), IO(Input Output E), IE(Interrupted E
+// which is very common exception in Multithreading), SE(Servlet Exception) etc etc...)
+// now under RE class we are having multiple children ( AE(Arithmetic E), NPE(Null Pointer E), CCE ...)
 // Similarly IO Exceptions has many exception classes (FNFE(File not Found E), EOFE(End of file E)...)
 
 // Under Error we are having multiple classes. (VMError(Virtual Machine Error)...)
-// Under VMError we are having multiple classes.(OutofMemory error, StackOverFlow Error...)
+// Under VMError we are having multiple classes.(OutOfMemory error, StackOverFlow Error...)
 
 // Now our motive is to identify which are checked Exceptions and which are unchecked Exceptions bec on basis of that we
 // will move ahead for 'Overriding'.
@@ -768,7 +770,7 @@ class C extends P{
 // 8) P : public void m1() throws IOException
 //    C : public void m1() throws EOFException, InterruptedException
 // InValid as child class have thrown 2 'checked' exceptions bt parent class has thrown only 1 parent exception of 1 of
-// the child exceptions. but for 'IE' parent hasn't take care so compiler will give CE.
+// the child exceptions. but for 'IE' parent hasn't taken care so compiler will give CE.
 
 // 9) P : public void m1() throws IOException, InterruptedException
 //    C : public void m1() throws EOFException, InterruptedException
@@ -780,7 +782,7 @@ class C extends P{
 
 // 11) P : public void m1() throws IOException
 //     C : public void m1() throws EOFException, NPE
-// Valid as parent class has already thown parent exception of one of it's  checked child exception of child class. and another
+// Valid as parent class has already town parent exception of one of it's  checked child exception of child class. and another
 // exception thrown by child class is Unchecked. so no need to worry about it hence compiler won't give CE.
 
 // 12) P : public void m1() throws IOException
@@ -797,20 +799,20 @@ class P{
 class C extends P{
     public void m1(){};
 }
-// So here what happens is, we are trying to override static method to non static method.
+// So here what happens is, we are trying to override static method to non-static method.
 class P{
     public void m1(){};
 }
 class C extends P{
     public static void m1(){};
 }
-// in above case we are trying to override the non static method to static method.
+// in above case we are trying to override the non-static method to static method.
 
-// So for both the above case compiler will give CE. bec static methods are class level methods and non static methods
+// So for both the above case compiler will give CE. bec static methods are class level methods and non-static methods
 // are Object level methods. So we can't override any class level methods with Object level methods or vice versa. hence
 // it's not valid and compiler will complain you.
 
-// Conclusion :- static method with non static or not static method with static, 'Overriding' is not possible.
+// Conclusion :- static method with non-static or not static method with static, 'Overriding' is not possible.
 
 class P{
     public static void m1(){};
@@ -819,7 +821,7 @@ class C extends P{
     public static void m1(){};
 }
 // So above code is 100% valid as we are trying to override static method with static method. But in this case (static to static)
-// it is not overriding. but it is called 'Method Hiding Concept'.
+// it is not 'Overriding'. but it is called 'Method Hiding Concept'.
 
 // What is the difference between 'Overriding' and 'Method Hiding'?
 class P{
@@ -843,8 +845,8 @@ class Test{
         P p1 = new C();
         p1.m1();
 
-// Now if you are saying this is 'Overriding' then my o/p in above case would be 'Child' as JVM should take care based on
-// the Run time object in case of overriding. but in this case if you run, o/p will be Parent.
+// Now if you are saying this is 'Overriding' then my o/p in above case would be 'Child' as "JVM" should take care based on
+// the "Run time object" in case of overriding. but in this case if you run, o/p will be 'Parent'.
 
 // So we have already discussed, for 'static' method it is not concept of 'Overriding', but it is concept of
 // 'Method Hiding'. And pls pls remember for Method Hiding, method resolution is taken care by 'Compiler' based on
@@ -852,15 +854,15 @@ class Test{
     }
 }
 
-// Summarize the diffn betn Method Hiding and Overriding :-
+// Summarize the difference between Method Hiding and Overriding :-
 // Method Hiding :-
 // - Both the Parent class and Child Class methods should be Static.
-// - Method resolution always taken care by Compiler based on the Reference type.
+// - Method resolution always taken care by "Compiler" based on the "Reference type".
 // - Method Hiding is 'Compile Time Polymorphism' or 'Static Polymorphism' or 'Early Binding Polymorphism'.
 
 // Overriding :-
-// - Both the Parent class and Child Class methods should be non Static.
-// - Method resolution always taken care by JVM based on the Run Time Object type.
+// - Both the Parent class and Child Class methods should be non-Static.
+// - Method resolution always taken care by "JVM" based on the "Run Time Object type".
 // - Method Hiding is 'Run Time Polymorphism' or 'Dynamic Polymorphism' or 'Late Binding Polymorphism'.
 
 
@@ -897,24 +899,24 @@ class Test{
 // Then 100% it will be 'Overriding Concept'. and in that case output is decided by JVM based on the Run time Object.
 // it means o/p would be 'Child'.
 
-// Conclusion :- we can't override the var-arg method with normal method. if we try to ovrride the var-arg method
+// Conclusion :- we can't override the var-arg method with normal method. if we try to override the var-arg method
 // with normal method, then it will become OverLoading but not Overriding. so if you want to override the var-arg method
-// then you can overide it with other var-arg method only not with normal method.
+// then you can override it with other var-arg method only not with normal method.
 
 
 
 // Overriding w.r.t Variable :-
-// So 1st thing from heading itself, overriding concept is only applicable for methods not for variables.
+// So 1st thing from heading itself, Overriding concept is only applicable for methods not for variables.
 // Then how the variable resolution will be there?
-// So pls pls remember this thing, Variable Resolution always takes care by compiler, and that is based on the 
-// 'Reference Type'. And this rule is same for weather the variable is Instance variable or static variable.
+// So pls pls remember this thing, Variable Resolution always takes care by "compiler", and that is based on the
+// "Reference Type". And this rule is same for weather the variable is Instance variable or static variable.
 class P{
     String s = "Parent";
 }
 class C extends P{
     String s = "Child";
 }
-// here both the declared variables are 'Instance Variable'. but rule is same for Instance or Static Variale. like 
+// here both the declared variables are 'Instance Variable'. but rule is same for Instance or Static Variable. like
 // Variable Resolution is done by Compiler and based on the Reference Type.
 class Test{
     public static void main(String[] args){
@@ -944,7 +946,7 @@ class Test{
         System.out.println(p1.s); //Parent
     }
 }
-// so as we know weather variable are static or instance either in Parent or in Child class, rule is same. variable
+// so as we know whether variable are static or instance either in Parent or in Child class, rule is same. variable
 // resolution is taken care by compiler and based on reference type. So overriding concept is only applicable for
 // Methods not for Variables.
 
@@ -953,15 +955,15 @@ class Test{
 
 // Polymorphism Summary :-
 // so now we know the concept of 'Overloading' and 'Overriding'. So let's keep everything under one roof polymorphism.
-// Poly means many. morphs means forms. So polymorphism means many forms. So 1 name but multiple forms is the concept of
+// Poly means many. morph means forms. So polymorphism means many forms. So 1 name but multiple forms is the concept of
 // 'Polymorphism'.
-// For exap:-
+// For example:-
 // abs(int), abs(float), abs(long)
 // here you can see same method name but with different args it means in different forms. which is called 'Overloading' 
 // which is nothing but example of 'Polymorphism'.
 // 2nd thing is 'Overriding', which is 
 
-// Video 39 nd 40 are also whole theoritical. Pls re watch it and make note of it. it explains about the 3 main pillar of
+// Video 39 nd 40 are also whole theoretical. Pls re watch it and make note of it. it explains about the 3 main pillar of
 // OOPS (Encapsulation(data hiding, abstraction) which provides Security, Inheritance which provides Reusability, 
 // Polymorphism which provides Flexibility.)
 
@@ -972,7 +974,7 @@ class Test{
 Object o1 = new String("Patrh");
 StringBuffer sb1 = (StringBuffer) o1;
 // Above is valid or not? 
-// So lets learn 3 rules for Object Typecasting.
+// So let's learn 3 rules for Object Typecasting.
 
 // Syntax for Object Typecast is:-
 // A b = (C) d
@@ -986,8 +988,8 @@ StringBuffer sb1 = (StringBuffer) o1;
 // Compiler Time Check - 1 :- 1st compiler will check weather from 'd' type to 'C' type conversion is legal or not?
 // when can we say it legal?
 // So type of 'd' and type of 'C' must have some relationship ok. either parent to child or child to parent or have the
-// same type. If there are not relationship between them then compiler will give CE. with msg:- inconverteble type
-// for examp:-
+// same type. If there are no relationship between them then compiler will give CE. with msg:- inconvertible type
+// for example:-
 String s = new String("Parth");
 StringBuffer sb2 = (StringBuffer) s;
 // will give CE. as there is no any relationship between String type and StringBuffer.
@@ -996,7 +998,7 @@ StringBuffer sb2 = (StringBuffer) s;
 // 2nd compiler will check assignment is legal or not?
 // when can we say it legal?
 // So as per above syntax, type 'C' should be either same as 'A'. or 'C' should be child type of 'A'.
-// If this both conditions met then 100% code will compiled successfully.
+// If this both conditions met then 100% code will compile successfully.
 Object o3 = new String("Patrh");
 StringBuffer sb3 = (String) o3;
 // will give CE. as 1st condition satisfied. but 2nd condition is not satisfied as Sting type is not same as StringBuffer nor 
@@ -1014,10 +1016,10 @@ String sb = (String) o;
 // Compile successfully and also run successfully and code go for execution of next lines in program.
 
 // MMIMP points :- 
-// 1) in typecasting, after typecaste, even after any number of nested typecaste, reference type of object
+// 1) in typecasting, after typecast, even after any number of nested typecast, reference type of object
 // will be changed. but 'Run Time Object Type' of object will never be changed. it will be as it is. 
 // 2) Because of Object Typecasting, we are not going to create any new Object in heap memory. For the existing object we
-// are trying to provide new reference variable. So after typecasting mutiple or more than 1 reference variable are pointing
+// are trying to provide new reference variable. So after typecasting multiple or more than 1 reference variable are pointing
 // out to the same Object which presents in heap memory.
 String str = new String("parth");
 Object obj = (Object) str;
