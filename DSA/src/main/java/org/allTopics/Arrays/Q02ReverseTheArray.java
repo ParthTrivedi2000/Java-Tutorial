@@ -38,7 +38,7 @@ Constraints:
 -10^9 <= 'arr[i]' <=10^9
  */
 
-public class Q01ReverseTheArray {
+public class Q02ReverseTheArray {
     public static int[] reverseArray(int n, int []nums) {
         // Write your code here.
         // Bruteforce :- Bruteforce will be just to take another array ans[]. and start
