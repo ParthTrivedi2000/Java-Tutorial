@@ -67,9 +67,7 @@ Sample output 2 :
 9 10
  */
 
-import java.util.ArrayList;
-
-public class Q02RotateTheArray {
+public class Q03RotateTheArray {
     public static void rotateArrayTwo(int n, int d, int r, int[] num) {
         // Write your code here.
         r = r%n;
