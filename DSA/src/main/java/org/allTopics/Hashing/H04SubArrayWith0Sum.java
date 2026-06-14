@@ -39,7 +39,25 @@ import java.util.Set;
 public class H04SubArrayWith0Sum {
 
     /*
-    // Approach - 1:- BruteForce Approach:- TC:- O(N^2), SC:- O(1)
+
+    // Approach - 1:- BruteForce Approach:- with 3 loops,
+    // TC:- O(N^3), SC:- O(1)
+    static boolean findsum(int arr[]) {
+        // Your code here
+        for(int i=0;i<arr.length;i++){
+            for(int j=i;j<arr.length;j++){
+                int sum=0;
+                for(int p=i;p<=j;p++){
+                    sum+=arr[p];
+                }
+                if(sum==0) return true;
+            }
+        }
+        return false;
+    }
+
+    // Approach - 1:- Optimised BruteForce Approach:- with 2 loops
+    // TC:- O(N^2), SC:- O(1)
     static boolean findsum(int arr[],int n) {
         for (int i = 0; i < arr.length; i++) {
             int sum = 0;
@@ -54,12 +72,12 @@ public class H04SubArrayWith0Sum {
 
 
 /*
- If at any point of time, my currSum is seen previously, then I can say ki subarray from the previously sam value to
+ If at any point of time, my currSum is seen previously, then I can say ki subarray from the previously seen value to
  the current value is the resultant array which is giving you the result as total 0 sum.
 
  Now at current point, I always can have currSum only right, so to look into prev sum, I have to store all the currSum
- to somewhere ryt, then only I will be able to look into it in future. So storing something for future lookup is nothing
- but Hashing.
+ to somewhere ryt, then only I will be able to look into it in the future. So storing something for future
+ lookup is nothing but Hashing.
 
  Now as we discussed above, I need something to store the sum (i.e. integers/long). So I can use anything
  Array/ArrayList/Map/Set to store the currSum. But now think at each point after storing currSum what I need to do?

@@ -29,10 +29,11 @@ Constraints:
 import java.util.HashMap;
 import java.util.Map;
 
-public class H07LongestSubArrayWithSumK {
+public class H08LongestSubArrayWithSumK {
     public int lenOfLongestSubarr(int[] arr, int k) {
 
-         // BruteForce Approach:- TC:- O(N^3), SC:- O(1)
+        // BruteForce Approach:- Using 3 loops
+        // TC:- O(N^3), SC:- O(1)
         /*
           int maxLen = Integer.MIN_VALUE;
           for(int i=0;i<arr.length;i++){
@@ -52,7 +53,8 @@ public class H07LongestSubArrayWithSumK {
          */
 
 
-         // Optimised Bruteforce :- O(N^2)
+        // Optimised Bruteforce :- Using 2 loops
+        // TC:- O(N^2), SC:- O(1)
         /*
          int maxL=0;
          for(int i=0;i<arr.length;i++){
@@ -70,8 +72,9 @@ public class H07LongestSubArrayWithSumK {
          */
 
 
-         // Better Approach:- Sliding window
-         // Note :- only works well if array contains only +ve integers
+        // Better Approach:- Sliding window
+        // Note :- only works well if array contains only +ve integers
+        // TC:- O(N), SC:- O(1)
         /*
          int i=0;
          int j=0;
@@ -104,6 +107,7 @@ public class H07LongestSubArrayWithSumK {
 
         // Better Approach :- Hashing
         // if array contains -ve integers, then this is the most optimised approach we can have
+        // TC:- O(N), SC:- O(N)
         Map<Long,Integer> mp = new HashMap<>();
         long sum=0;
         int maxL = Integer.MIN_VALUE;

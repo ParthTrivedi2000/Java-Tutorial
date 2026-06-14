@@ -47,7 +47,8 @@ import java.util.Map;
 
 public class H06LengthOfLargestSubarrayWith0Sum {
 
-    // Approach - 1:- BruteForce:- TC:-O(N^3), SC:- O(1)
+    // Approach - 1:- BruteForce:- Using 3 loops
+    // TC:-O(N^3), SC:- O(1)
     /*
     public int maxLenSubSumZero(int ar[], int size){
         // declaring the variable max_length for storing maximum length of subarray with sum 0
@@ -61,7 +62,7 @@ public class H06LengthOfLargestSubarrayWith0Sum {
                     cursum = cursum + ar[k];
                 // checks that the subarray has a sum of zero or not
                 if(cursum == 0){
-                    // if the sum of the subarray is zero and current subarray length is greater then update max_length
+                    // if the sum of the subarray is zero and current subarray length is greater, then update max_length
                     if(max_length < j-i+1)
                         max_length = j-i+1;
                 }
@@ -72,7 +73,8 @@ public class H06LengthOfLargestSubarrayWith0Sum {
     }
      */
 
-    // Approach - 2:- Efficient Bruteforce using 2 nested loops. TC:- O(N^2) SC:-O(1)
+    // Approach - 2:- Efficient Bruteforce using 2 nested loops.
+    // TC:- O(N^2) SC:-O(1)
     /*
     public int maxLenSubSumZero(int ar[], int size){
         // declaring the variable max_length for storing maximum length of subarray with sum 0
@@ -98,7 +100,8 @@ public class H06LengthOfLargestSubarrayWith0Sum {
 
      */
 
-    // Approach - 3:- Efficient using Hash Table:-
+    // Approach - 3:- Efficient using Carry forward + Hashing:-
+    // TC:- O(N) SC:- O(N)
 
     public int maxLenSubSumZero(int ar[], int size){
         // declaring the variable max_length for storing maximum length of subarray with sum 0
@@ -141,8 +144,20 @@ public class H06LengthOfLargestSubarrayWith0Sum {
         }
         return maxLen;
 
-        // Note:- here we need to handle te edgecase. I mean if we start i from 0, then while adding to the longest
+        // Note:- here we need to handle te edgeCase. I mean if we start i from 0, then while adding to the longest
         // string it will be adding 0 for the 1st elem, so for that we are considering 1-based indexing.
+
+        // Below is 0-based indexing version of above code, and it's working & tested code.
+        Map<Integer, Integer> mp = new HashMap<>();
+        int maxLen = 0;
+        int sum=0;
+        mp.put(sum,-1);
+        for(int i=0;i<arr.length;i++){
+            sum+=arr[i];
+            if(mp.containsKey(sum)) maxLen = Math.max(maxLen, i- mp.get(sum));
+            else mp.put(sum,i);
+        }
+        return maxLen;
 
          */
     }
@@ -158,7 +173,7 @@ Find the largest continuous sequence in a array which sums to zero.
 
 Problem Constraints
 1 <= N <= 10^6
--107 <= A[i] <= 10^7
+-10^7 <= A[i] <= 10^7
 
 Input Format
 Single argument which is an integer array A.

@@ -2,8 +2,8 @@ package org.allTopics.Hashing;
 
 // Problem Link :- https://www.geeksforgeeks.org/problems/zero-sum-subarrays1825/1
 
+// Problem Statement:-
 /*
-Problem Statement:-
 Given an array A of N integers.
 Find the count of the subarrays in the array which sums to zero. Since the answer can be very large, return the
 remainder on dividing the result with 10^9+7.
@@ -60,6 +60,8 @@ public class H05CountSubArray0Sum {
             pf[i] = pf[i-1] + A[i];
         }
 
+        // This map will store currentSum and it's frequency as key value pair.
+        // Map<currentSum, it's frequency>
         Map<Long,Long> mp = new HashMap<>();
         mp.put(0L,1L);
         for(int i=0;i<A.length;i++){

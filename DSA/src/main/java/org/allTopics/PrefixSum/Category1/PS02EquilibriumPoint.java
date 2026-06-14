@@ -39,7 +39,7 @@ public class PS02EquilibriumPoint {
     public static int equilibriumPoint(int nums[]) {
         // code here
         /*
-         // Bruteforce:- TC:- O(N^2)
+         // Bruteforce:- TC:- O(N^2), SC:- O(1
          int idx=-1;
          for(int i=0;i<nums.length;i++){
              int left=0;
@@ -57,6 +57,9 @@ public class PS02EquilibriumPoint {
 
         /*
          // Better:- Prefix Sum :- TC:- O(N), SC:-O(2N)
+
+         if(nums.length==1) return 0; // handling edge case of single elem in array.
+
          long[] pf = new long[nums.length];
          pf[0] = arr[0];
          for(int i=1;i<nums.length;i++){
@@ -129,6 +132,20 @@ public class PS02EquilibriumPoint {
 
 
         // Optimised :- Cumulative Sum:- TC:- O(n), SC:-O(1)
+
+        // Approach :-
+        /*
+        arr = [1,7,3,6,5,6]
+        totalSum = 28
+        pf = [0,1,8,11,17,22]
+        sf = [27,20,17,11,6,0]
+
+        if you observer here then, see for each index
+        arr[i] + pf[i] + sf[i] = totalSum
+
+
+         */
+
         if(nums.length==0){
             return -1;
         }
