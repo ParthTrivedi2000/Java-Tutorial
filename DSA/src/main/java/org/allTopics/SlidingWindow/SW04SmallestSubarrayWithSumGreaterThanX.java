@@ -30,6 +30,8 @@ Accolite, Amazon, Goldman Sachs, Google, Facebook
  */
 
 public class SW04SmallestSubarrayWithSumGreaterThanX {
+    // Approach:- Sliding Window Technique
+    // TC:- O(N), SC:- O(1)
     public static int smallestSubWithSum(int x, int[] arr) {
         int i=0;
         int j=0;
@@ -42,6 +44,8 @@ public class SW04SmallestSubarrayWithSumGreaterThanX {
                 sum-=arr[i];
                 i++;
             }
+            // Below empty if block can be removed as well, but I kept it for more clarity, to show that
+            // we are checking if the sum is less than or equal to x, we just move the right pointer forward.
             if(sum<=x){
 
             }

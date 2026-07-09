@@ -27,7 +27,36 @@ Constraints:
  */
 
 public class SW02MaximumSumOfSubarrayLessThanOrEqualToX {
-    public long findMaxSubarraySum(int[] arr, long x) {
+
+    // Approach 1:- BruteForce Approach:- Using 3 loops
+    // TC:- O(N^3), SC:- O(1)
+
+    // Approach 2:- Better Approach:- Using 2 loops
+    // TC:- O(N^2), SC:- O(1)
+    public int maxSum_betterApproach(int[] arr, int x)
+    {
+        int n = arr.length;
+        int res = 0;
+
+        // Generate all possible subarrays
+        for (int i = 0; i < n; i++) {
+            int sum = 0;
+
+            for (int j = i; j < n; j++) {
+                sum += arr[j];
+
+                // Update answer if sum does not exceed x
+                if (sum <= x)
+                    res = Math.max(res, sum);
+            }
+        }
+
+        return res;
+    }
+
+    // Approach 3:- Optimised Approach:- Using Sliding Window
+    // TC:- O(N), SC:- O(1)
+    public long findMaxSubarraySum_optimisedApproach(int[] arr, long x) {
         int i=0;
         int j=0;
         long ans=0;

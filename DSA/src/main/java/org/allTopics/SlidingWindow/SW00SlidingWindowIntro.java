@@ -19,10 +19,12 @@ substring or they are asking to find something from subarray/substring based on 
 int i=0;
 int j=0;
 while(j<n){
-    // perform Calculations on jth positioned elems
+    // perform some Calculations on jth positioned elems. for example,
+    sum =  sum + arr[j];
+    // checking the current windowSize with given window size
     if(j-i+1<windowSize){ j++; }
     else if(j-i+1 == windowSize){
-        // 1) get the ans from the calculations we have done
+        // 1) get the ans from the calculations we have done so far.
         ans = Math.max(ans,j-i+1);
         // 2) Before sliding the window, remove the impact of prev i.
         sum = sum-arr[i];
@@ -36,7 +38,8 @@ while(j<n){
 int i=0;
 int j=0;
 while(j<n){
-    // Perform calculations
+    // Perform some calculations. for example
+    sum = sum + arr[j];
     // if condition is less than
     if(sum<k) {j++;}
     // if condition is true
@@ -59,6 +62,32 @@ while(j<n){
     }
 
 }
+
+
+## General format of Variable Size Sliding Window (which I am following in my code currently):-
+int i=0;
+int j=0;
+while(j<n){
+    // Perform some calculations. for example
+    sum = sum + arr[j];
+    // write the false condition first.
+    if(sum>k){
+        // remove the impact of prev i's by shrinking the window.
+        sum-=arr[i];
+        // shrink the window from left
+        i++;
+    }
+    // now write the true condition
+    else{
+        // get the answer from the calculations done so far
+        ans=Math.max(ans,j-i+1);
+    }
+
+    // expand the window
+    j++;
+
+}
+
 */
 
 //    Q - 1) Maximum Sum SubArray of size K.
@@ -144,9 +173,10 @@ Companies:- OYO Rooms
 
             // end of window < windowSize --> just increase the end i.e. expand the window
             if(j-i+1<K) j++;
-                // end of window==windowSize
-                // At the time when end of the window is equals to windowSize, we should try
-                // to find our o/p based on calculations we have done above.
+
+            // end of window==windowSize
+            // At the time when end of the window is equals to windowSize, we should try
+            // to find our o/p based on calculations we have done above.
             else if(j-i+1==K){
                 ans = Math.max(sum,ans);
                 // After getting possible output, we need to shrink our window from left
@@ -154,7 +184,8 @@ Companies:- OYO Rooms
                 // (i.e. i++), we just need to remove the impact of i from window which
                 // we have considered. bec we are now going for next window ryt so
                 // obviously we have to consider everything for the elems present in
-                // current window only.
+                // current window only. i.e. for elm of prev window impact should not be
+                // considered hence needs to remove the impact of prev i.
 
                 // so nullifying previous elems impact from current window.
                 sum = sum- Arr.get(i);

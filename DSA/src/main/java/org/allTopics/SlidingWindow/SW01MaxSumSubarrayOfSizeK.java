@@ -40,9 +40,8 @@ Companies:- OYO Rooms
 
 public class SW01MaxSumSubarrayOfSizeK {
 
-    public int maximumSumSubarray(int[] arr, int k) {
-         // Approach - 1:- Very Bruteforce:- TC:- O(N^3), SC:- O(1)
-        /*
+    // Approach - 1:- Very Bruteforce:- TC:- O(N^3), SC:- O(1)
+    public int maximumSumSubarray_bruteforceApproach(int[] arr, int k) {
          int maxi = Integer.MIN_VALUE;
          for(int i=0;i<arr.length;i++){
              for(int j=0;j<arr.length;j++){
@@ -56,10 +55,10 @@ public class SW01MaxSumSubarrayOfSizeK {
              }
          }
          return maxi;
+    }
 
-         */
-
-        // Approach - 2:- TC:- O(N^2), SC:- O(1)
+    // Approach - 2:- TC:- O(N^2), SC:- O(1)
+    public int maximumSumSubarray_betterApproach(int[] arr, int k) {
         /*
         // Working (not fully tested with all the testcases):-
         int maxi = Integer.MIN_VALUE;
@@ -73,7 +72,6 @@ public class SW01MaxSumSubarrayOfSizeK {
         return maxi;
          */
 
-
         int maxi=Integer.MIN_VALUE;
         for(int i=0;i<arr.length;i++){
             int sum=0;
@@ -83,11 +81,10 @@ public class SW01MaxSumSubarrayOfSizeK {
             }
         }
         return maxi;
-
     }
 
     // Approach - 3:- Sliding Window:- TC:- O(N), SC:-O(1)
-    public long maximumSumSubarray(int K, ArrayList<Integer> Arr, int N){
+    public long maximumSumSubarray_optimisedApproach(int K, ArrayList<Integer> Arr, int N){
 
         int i = 0; // represents start of window/subarray
         int j = 0; // represents end of the window/subarray
